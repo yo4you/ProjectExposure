@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1925670519620998}
+  m_IsPrefabAsset: 1
+--- !u!1 &1925670519620998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4116390232539608}
+  - component: {fileID: 114268393996490622}
+  - component: {fileID: 114415429088974720}
+  - component: {fileID: 114625646151682996}
+  m_Layer: 0
+  m_Name: renamedGameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4116390232539608
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1925670519620998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114268393996490622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1925670519620998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec95d4d7c1d79642934e2903925b600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _corner0: {x: 0, y: 0}
+  _corner1: {x: 1, y: 1}
+  _pointWidth: 200
+  _pointHeight: 200
+  _offset: 0.001
+  _drawDebug: 0
+  _mapFocus: {x: 0.2, y: -0.52}
+  _randRange: 2
+  _lineWidth: 6
+  _perlinPower: 4
+--- !u!114 &114415429088974720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1925670519620998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7ed16e1387f6648be1e6252764ad8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxPolyVertices: 11
+  _update: 0
+  _drawDebug: 0
+  _surrounding: 1
+  _drawNodeGraph: 0
+--- !u!114 &114625646151682996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1925670519620998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 101c34282df1db742baacc5154f899be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _backGroundGeometry:
+  - objects:
+    - {fileID: 100000, guid: b3606f55f07768d48a4b665b77ebf73e, type: 3}
+  - objects:
+    - {fileID: 100000, guid: a6f49a5cf2ffc8742a1f3bd06a440547, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 9ab883ef2943515409f0eacba4b74ed0, type: 3}
+  - objects:
+    - {fileID: 100000, guid: eb5cfb32852848a45a84374bdb45363b, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 13d717c616d0d4a4683ca6715a34907d, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 8f482f9d34e24274499286ac5b8fd449, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 8a1db062d68b72c4889c099a94495829, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 94ab7e7661a72f64dacff9f02520b496, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 8ee9aa61c6c54ee408f4f948dda827a7, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 2ebcc7e4e780cfe49a5ea3bb912d533d, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 2ebcc7e4e780cfe49a5ea3bb912d533d, type: 3}
+  _foreGroundGeometry:
+  - objects:
+    - {fileID: 100000, guid: b3606f55f07768d48a4b665b77ebf73e, type: 3}
+  - objects:
+    - {fileID: 100000, guid: a6f49a5cf2ffc8742a1f3bd06a440547, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 9ab883ef2943515409f0eacba4b74ed0, type: 3}
+  - objects:
+    - {fileID: 100000, guid: eb5cfb32852848a45a84374bdb45363b, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 13d717c616d0d4a4683ca6715a34907d, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 8f482f9d34e24274499286ac5b8fd449, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 8a1db062d68b72c4889c099a94495829, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 94ab7e7661a72f64dacff9f02520b496, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 8ee9aa61c6c54ee408f4f948dda827a7, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 2ebcc7e4e780cfe49a5ea3bb912d533d, type: 3}
+  - objects:
+    - {fileID: 100000, guid: 2ebcc7e4e780cfe49a5ea3bb912d533d, type: 3}
+  _detailLevels: 2
+  _mapFocus: {x: 3, y: 2}
+  _randRange: 2
+  _lineWidth: 2
+  _perlinPower: 0.3
+  _heightMapIntensity: 0.03
+  _polyHeightIntensity: 0.03
+  _cutoff: 0.6
+  _mapScale: 8
+  _save: 0
+  _wallHeight: 0.4
+  _material: {fileID: 2100000, guid: 0488c37b5b01965429502e37177d08a2, type: 2}
+  _chunkSize: 400
