@@ -41,7 +41,6 @@ public class PlayerPathFollower : MonoBehaviour
 
 		_colliding = true;
 		//Debug.Log("stop");
-		Debug.Log("collide");
 		StopAllCoroutines();
 		// 		var shortReversePath = new Queue<Vector2>();
 		// 		for (int i = 0; i < _reverseSteps; i++)
@@ -55,7 +54,6 @@ public class PlayerPathFollower : MonoBehaviour
 
 	private void OnCollisionExit(Collision collision)
 	{
-		Debug.Log("stopcollide");
 		_colliding = false;
 		//StopAllCoroutines();
 		StopNextStep();
@@ -122,7 +120,6 @@ public class PlayerPathFollower : MonoBehaviour
 		{
 			if (_stopNextStep && _reversing)
 			{
-				Debug.Log("stopstop");
 				break;
 			}
 			_stopNextStep = false;

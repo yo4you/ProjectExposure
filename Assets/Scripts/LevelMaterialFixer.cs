@@ -18,10 +18,23 @@ public class LevelMaterialFixer : MonoBehaviour {
 	private Vector3 _scale;
 	private VoronoiGenerator _voronoiGen;
 
+	public Vector3 Scale
+	{
+		get
+		{
+			return _scale;
+		}
+
+		set
+		{
+			_scale = value;
+		}
+	}
+
 	void Start () {
 		_voronoiGen = _levelGenerator.GetComponent<VoronoiGenerator>();
 		_voronoiGen.Generate();
-		_voronoiGen.ScaleAllPolies(_scale);
+		_voronoiGen.ScaleAllPolies(Scale);
 		OnGenerationComplete?.Invoke();
 	}
 
@@ -52,6 +65,6 @@ public class LevelMaterialFixer : MonoBehaviour {
 
 
 		}
-		transform.localScale = _scale;
+		transform.localScale = Scale;
 	}
 }

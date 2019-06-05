@@ -106,8 +106,8 @@ public class RandomPointGenerator : MonoBehaviour {
 			_mapSize = value;
 		}
 	}
-	
-	private void OnValidate()
+
+	internal void Generate()
 	{
 		MapSize = Corner1 - Corner0;
 		// coordinate of the map on the heightmap texture
@@ -124,6 +124,11 @@ public class RandomPointGenerator : MonoBehaviour {
 					UnityEngine.Random.insideUnitCircle * _offset);
 			}
 		}
+	}
+
+	private void OnValidate()
+	{
+		Generate();
 	}
 
 	/// <summary>

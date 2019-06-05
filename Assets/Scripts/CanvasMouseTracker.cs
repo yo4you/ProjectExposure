@@ -76,14 +76,25 @@ public class CanvasMouseTracker : MonoBehaviour {
 			return;
 		}
 
-		RaycastHit hit;
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		Physics.Raycast(ray, out hit, _layerMask);
+		Physics.Raycast(ray, out RaycastHit hit, _layerMask);
 		var mousepos = hit.point;
 		mousepos.z = 2;
 
 		_path.Enqueue(mousepos);
 		_pathDrawer.PushPath(Input.mousePosition);
+	}
+
+	public bool RayCastHitPlayer()
+	{
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		if (Physics.Raycast(ray, out RaycastHit hit))
+		{
+			//var hitObj = hit.collider.gameObject.transform.parent.GetComponent<PlayerPathFollower>();
+			var hitObj = hit.collider.GetComponentInParent<PlayerPathFollower>();
+			return hitObj != null;
+		}
+		return false;
 	}
 
 	private void CheckClick()
@@ -93,9 +104,8 @@ public class CanvasMouseTracker : MonoBehaviour {
 		{
 			return;
 		}
-		RaycastHit hit;
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out hit))
+		if (Physics.Raycast(ray, out RaycastHit hit))
 		{
 			//var hitObj = hit.collider.gameObject.transform.parent.GetComponent<PlayerPathFollower>();
 			var hitObj = hit.collider.GetComponentInParent<PlayerPathFollower>();

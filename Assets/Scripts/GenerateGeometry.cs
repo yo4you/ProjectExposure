@@ -12,7 +12,7 @@ using UnityEditor;
 [RequireComponent(typeof(VoronoiGenerator))]
 public partial class GenerateGeometry : MonoBehaviour
 {
-	
+
 	[SerializeField]
 	private List<MultiObject> _backGroundGeometry;
 	[SerializeField]
@@ -50,15 +50,22 @@ public partial class GenerateGeometry : MonoBehaviour
 	private Material _material;
 	[SerializeField]
 	private int _chunkSize = 10;
-
+	private bool _generatedVertexOrder = false;
 	private void Start()
+	{
+		if (!_generatedVertexOrder)
+		{
+			GenerateVertexOrder();
+		}
+	}
+
+	private void GenerateVertexOrder()
 	{
 		AssignVertexOrderByColor(_foreGroundGeometry);
 		AssignVertexOrderByColor(_backGroundGeometry);
 		_corner0 = GetComponent<RandomPointGenerator>().Corner0;
 		_corner1 = GetComponent<RandomPointGenerator>().Corner1;
 		_mapSize = GetComponent<RandomPointGenerator>().MapSize;
-
 	}
 
 	private void Save()
@@ -193,6 +200,10 @@ public partial class GenerateGeometry : MonoBehaviour
 
 	public void Generate()
 	{
+		if (!_generatedVertexOrder)
+		{
+			GenerateVertexOrder();
+		}
 		_generator = GetComponent<VoronoiGenerator>();
 
 		if (_generator == null || _generator.Polygons.Count == 0)
@@ -265,6 +276,7 @@ public partial class GenerateGeometry : MonoBehaviour
 				var innerEdgeIndices = FindColor(mesh, Color.green);
 				var outerEdgeIndices = FindColor(mesh, Color.blue);
 
+			/*	Debug.Log($"sides: {sides + 3} vertices: {mesh.vertexCount} indices : {indices.Length} colors: {mesh.colors.Length} innerEdge:{innerEdgeIndices.Count} outeredge:{outerEdgeIndices.Count} ");*/
 				// triangles connected to the centre
 				List<Tri> innerTris = new List<Tri>();
 				for (int i = 0; i < indices.Length; i += 3)

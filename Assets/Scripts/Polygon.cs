@@ -20,13 +20,7 @@ class Polygon : IEquatable<Polygon>
 	}
 
 	public void Draw()
-	{
-
-// 		Vector2 offset = UnityEngine.Random.insideUnitCircle * 0.01f;
-// 		var color = UnityEngine.Random.ColorHSV();
-// 		Debug.DrawLine(10f* Centre + new Vector2( offset.x, offset.y), 10f*Centre + new Vector2(-offset.x, -offset.y), color);
-// 		Debug.DrawLine(10f*Centre + new Vector2(-offset.x, offset.y), 10f*Centre + new Vector2( offset.x, -offset.y), color);
-// 		return;										   
+	{								   
 		for (int i = 0; i < Vertices.Count; i++)
 		{
 			Debug.DrawLine(Vertices[i], Vertices[(i + 1) % Vertices.Count], Color.red);

@@ -72,6 +72,9 @@ public partial class VoronoiGenerator : MonoBehaviour
 	{
 		var startTime = DateTime.Now;
 		// generate the partitioning
+		if (!_pointMap)
+			_pointMap = GetComponent<RandomPointGenerator>();
+		_pointMap.Generate();
 		GenerateVoronoi(_pointMap.Points, _pointMap.PointWidth, _pointMap.PointHeight);
 		Debug.Log("map generated in : " + (DateTime.Now - startTime).TotalMilliseconds);
 		startTime = DateTime.Now;
@@ -152,7 +155,6 @@ public partial class VoronoiGenerator : MonoBehaviour
 					if (CheckCircle(pointIndex, surroundingPoints[point0i], surroundingPoints[point1i], ref surroundingPoints, ref points, out vertex))
 					{
 						// our vertex indicates a shared edge with two other sites, add them to the nodegraph connections 
-						//float angle = Vector2.Angle(poly.Centre, vertex - poly.Centre) * Mathf.Deg2Rad;
 						float angle = Mathf.Atan2(vertex.y - poly.Centre.y, vertex.x - poly.Centre.x) * Mathf.Rad2Deg + 180f;
 						if (!nodes[pointIndex].ConnectionAngles.ContainsKey(angle))
 						{
@@ -176,7 +178,6 @@ public partial class VoronoiGenerator : MonoBehaviour
 			Polygons.Add(poly);
 		}
 		// ensures there are no double connections in the nodelist
-		//nodes.ForEach((node) => node.Children = node.Children.Distinct().ToList());
 
 		_polygons = _polygons.Distinct().ToList();
 		// sort node angles
@@ -184,10 +185,8 @@ public partial class VoronoiGenerator : MonoBehaviour
 			node.ConnectionAngles.OrderBy(a => a.Key).ToDictionary(x => x.Key, x => x.Value));
 
 		// removes OOB polygons
-		//_polygons.RemoveAll((Polygon p) => !p.Vertices.TrueForAll((Vector2 vert) => _pointMap.InBound(vert)));
 		var oobPolies = _polygons.Where(
 			(Polygon p) => !p.Vertices.TrueForAll((Vector2 vert) => _pointMap.InBound(vert)) 
-			//|| p.Vertices.Count < 3
 			);
 		oobPolies.ToList().ForEach((poly) =>
 		{
@@ -200,7 +199,6 @@ public partial class VoronoiGenerator : MonoBehaviour
 					);
 		});
 		_polygons = _polygons.Except(oobPolies).ToList();
-		//_polygons.ForEach((p)=>Debug.Log(p.Vertices.Count == p.Node.ConnectionAngles.Count));
 		// arbitrary start to our nodegraph
 		_nodeGraph = nodes[0];
 	}
@@ -311,7 +309,7 @@ public partial class VoronoiGenerator : MonoBehaviour
 	}
 	public float angle;
 
-	private void DrawTowardChild(Node<Polygon> root, float angle, ref List<Node<Polygon>> visited)
+	internal static void DrawNodeGraphLine(Node<Polygon> root, float angle, ref List<Node<Polygon>> visited)
 	{
 		visited.Add(root);
 		if (root.ConnectionAngles.Count == 0) return;
@@ -321,10 +319,10 @@ public partial class VoronoiGenerator : MonoBehaviour
 			{
 				continue;
 			}
-			if (item.Key > angle) {
-				root.Data.Draw();
-				DrawArrow(root.Data.Centre, item.Value.Data.Centre, Color.green);
-				DrawTowardChild(item.Value, angle, ref visited);
+			if (item.Key > angle && !item.Value.Data.IsWall) {
+				//root.Data.Draw();
+				//DrawArrow(root.Data.Centre, item.Value.Data.Centre, Color.green);
+				DrawNodeGraphLine(item.Value, angle, ref visited);
 				return;
 			}
 		}
@@ -334,9 +332,9 @@ public partial class VoronoiGenerator : MonoBehaviour
 
 		if (!visited.Contains(finalItem.Value))
 		{
-			root.Data.Draw();
-			DrawArrow(root.Data.Centre, finalItem.Value.Data.Centre, Color.green);
-			DrawTowardChild(finalItem.Value, angle,ref visited) ;
+			//root.Data.Draw();
+			//DrawArrow(root.Data.Centre, finalItem.Value.Data.Centre, Color.green);
+			DrawNodeGraphLine(finalItem.Value, angle,ref visited) ;
 		}
 		
 
@@ -358,7 +356,7 @@ public partial class VoronoiGenerator : MonoBehaviour
 		{
 			var visited = new List<Node<Polygon>> { };
 
-			DrawTowardChild(item, angle, ref visited);
+			DrawNodeGraphLine(item, angle, ref visited);
 		}
 		return;
 // 		var visited = new List<Node<Polygon>>();

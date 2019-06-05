@@ -20,9 +20,11 @@ public class SpawnRadars : MonoBehaviour {
     public delegate void ScannerSpawned();
     public static event ScannerSpawned OnScannerPlaced;
 
+	CanvasMouseTracker _mousetracker;
     // Use this for initialization
     void Start () {
         started = true;
+		_mousetracker = FindObjectOfType<CanvasMouseTracker>();
     }
 	
 	// Update is called once per frame
@@ -33,10 +35,14 @@ public class SpawnRadars : MonoBehaviour {
     void FixedUpdate()
     {
         //if mouse button (left hand side) pressed instantiate a raycast
-        if (Input.GetMouseButtonDown(1))
-        {
-            //create a ray cast and set it to the mouses cursor position in game
-            Vector3 mousePos = Input.mousePosition;
+        //if (Input.GetMouseButtonDown(0))
+		if(!_mousetracker)
+			_mousetracker = FindObjectOfType<CanvasMouseTracker>();
+		else if (Input.GetMouseButtonDown(0) && !_mousetracker.RayCastHitPlayer())
+		{
+
+			//create a ray cast and set it to the mouses cursor position in game
+			Vector3 mousePos = Input.mousePosition;
             Ray ray = Camera.main.ScreenPointToRay(mousePos);
 
             RaycastHit hit;
