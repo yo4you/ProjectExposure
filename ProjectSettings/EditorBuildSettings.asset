@@ -5,10 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Gen/RippleTestSceneGen.unity
-    guid: 85c098fb8ee09c8489c2845c290a370a
+    path: Assets/Scenes/Shared/DemoScene_week5.unity
+    guid: 7a5248572b3c975489618a082fd413db
   m_configObjects: {}

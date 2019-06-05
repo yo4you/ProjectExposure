@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CanvasMouseTracker : MonoBehaviour {
 
 	ControlStates _controlState = ControlStates.START;
 	PathDrawer _pathDrawer;
-	PlayerPathFollower _pathFollower;
+	NodeTransverser _pathFollower;
 	Queue<Vector2> _path = new Queue<Vector2>();
 	[SerializeField]
 	LayerMask _layerMask;
@@ -70,7 +71,8 @@ public class CanvasMouseTracker : MonoBehaviour {
 		{
 			ControlState = ControlStates.MOVING;
 
-			_pathFollower.EngagePath(_path);
+			_pathFollower.LineToPath(_path.ToList());
+			_pathFollower.EngagePath();
 			_pathDrawer.ClearPath();
 
 			return;
@@ -108,7 +110,7 @@ public class CanvasMouseTracker : MonoBehaviour {
 		if (Physics.Raycast(ray, out RaycastHit hit))
 		{
 			//var hitObj = hit.collider.gameObject.transform.parent.GetComponent<PlayerPathFollower>();
-			var hitObj = hit.collider.GetComponentInParent<PlayerPathFollower>();
+			var hitObj = hit.collider.GetComponentInParent<NodeTransverser>();
 			
 			if (hitObj)
 			{

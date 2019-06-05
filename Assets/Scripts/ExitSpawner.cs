@@ -39,7 +39,7 @@ public class ExitSpawner : MonoBehaviour
 			//goto start;
 		};
 		var pos = exitSite.Data.Centre;
-		exit.transform.position = new Vector3(pos.x, pos.y, -7);
+		exit.transform.position = new Vector3(pos.x, pos.y, FindObjectOfType<NodeTransverser>().PlayerZ);
 		_spawned = false;
 		_path = path;
 	}
@@ -50,7 +50,6 @@ public class ExitSpawner : MonoBehaviour
 		{
 			_spawned = true;
 			FindObjectOfType<GuideSpawner>()?.Spawn(_path);
-
 		}
 	}
 }

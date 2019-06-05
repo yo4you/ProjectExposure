@@ -48,7 +48,6 @@ public class LevelMaterialFixer : MonoBehaviour {
 			child.localScale = new Vector3(1, 1, 1);
 			child.GetComponent<MeshRenderer>().material = _material0;
 			child.gameObject.layer = 9;
-			child.gameObject.AddComponent<MeshCollider>();
 
 			var child1 = Instantiate(child);
 			child1.SetParent(transform);
@@ -63,6 +62,7 @@ public class LevelMaterialFixer : MonoBehaviour {
 			child2.gameObject.layer = 13;
 			child2.localScale = new Vector3(1, 1, 1);
 
+			child.gameObject.AddComponent<MeshCollider>().sharedMesh = child.GetComponent<MeshFilter>().sharedMesh;
 
 		}
 		transform.localScale = Scale;

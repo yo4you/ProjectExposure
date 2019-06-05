@@ -8,9 +8,12 @@ public class GuideSpawner : MonoBehaviour {
 	int _tilesPerNode = 4;
 	[SerializeField]
 	GameObject _spawnPrefab;
+	float _playerZ;
+
 	private void Start()
 	{
 		_levelFixer = FindObjectOfType<LevelMaterialFixer>();
+		_playerZ = FindObjectOfType<NodeTransverser>().PlayerZ;
 	}
 
 	internal void Spawn(List<Node<Polygon>> nodes)
@@ -21,7 +24,7 @@ public class GuideSpawner : MonoBehaviour {
 			var spawn = Instantiate(_spawnPrefab);
 			var pos = nodes[i].Data.Centre;// * _levelFixer.Scale.x;
 
-			spawn.transform.position = new Vector3(pos.x,pos.y,-7);
+			spawn.transform.position = new Vector3(pos.x,pos.y,_playerZ);
 		}
 	}
 }
