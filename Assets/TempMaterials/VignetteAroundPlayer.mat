@@ -83,12 +83,12 @@ Material:
     - _Mode: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Radius: 0.2
-    - _ScreenUV_X: 816
-    - _ScreenUV_Y: 459
+    - _Radius: 0.27
+    - _ScreenUV_X: 1065
+    - _ScreenUV_Y: 599
     - _SmoothnessTextureChannel: 0
-    - _SourcePos_X: 408
-    - _SourcePos_Y: 229.5
+    - _SourcePos_X: 532.5
+    - _SourcePos_Y: 299.5
     - _SpecularHighlights: 1
     - _SrcBlend: 5
     - _UVSec: 0

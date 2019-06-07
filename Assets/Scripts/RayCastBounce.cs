@@ -5,24 +5,26 @@ using UnityEngine;
 public class RayCastBounce : MonoBehaviour
 {
 
-	[SerializeField] private int _maxIterations = 3;
-	[SerializeField] private float _maxDistance = 10f;
-	[SerializeField] private int raysCount = 6;
-	[SerializeField] private float lineWidth = 0.05f;
+	[SerializeField] int _maxIterations = 3;
+	[SerializeField] float _maxDistance = 10f;
+	[SerializeField] int _raysCount = 6;
+	[SerializeField] float _lightScannerDepth = -10;
+    //[SerializeField] bool _drawRays = false;
 
-	[SerializeField] private GameObject targetObject;
-	[SerializeField] private GameObject lineObject;
-	[SerializeField] private GameObject trailObject;
-	[SerializeField] private GameObject particleAroundOrigin;
-	[SerializeField] private GameObject particleBounce;
+    [SerializeField] GameObject targetObject;
+	[SerializeField] GameObject line;
+    [SerializeField] GameObject trailObject;
+	[SerializeField] GameObject particleAroundOrigin;
+	[SerializeField] GameObject particleBounce;
+    [SerializeField] GameObject rippleBackgroundQuad;
+    [SerializeField] GameObject sobelLightSource;
 
+    public delegate void BouncedOffWalls(Vector3 position);
+    public static event BouncedOffWalls OnWaveBounced;
 
-	[SerializeField] private float rayDepthDistance = 5.0f;
-	private bool _isActive = false;
-
-
+    private bool _isActive = false;
 	private List<int> _lineBounces = new List<int>();
-	//private List<GameObject> _lineRenderers = new List<GameObject>();
+	private List<GameObject> _lineRenderers = new List<GameObject>();
 	private List<GameObject> _trails = new List<GameObject>();
 	private List<List<Vector3>> _trailsPoints = new List<List<Vector3>>();
 	private Vector3 _directionV = Vector3.zero;
@@ -34,23 +36,86 @@ public class RayCastBounce : MonoBehaviour
 	{
 		_mousetracker = FindObjectOfType<CanvasMouseTracker>();
 
-		for (int i = 0; i < raysCount; i++)
+		for (int i = 0; i < _raysCount; i++)
 		{
 
 			_lineBounces.Add(0);
-			//_lineRenderers.Add(Instantiate(lineObject));
-
+            _lineRenderers.Add(Instantiate(line));
 			_trails.Add(Instantiate(trailObject));
-			_trails[i].transform.position = transform.position;
+			_trails[i].transform.position = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y, rippleBackgroundQuad.transform.position.z);
 			_trailsPoints.Add(new List<Vector3>());
 		}
+	}
+	private void Update()
+	{
+
+
+		if (!_mousetracker)
+		{
+			_mousetracker = FindObjectOfType<CanvasMouseTracker>();
+		}
+		else if (Input.GetMouseButtonDown(0) && !_mousetracker.RayCastHitPlayer())
+		{
+
+			Vector3 mouse = Input.mousePosition;
+			Ray castPoint = Camera.main.ScreenPointToRay(mouse);
+			RaycastHit hit;
+			Vector3 clickPos = Vector3.zero;
+
+			if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+			{
+				clickPos = hit.point;
+				if (hit.point.z < rippleBackgroundQuad.transform.position.z) return;
+			}
+
+			//clickPos = new Vector3(clickPos.x, clickPos.y, rippleBackgroundQuad.transform.position.z);
+
+			Vector3 originToTarget = new Vector3(
+				targetObject.transform.position.x - clickPos.x,
+				targetObject.transform.position.y - clickPos.y,
+                0//rippleBackgroundQuad.transform.position.z
+                );
+
+			Vector3 orthoLine = Quaternion.AngleAxis(-90, Vector3.forward) * originToTarget;
+			_orthoLine = new Vector3(orthoLine.x, orthoLine.y, 0);
+            _clickedPos = clickPos;
+
+            StopAllCoroutines();
+
+			for (int i = 0; i < _raysCount; i++)
+			{
+				StartCoroutine(ResetTrailRenderer(_trails[i].GetComponent<TrailRenderer>()));
+				_trails[i].transform.position = clickPos;
+				_trailsPoints[i].Clear();
+			}
+
+			GameObject particleBig = Instantiate(particleAroundOrigin);
+			particleBig.transform.position = clickPos;
+
+			ThrowLineRays(_orthoLine, originToTarget);
+
+
+
+			for (int i = 0; i < _raysCount; i++)
+			{
+				StartCoroutine(ThrowTrails(i));
+                //_trails[i].GetComponent<MoveEcho>().StartSpreading(_trailsPoints[i]);
+                //SpawnParticlesOnBounce(i);
+			}
+
+		}
+
+        for (int i = 0; i < _raysCount; i++)
+        {
+            SpawnParticlesOnBounce(i);
+        }
 	}
 
 	private void ThrowLineRays(Vector3 orthogonalLine, Vector3 normal)
 	{
-		for (int i = 0; i < raysCount; i++)
+		for (int i = 0; i < _raysCount; i++)
 		{
-			float angle = 180.0f / (raysCount + 1) * (i + 1);
+			float angle = 180.0f / (_raysCount + 1) * (i + 1);
 			Vector3 directionVector = Quaternion.AngleAxis(angle, Vector3.forward) * orthogonalLine;
 
 			_directionV = directionVector;
@@ -65,86 +130,90 @@ public class RayCastBounce : MonoBehaviour
 	{
 
 		_lineBounces[index] = 0;
-		//_lineRenderers[index].GetComponent<LineRenderer>().positionCount = (1);
-		//_lineRenderers[index].GetComponent<LineRenderer>().SetPosition(0, new Vector3(_clickedPos.x, _clickedPos.y, rayDepthDistance));
-		//_lineRenderers[index].GetComponent<LineRenderer>().enabled = 
-		RayCast(new Ray(new Vector3(_clickedPos.x, _clickedPos.y, rayDepthDistance), dir), index);
+
+        bool hasCaughtSmth = RayCast(new Ray(new Vector3(_clickedPos.x, _clickedPos.y, rippleBackgroundQuad.transform.position.z), dir), index);
+
+        //if (!_drawRays) return;
+        //_lineRenderers[index].GetComponent<LineRenderer>().positionCount = (1);
+		//_lineRenderers[index].GetComponent<LineRenderer>().SetPosition(0, new Vector3(_clickedPos.x, _clickedPos.y, rippleBackgroundQuad.transform.position.z));
+        //_lineRenderers[index].GetComponent<LineRenderer>().enabled = hasCaughtSmth;
+
 	}
 
 	private void SpawnParticlesOnBounce(int index)
 	{
-		for (int i = 0; i < _trailsPoints[index].Count; i++)
+		for (int i = 0; i < _trailsPoints[index].Count - 1; i++)
 		{
 			if (Vector3.Distance(_trails[index].transform.position, _trailsPoints[index][i]) < 0.01f)
 			{
+
+                bool lightSpawned = false;
+
 				GameObject particleOnBounce = Instantiate(particleBounce);
-				particleBounce.transform.position = _trails[index].transform.position;
-			}
+                particleOnBounce.transform.position = _trails[index].transform.position;
+
+                OnWaveBounced?.Invoke(_trails[index].transform.position);
+                
+                /*
+                if (!lightSpawned)
+                {
+                    GameObject light = 
+                        Instantiate
+                        (
+                            sobelLightSource, 
+                            new Vector3(
+                                _trails[index].transform.position.x,
+                                _trails[index].transform.position.y, 
+                                _trails[index].transform.position.z + _lightScannerDepth),
+                            Quaternion.identity
+                        );
+
+                    StartCoroutine(ScaleSobelLigthRange(light, 8.0f));
+                    lightSpawned = true;
+                }*/
+            }
+
 		}
+
 	}
 
-	private void Update()
-	{
+    IEnumerator ScaleSobelLigthRange(GameObject light, float Radius)
+    {
 
+        light.GetComponent<Light>().range = 0;// = new Vector3(0, outerIntersectorVolume.transform.localScale.y, 0);
 
-		if (!_mousetracker)
-		{
-			_mousetracker = FindObjectOfType<CanvasMouseTracker>();
-		}
-		else if (Input.GetMouseButtonDown(0) && !_mousetracker.RayCastHitPlayer())
-		{
+        float timer = 0;
 
+        bool isFinished = false;
 
-			Vector3 mouse = Input.mousePosition;
-			Ray castPoint = Camera.main.ScreenPointToRay(mouse);
-			RaycastHit hit;
-			Vector3 clickPos = Vector3.zero;
+        while (true && !isFinished)
+        {
 
-			if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
-			{
-				clickPos = hit.point;
-				//if (hit.point.z < 0) return;
-			}
+            while (Radius > light.GetComponent<Light>().range)
+            {
+                timer += Time.deltaTime;
+                light.GetComponent<Light>().range += Time.deltaTime * 3.0f; //TODO change speed to var
+                yield return null;
+            }
+            yield return new WaitForSeconds(0.5f);
+            timer = 0;
+            while (0 < light.GetComponent<Light>().range)
+            {
+                timer += Time.deltaTime;
+                light.GetComponent<Light>().range -= Time.deltaTime * 3.0f; //TODO change speed to var
+                yield return null;
+            }
+            yield return new WaitForSeconds(0.5f);
+            timer = 0;
 
-			clickPos = new Vector3(clickPos.x, clickPos.y, 0);
+            isFinished = true;
+        }
 
-			Vector3 originToTarget = new Vector3(
-				targetObject.transform.position.x - clickPos.x,
-				targetObject.transform.position.y - clickPos.y,
-				rayDepthDistance
-				);
+        if (isFinished) Destroy(light);
 
-			Vector3 orthoLine = Quaternion.AngleAxis(-90, Vector3.forward) * originToTarget;
-			_orthoLine = orthoLine;
-			_clickedPos = clickPos;
+    }
 
-			StopAllCoroutines();
-
-			for (int i = 0; i < raysCount; i++)
-			{
-				StartCoroutine(ResetTrailRenderer(_trails[i].GetComponent<TrailRenderer>()));
-				_trails[i].transform.position = clickPos;
-				_trailsPoints[i].Clear();
-			}
-
-			GameObject particleBig = Instantiate(particleAroundOrigin);
-			particleBig.transform.position = clickPos;
-
-			ThrowLineRays(_orthoLine, originToTarget);
-
-
-
-			for (int i = 0; i < raysCount; i++)
-			{
-				StartCoroutine(ThrowTrails(i));
-				//_trails[i].GetComponent<MoveEcho>().StartSpreading(_trailsPoints[i]);
-			}
-
-		}
-
-
-	}
-	private bool RayCast(Ray ray, int index)
+    private bool RayCast(Ray ray, int index)
 	{
 		RaycastHit hit;
 		if (Physics.Raycast(ray, out hit, _maxDistance) && _lineBounces[index] <= _maxIterations - 1)
@@ -158,14 +227,14 @@ public class RayCastBounce : MonoBehaviour
 			//_lineRenderers[index].GetComponent<LineRenderer>().positionCount = (_lineBounces[index] + 1);
 			//_lineRenderers[index].GetComponent<LineRenderer>().SetPosition(_lineBounces[index], hit.point);
 
-			_trailsPoints[index].Add(hit.point);
+			_trailsPoints[index].Add(new Vector3(hit.point.x, hit.point.y, rippleBackgroundQuad.transform.position.z ));
 			//_trails[index].transform.position = Vector3.MoveTowards(_trails[index].transform.position, hit.point, Time.deltaTime);
-			RayCast(new Ray(hit.point, reflectAngle), index);
+			RayCast(new Ray(new Vector3(hit.point.x, hit.point.y, rippleBackgroundQuad.transform.position.z), reflectAngle), index);
 			return true;
 		}
-		// _lineRenderers[index].GetComponent<LineRenderer>().positionCount = (_lineBounces[index] + 2);
-		// _lineRenderers[index].GetComponent<LineRenderer>().SetPosition(_lineBounces[index] + 1, ray.GetPoint(_maxDistance));
-		_trailsPoints[index].Add(ray.GetPoint(_maxDistance));
+		//_lineRenderers[index].GetComponent<LineRenderer>().positionCount = (_lineBounces[index] + 2);
+		//_lineRenderers[index].GetComponent<LineRenderer>().SetPosition(_lineBounces[index] + 1, ray.GetPoint(_maxDistance));
+		_trailsPoints[index].Add(new Vector3(ray.GetPoint(_maxDistance).x, ray.GetPoint(_maxDistance).y, rippleBackgroundQuad.transform.position.z));
 
 		return false;
 	}
@@ -196,7 +265,7 @@ public class RayCastBounce : MonoBehaviour
 				yield return null;
 			}
 
-			SpawnParticlesOnBounce(i);
+			//SpawnParticlesOnBounce(i);
 
 
 			//_trailsPoints[i].RemoveAt(j);

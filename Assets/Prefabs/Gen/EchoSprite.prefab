@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 212647521814333682}
   - component: {fileID: 114048132149013260}
   - component: {fileID: 96508544630428460}
-  m_Layer: 5
+  m_Layer: 12
   m_Name: EchoSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

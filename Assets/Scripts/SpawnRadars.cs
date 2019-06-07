@@ -10,7 +10,7 @@ public class SpawnRadars : MonoBehaviour
     [SerializeField] float scannerRadius = 5;
     [SerializeField] float scannerScalingSpeed = 5;
     [SerializeField] float scannerDepth = 5;
-    [SerializeField] GameObject sobelLightSource;
+   // [SerializeField] GameObject sobelLightSource;
     [SerializeField] GameObject circleObject;
     [SerializeField] GameObject bigcircleObject;
     [SerializeField] GameObject playerObject;
@@ -28,12 +28,6 @@ public class SpawnRadars : MonoBehaviour
     {
         started = true;
         _mousetracker = FindObjectOfType<CanvasMouseTracker>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void FixedUpdate()
@@ -64,15 +58,15 @@ public class SpawnRadars : MonoBehaviour
 
                 float dist = CalculateDistance(mousePos);
 
-                Vector3 mousePositionDepth = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z + scannerDepth);
-                mousePositionDepth = Camera.main.ScreenToWorldPoint(mousePositionDepth);
-
-                if (!lightSpawned)
-                {
-                    GameObject light = Instantiate(sobelLightSource, mousePositionDepth, Quaternion.identity);
-                    StartCoroutine(ScaleSobelLigthRange(light, scannerRadius));
-                    lightSpawned = true;
-                }
+                //Vector3 mousePositionDepth = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z + scannerDepth);
+                //mousePositionDepth = Camera.main.ScreenToWorldPoint(mousePositionDepth);
+                //
+                //if (!lightSpawned)
+                //{
+                //    GameObject light = Instantiate(sobelLightSource, mousePositionDepth, Quaternion.identity);
+                //    StartCoroutine(ScaleSobelLigthRange(light, scannerRadius));
+                //    lightSpawned = true;
+                //}
 
 
                 Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
