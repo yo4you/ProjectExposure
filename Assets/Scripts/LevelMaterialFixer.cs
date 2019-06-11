@@ -46,17 +46,17 @@ public class LevelMaterialFixer : MonoBehaviour {
 			models.Add(child);
 			child.SetParent(gameObject.transform);
 			child.localScale = new Vector3(1, 1, 1);
-			child.GetComponent<MeshRenderer>().material = _material0;
-			child.gameObject.layer = 9;
+            child.GetComponent<MeshRenderer>().material = _material1;// _material0;
+            child.gameObject.layer = 10;// 9;
 			child.gameObject.AddComponent<MeshCollider>();
 
-			var child1 = Instantiate(child);
-			child1.SetParent(transform);
-			child1.GetComponent<MeshRenderer>().material = _material1;
-			child1.gameObject.layer = 10;
-			child1.localScale = new Vector3(1, 1, 1);
+			//var child1 = Instantiate(child);
+			//child1.SetParent(transform);
+			//child1.GetComponent<MeshRenderer>().material = _material1;
+			//child1.gameObject.layer = 10;
+			//child1.localScale = new Vector3(1, 1, 1);
 
-
+            
 			var child2 = Instantiate(child);
 			child2.SetParent(transform);
 			child2.GetComponent<MeshRenderer>().material = _material2;
