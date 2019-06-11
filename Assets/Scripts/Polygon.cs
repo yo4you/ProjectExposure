@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,5 +45,20 @@ class Polygon : IEquatable<Polygon>
 		Vertices.Sort((v0,v1) => 
 			Vector2.SignedAngle(Vector2.up, v0 - Centre).CompareTo(Vector2.SignedAngle(Vector2.up, v1 - Centre))
 		);
+
+		// sort node angles
+		Node.ConnectionAngles = Node.ConnectionAngles.OrderBy(a => a.Key).ToDictionary(x => x.Key, x => x.Value);
+
+		var newAngles = new Dictionary<float, Node<Polygon>>();
+		for (int i = 0; i < Node.ConnectionAngles.Count; i++)
+		{
+			var item = Node.ConnectionAngles.ElementAt(i);
+			float newAngle = Mathf.Atan2(Centre.y - item.Value.Data.Centre.y, Centre.x - item.Value.Data.Centre.x) * Mathf.Rad2Deg + 180f;
+			//float newAngle = Mathf.Atan2(Centre.y - Vertices[i].y, Centre.x - Vertices[i].x) * Mathf.Rad2Deg + 180f;
+			if(!newAngles.ContainsKey(newAngle))
+				newAngles.Add(newAngle, item.Value);
+		}
+		Node.ConnectionAngles = newAngles.OrderBy(a => a.Key).ToDictionary(x => x.Key, x => x.Value);
+
 	}
 }

@@ -14,8 +14,7 @@ public class CameraControl : MonoBehaviour {
         _camera = GetComponent<Camera>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
         _camera.transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y, transform.position.z);
                 
             
