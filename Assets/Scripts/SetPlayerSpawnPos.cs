@@ -6,8 +6,6 @@ public class SetPlayerSpawnPos : MonoBehaviour
 	private VoronoiGenerator _voronoi;
 
 	internal Polygon SpawningPoly { get; set; }
-	public delegate void OnPathResolveHandle();
-	public event OnPathResolveHandle OnPathResolve;
 	private bool _spawned = true;
 	private int[] _levelSeeds =
 		{
@@ -31,6 +29,11 @@ public class SetPlayerSpawnPos : MonoBehaviour
 
 	private void Spawn()
 	{
+		Respawn();
+		_spawned = false;
+	}
+	public void Respawn()
+	{
 		_voronoi = FindObjectOfType<VoronoiGenerator>();
 		// get a random poly as a starting point
 		int randIndex;
@@ -45,10 +48,10 @@ public class SetPlayerSpawnPos : MonoBehaviour
 		Debug.Log(randIndex);
 		SpawningPoly = poly;
 		var actor = GetComponent<NodeGraphActor>();
-		actor.CurrentNode	 = poly.Node;
+		actor.CurrentNode = poly.Node;
 		transform.position = new Vector3(poly.Centre.x, poly.Centre.y, transform.position.z);
-		_spawned = false;
 	}
+
 	private void Update()
 	{
 

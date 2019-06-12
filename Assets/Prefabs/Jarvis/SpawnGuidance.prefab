@@ -1,21 +1,11 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1469141405603340}
-  m_IsPrefabAsset: 1
 --- !u!1 &1469141405603340
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4458380571587248}
@@ -30,9 +20,10 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4458380571587248
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469141405603340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 42.96206, y: 41.235405, z: 0.765625}
@@ -41,25 +32,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114266328495449764
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1469141405603340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a0df9c41a1efb4e8571475e7b50cc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tilesPerNode: 6
-  _spawnPrefab: {fileID: 1157061883471260, guid: f7580588cf549d847b490158a0b092ec,
-    type: 2}
 --- !u!114 &114688107491621644
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469141405603340}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -67,4 +45,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _exitPrefab: {fileID: 1151569942508486, guid: bc5d6f00be4f48345b38c7a8d76ec958,
-    type: 2}
+    type: 3}
+  _minDist: 80
+--- !u!114 &114266328495449764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469141405603340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a0df9c41a1efb4e8571475e7b50cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tilesPerNode: 8
+  _guidingSpokes: 20
+  _guideSpawnPrefab: {fileID: 3046540772135254781, guid: 13824f619c7bb774fbbd84832ff062f4,
+    type: 3}
+  _pickupSpawnPrefab: {fileID: 1157061883471260, guid: f7580588cf549d847b490158a0b092ec,
+    type: 3}
+  _pickupSpawnChance: 26
+  _exitTileMargin: 15
+  _minBranchDistance: 4

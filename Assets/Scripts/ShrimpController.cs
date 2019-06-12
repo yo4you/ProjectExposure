@@ -39,9 +39,10 @@ public class ShrimpController : MonoBehaviour
 
 	private void SwitchState(MovementState value)
 	{
-		Debug.Log(value);
-		if(value==MovementState.IDLE)
+		if (value == MovementState.IDLE)
+		{
 			OnBubblePop?.Invoke(transform.position);
+		}
 	}
 
 	private void Start()
@@ -75,8 +76,8 @@ public class ShrimpController : MonoBehaviour
 
 	private void Approach(Vector3 target)
 	{
-		_moveTime +=  Time.deltaTime * _moveSpeed / _dist;
-		transform.position = Vector3.Lerp(_start,target, _moveTime);
+		_moveTime += Time.deltaTime * _moveSpeed / _dist;
+		transform.position = Vector3.Lerp(_start, target, _moveTime);
 		//todo correct Z
 		if (_moveTime > 1f)
 		{
