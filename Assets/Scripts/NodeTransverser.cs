@@ -9,6 +9,8 @@ public class NodeTransverser : MonoBehaviour
 	public delegate void OnPathResolveHandle();
 	public event OnPathResolveHandle OnPathResolve;
 
+	public event OnPathResolveHandle OnMove;
+
 	[SerializeField]
 	private float _maxLineSegment = 0.2f;
 	[SerializeField]
@@ -136,8 +138,7 @@ public class NodeTransverser : MonoBehaviour
 		yield return new WaitForEndOfFrame();
 		if (t > 1f)
 		{
-			//_actor.CurrentNode = next;
-
+			OnMove?.Invoke();
 			if (SmoothedPath.Count == 0)
 			{
 				goto end;
