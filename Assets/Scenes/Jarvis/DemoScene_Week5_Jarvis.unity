@@ -1223,14 +1223,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnGuidance
       objectReference: {fileID: 0}
-    - target: {fileID: 1334961841, guid: b854429f03ce8434e92e63a6d5df7747, type: 3}
-      propertyPath: _chanceToSpawn
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1334961841, guid: b854429f03ce8434e92e63a6d5df7747, type: 3}
-      propertyPath: _mask.m_Bits
-      value: 8192
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b854429f03ce8434e92e63a6d5df7747, type: 3}
 --- !u!1 &1243137024
