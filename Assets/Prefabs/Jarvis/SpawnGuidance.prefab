@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4458380571587248}
   - component: {fileID: 114688107491621644}
   - component: {fileID: 114266328495449764}
+  - component: {fileID: 1334961841}
   m_Layer: 12
   m_Name: SpawnGuidance
   m_TagString: Untagged
@@ -46,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _exitPrefab: {fileID: 1151569942508486, guid: bc5d6f00be4f48345b38c7a8d76ec958,
     type: 3}
-  _minDist: 80
+  _minDist: 15
 --- !u!114 &114266328495449764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,3 +69,31 @@ MonoBehaviour:
   _pickupSpawnChance: 26
   _exitTileMargin: 15
   _minBranchDistance: 4
+--- !u!114 &1334961841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469141405603340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11744b1732168614a89b269e8729da45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floorObjects:
+  - {fileID: -927199367670048503, guid: b612ef2b3e97d6b4bbdf37a411a963b7, type: 3}
+  - {fileID: -927199367670048503, guid: 56d65323922ddf94391ba53df75461b7, type: 3}
+  - {fileID: -927199367670048503, guid: 2d2b19b3d032686449d55fa6dffc2742, type: 3}
+  - {fileID: -927199367670048503, guid: a1c2011f379c036499d25d7db2a9b0f2, type: 3}
+  - {fileID: -927199367670048503, guid: a842cae1707120e45a0a622859e84777, type: 3}
+  - {fileID: -927199367670048503, guid: f63334cfb33489d42803907371ce05b3, type: 3}
+  - {fileID: -927199367670048503, guid: c146f4bc674197c468d67133d7b31bff, type: 3}
+  - {fileID: -927199367670048503, guid: 54b861d2ec9ab2d44961e31df0f67843, type: 3}
+  _backObjects:
+  - {fileID: -927199367670048503, guid: a842cae1707120e45a0a622859e84777, type: 3}
+  - {fileID: -927199367670048503, guid: a1c2011f379c036499d25d7db2a9b0f2, type: 3}
+  - {fileID: -927199367670048503, guid: caf3eb34a289eb342b503dff358bc052, type: 3}
+  _ceilingObjects:
+  - {fileID: -927199367670048503, guid: 6ebcb52a28b5be0468cb1a1fe565ccd4, type: 3}
+  _chanceToSpawn: 0

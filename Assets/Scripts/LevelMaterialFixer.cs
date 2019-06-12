@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelMaterialFixer : MonoBehaviour {
 	public delegate void GenerationCompleteHandler();
 	public event GenerationCompleteHandler OnGenerationComplete;
+	public event GenerationCompleteHandler OnFinishMatFix;
 
 	[SerializeField]
 	GameObject _levelGenerator;
@@ -17,6 +18,7 @@ public class LevelMaterialFixer : MonoBehaviour {
 	[SerializeField]
 	private Vector3 _scale;
 	private VoronoiGenerator _voronoiGen;
+	private bool _finishMatFix;
 
 	public Vector3 Scale
 	{
@@ -63,8 +65,13 @@ public class LevelMaterialFixer : MonoBehaviour {
 			child2.gameObject.layer = 13;
 			child2.localScale = new Vector3(1, 1, 1);
 
-
 		}
+		if ((!_finishMatFix )&& _levelGenerator.transform.childCount == 0)
+		{
+			_finishMatFix = true;
+			OnFinishMatFix?.Invoke();
+		}
+
 		transform.localScale = Scale;
 	}
 }
