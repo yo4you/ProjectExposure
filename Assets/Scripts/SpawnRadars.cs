@@ -25,53 +25,40 @@ public class SpawnRadars : MonoBehaviour {
     void Start () {
         started = true;
 		_mousetracker = FindObjectOfType<CanvasMouseTracker>();
+		FindObjectOfType<ShrimpController>().OnBubblePop += SpawnRadars_OnBubblePop; ;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-    void FixedUpdate()
-    {
-        //if mouse button (left hand side) pressed instantiate a raycast
-        //if (Input.GetMouseButtonDown(0))
-		if(!_mousetracker)
-			_mousetracker = FindObjectOfType<CanvasMouseTracker>();
-		else if (Input.GetMouseButtonDown(0) && !_mousetracker.RayCastHitPlayer())
+	private void SpawnRadars_OnBubblePop(Vector3 pos)
+	{
+
+		//create a ray cast and set it to the mouses cursor position in game
+		Vector3 mousePos = Input.mousePosition;
+		Ray ray = Camera.main.ScreenPointToRay(mousePos);
+
+		if (Physics.Raycast(ray, out RaycastHit hit, _rayCastDistance))
 		{
+			OnScannerPlaced?.Invoke();
 
-			//create a ray cast and set it to the mouses cursor position in game
-			Vector3 mousePos = Input.mousePosition;
-            Ray ray = Camera.main.ScreenPointToRay(mousePos);
+			//spawn UI for big circle
+			GameObject bigcircleUI = Instantiate(bigcircleObject, Camera.main.WorldToScreenPoint(new Vector3(
+				GameObject.FindGameObjectWithTag("Player").gameObject.transform.position.x,
+				GameObject.FindGameObjectWithTag("Player").gameObject.transform.position.y,
+				0)),
+				Quaternion.identity);
+			bigcircleUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas_SS").transform, true);
 
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, _rayCastDistance))
-            {
-                OnScannerPlaced?.Invoke();
+			float dist = CalculateDistance(mousePos);
 
-                //spawn UI for big circle
-                GameObject bigcircleUI = Instantiate(bigcircleObject, Camera.main.WorldToScreenPoint(new Vector3(
-                    GameObject.FindGameObjectWithTag("Player").gameObject.transform.position.x,
-                    GameObject.FindGameObjectWithTag("Player").gameObject.transform.position.y,
-                    0)),
-                    Quaternion.identity);
-                bigcircleUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas_SS").transform, true);
+			StartCoroutine(ScaleSobelLigthRange(scannerRadius));
 
-                float dist = CalculateDistance(mousePos);
+			Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
+			mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-                StartCoroutine(ScaleSobelLigthRange(scannerRadius));
-
-                Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
-                mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-                GameObject circleUI = Instantiate(particleTappingObject, mousePosition, Quaternion.identity);
-                //circleUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas_SS").transform, true);
-                circleUI.GetComponent<ParticleSystem>()?.Play();
-            }
-        }
-
-    }
+			GameObject circleUI = Instantiate(particleTappingObject, mousePosition, Quaternion.identity);
+			//circleUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas_SS").transform, true);
+			circleUI.GetComponent<ParticleSystem>()?.Play();
+		}
+	}
 
 
     float CalculateDistance(Vector3 mousePos)
