@@ -10,6 +10,8 @@ public class ExitSpawner : MonoBehaviour
 	private float _angle = 90f;
 	private List<Node<Polygon>> _path;
 	bool _spawned = true;
+	private Node<Polygon> _exit;
+
 	private void Start()
 	{
 		_levelFixer = FindObjectOfType<LevelMaterialFixer>();
@@ -38,6 +40,7 @@ public class ExitSpawner : MonoBehaviour
 			//_angle += 10f;
 			//goto start;
 		};
+		_exit = exitSite;
 		var pos = exitSite.Data.Centre;
 		exit.transform.position = new Vector3(pos.x, pos.y, FindObjectOfType<NodeTransverser>().PlayerZ);
 		_spawned = false;
@@ -49,7 +52,7 @@ public class ExitSpawner : MonoBehaviour
 		if (!_spawned)
 		{
 			_spawned = true;
-			FindObjectOfType<GuideSpawner>()?.Spawn(_path);
+			FindObjectOfType<GuideSpawner>()?.Spawn(_exit);
 		}
 	}
 }
