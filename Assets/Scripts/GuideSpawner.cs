@@ -50,7 +50,7 @@ public class GuideSpawner : MonoBehaviour {
 				SpawnPickup(nodes[i]);
 			}
 			spawn.transform.position = new Vector3(pos.x,pos.y,_playerZ);
-			spawn.transform.Rotate( Vector3.forward, 90f + Mathf.Rad2Deg * Mathf.Atan2(centre.y - pos.y, centre.x - pos.x));
+			spawn.transform.Rotate( Vector3.forward, 270f + Mathf.Rad2Deg * Mathf.Atan2(centre.y - pos.y, centre.x - pos.x));
 		}
 	}
 
