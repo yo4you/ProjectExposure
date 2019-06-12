@@ -20,7 +20,6 @@ public class ExitSpawner : MonoBehaviour
 
 	internal void Spawn()
 	{
-		Debug.Log("spawning");
 		Polygon start = FindObjectOfType<SetPlayerSpawnPos>().SpawningPoly;
 		var path = new List<Node<Polygon>>();
 		var exit = Instantiate(_exitPrefab);

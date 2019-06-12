@@ -5,12 +5,6 @@ using UnityEngine.UI;
 
 public class ScoreDisplayer : MonoBehaviour
 {
-
-    private void OnEnable()
-    {
-        ScoreSystem.IncreaseScore += UpdateScore;
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +14,8 @@ public class ScoreDisplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    }
-
-    void UpdateScore()
-    {
+        //if (isBonus) GetComponent<Text>().text = ScoreSystem.
         GetComponent<Text>().text = ScoreSystem.currentScore.ToString();
-
     }
+
 }

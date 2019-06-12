@@ -10,6 +10,9 @@ public class PathDrawer : MonoBehaviour {
 	[Range(0,10)]	
 	private float _lineSmoothing;
 
+    public delegate void PathStart();
+    public static event PathStart OnPathStarted;
+
     //[SerializeField] float zDistance = -15.0f;
 
 	void Start () {
@@ -24,7 +27,9 @@ public class PathDrawer : MonoBehaviour {
 		_lineRenderer.enabled = true;
 		_positions = new List<Vector3>();
 		PushPath(position);
-		
+
+        OnPathStarted?.Invoke();
+        
 	}
 
 	internal void PushPath(Vector3 position)

@@ -6,12 +6,22 @@ public class Pickup : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] int scoreToGive;
+    [SerializeField] GameObject player;
 
+    private float _distanceToPlayer;
+
+    public float Distance {
+        get {
+            return _distanceToPlayer;
+        }
+        set {
+            _distanceToPlayer = value;
+        }
+    }
     public int Score { get { return scoreToGive; } }
 
-    public int GetScore()
+    private void Update()
     {
-        return scoreToGive;
+        
     }
-
 }

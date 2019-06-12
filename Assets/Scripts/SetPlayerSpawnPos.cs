@@ -42,7 +42,7 @@ public class SetPlayerSpawnPos : MonoBehaviour
 			poly = _voronoi.Polygons[randIndex];
 			// keep picking random polies till we find a valid spawn position
 		} while (!IsValidSpawn(poly));
-		Debug.Log(randIndex);
+		//Debug.Log(randIndex);
 		SpawningPoly = poly;
 		var actor = GetComponent<NodeGraphActor>();
 		actor.CurrentNode	 = poly.Node;
