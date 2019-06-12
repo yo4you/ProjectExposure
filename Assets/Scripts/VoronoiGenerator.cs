@@ -302,23 +302,30 @@ public partial class VoronoiGenerator : MonoBehaviour
 	}
 	public float angle;
 
-	internal static void DrawNodeGraphLine(Node<Polygon> root, float angle, ref List<Node<Polygon>> visited)
+	internal static void DrawNodeGraphLine(Node<Polygon> root, float angle, ref List<Node<Polygon>> visited, bool CheckWalls = true)
 	{
 		visited.Add(root);
 		if (root.ConnectionAngles.Count == 0)
 		{
 			return;
 		}
-
+		/// true  true  = I
+		/// false true  = I
+		/// false false = I
+		/// true false  = 0
+		/// 
+		///	 1 == 2 || 2
+		
 		foreach (var item in root.ConnectionAngles)
 		{
-			if (visited.Contains(item.Value) || !item.Value.Data.IsWall || Mathf.DeltaAngle(angle, item.Key) > 90)
+			bool wall = (CheckWalls == item.Value.Data.IsWall) || item.Value.Data.IsWall;
+			if (visited.Contains(item.Value) || !wall || Mathf.DeltaAngle(angle, item.Key) > 90)
 			{
 				continue;
 			}
 			if (item.Key > angle)
 			{
-				DrawNodeGraphLine(item.Value, angle, ref visited);
+				DrawNodeGraphLine(item.Value, angle, ref visited,CheckWalls);
 				root.Data.Draw();
 				DrawArrow(root.Data.Centre, item.Value.Data.Centre, Color.green);
 				return;
@@ -327,12 +334,13 @@ public partial class VoronoiGenerator : MonoBehaviour
 
 
 		var finalItem = root.ConnectionAngles.First();
+		bool finalwall = (CheckWalls == finalItem.Value.Data.IsWall) || finalItem.Value.Data.IsWall;
 
-		if (!visited.Contains(finalItem.Value) && finalItem.Value.Data.IsWall && Mathf.DeltaAngle(angle, finalItem.Key) < 90)
+		if (!visited.Contains(finalItem.Value) && finalwall && Mathf.DeltaAngle(angle, finalItem.Key) < 90)
 		{
 			root.Data.Draw();
 			DrawArrow(root.Data.Centre, finalItem.Value.Data.Centre, Color.green);
-			DrawNodeGraphLine(finalItem.Value, angle,ref visited) ;
+			DrawNodeGraphLine(finalItem.Value, angle,ref visited, CheckWalls) ;
 		}
 
 	}
@@ -424,10 +432,10 @@ public partial class VoronoiGenerator : MonoBehaviour
 	{
 
 		var dist = pos0 - pos1;
-		dist = dist.normalized * 0.001f;
-		Debug.DrawLine(pos0, pos1, pcolor);
+		dist = dist.normalized * 0.1f;
+		Debug.DrawLine(pos0, pos1, pcolor,10f);
 		//Gizmos.DrawSphere(pos0,0.1f);
-		Debug.DrawLine(pos1, pos1 + dist + new Vector2(-dist.y, dist.x), pcolor);
-		Debug.DrawLine(pos1, pos1 + dist + new Vector2(dist.y, -dist.x), pcolor);
+		Debug.DrawLine(pos1, pos1 + dist + new Vector2(-dist.y, dist.x), pcolor,10f);
+		Debug.DrawLine(pos1, pos1 + dist + new Vector2(dist.y, -dist.x), pcolor,10f);
 	}
 }

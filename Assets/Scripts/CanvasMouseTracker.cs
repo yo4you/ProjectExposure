@@ -52,11 +52,8 @@ public class CanvasMouseTracker : MonoBehaviour {
 				break;
 			default:
 				break;
-		}
-
-		
+		}	
 	}
-
 
 	private void Reset()
 	{
@@ -93,7 +90,7 @@ public class CanvasMouseTracker : MonoBehaviour {
 		if (Physics.Raycast(ray, out RaycastHit hit))
 		{
 			//var hitObj = hit.collider.gameObject.transform.parent.GetComponent<PlayerPathFollower>();
-			var hitObj = hit.collider.GetComponentInParent<PlayerPathFollower>();
+			var hitObj = hit.collider.GetComponentInParent<NodeTransverser>();
 			return hitObj != null;
 		}
 		return false;
