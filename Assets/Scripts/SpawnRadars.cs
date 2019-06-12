@@ -2,63 +2,86 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnRadars : MonoBehaviour {
+public class SpawnRadars : MonoBehaviour
+{
 
 
     float _rayCastDistance = 50;
     [SerializeField] float scannerRadius = 5;
     [SerializeField] float scannerScalingSpeed = 5;
     [SerializeField] float scannerDepth = 5;
-    [SerializeField] GameObject sobelLightSource;
+   // [SerializeField] GameObject sobelLightSource;
     [SerializeField] GameObject circleObject;
     [SerializeField] GameObject bigcircleObject;
     [SerializeField] GameObject playerObject;
     [SerializeField] GameObject particleTappingObject;
 
+    bool lightSpawned = false;
     bool started = false;
 
     public delegate void ScannerSpawned();
     public static event ScannerSpawned OnScannerPlaced;
 
-	CanvasMouseTracker _mousetracker;
+    CanvasMouseTracker _mousetracker;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         started = true;
-		_mousetracker = FindObjectOfType<CanvasMouseTracker>();
-		FindObjectOfType<ShrimpController>().OnBubblePop += SpawnRadars_OnBubblePop; ;
+        _mousetracker = FindObjectOfType<CanvasMouseTracker>();
     }
 
-	private void SpawnRadars_OnBubblePop(Vector3 pos)
-	{
+    void FixedUpdate()
+    {
+        //if mouse button (left hand side) pressed instantiate a raycast
+        //if (Input.GetMouseButtonDown(0))
+        if (!_mousetracker)
+            _mousetracker = FindObjectOfType<CanvasMouseTracker>();
+        else if (Input.GetMouseButtonDown(0) && !_mousetracker.RayCastHitPlayer())
+        {
 
-		//create a ray cast and set it to the mouses cursor position in game
-		Vector3 mousePos = Input.mousePosition;
-		Ray ray = Camera.main.ScreenPointToRay(mousePos);
+            //create a ray cast and set it to the mouses cursor position in game
+            Vector3 mousePos = Input.mousePosition;
+            Ray ray = Camera.main.ScreenPointToRay(mousePos);
 
-		if (Physics.Raycast(ray, out RaycastHit hit, _rayCastDistance))
-		{
-			OnScannerPlaced?.Invoke();
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, _rayCastDistance))
+            {
+                OnScannerPlaced?.Invoke();
 
-			//spawn UI for big circle
-			GameObject bigcircleUI = Instantiate(bigcircleObject, Camera.main.WorldToScreenPoint(new Vector3(
-				GameObject.FindGameObjectWithTag("Player").gameObject.transform.position.x,
-				GameObject.FindGameObjectWithTag("Player").gameObject.transform.position.y,
-				0)),
-				Quaternion.identity);
-			bigcircleUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas_SS").transform, true);
+                //spawn UI for big circle
+                GameObject bigcircleUI = Instantiate(bigcircleObject, Camera.main.WorldToScreenPoint(new Vector3(
+                    GameObject.FindGameObjectWithTag("Player").gameObject.transform.position.x,
+                    GameObject.FindGameObjectWithTag("Player").gameObject.transform.position.y,
+                    0)),
+                    Quaternion.identity);
+                bigcircleUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas_SS").transform, true);
 
-			float dist = CalculateDistance(mousePos);
+                float dist = CalculateDistance(mousePos);
 
-			StartCoroutine(ScaleSobelLigthRange(scannerRadius));
+                //Vector3 mousePositionDepth = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z + scannerDepth);
+                //mousePositionDepth = Camera.main.ScreenToWorldPoint(mousePositionDepth);
+                //
+                //if (!lightSpawned)
+                //{
+                //    GameObject light = Instantiate(sobelLightSource, mousePositionDepth, Quaternion.identity);
+                //    StartCoroutine(ScaleSobelLigthRange(light, scannerRadius));
+                //    lightSpawned = true;
+                //}
 
-			Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
-			mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-			GameObject circleUI = Instantiate(particleTappingObject, mousePosition, Quaternion.identity);
-			//circleUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas_SS").transform, true);
-			circleUI.GetComponent<ParticleSystem>()?.Play();
-		}
-	}
+                Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
+                mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+                GameObject circleUI = Instantiate(particleTappingObject, mousePosition, Quaternion.identity);
+                //circleUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas_SS").transform, true);
+                circleUI.GetComponent<ParticleSystem>()?.Play();
+            }
+
+            lightSpawned = false;
+
+        }
+
+    }
 
 
     float CalculateDistance(Vector3 mousePos)
@@ -69,7 +92,7 @@ public class SpawnRadars : MonoBehaviour {
 
     }
 
-    IEnumerator ScaleSobelLigthRange(float Radius)
+    IEnumerator ScaleSobelLigthRange(GameObject light, float Radius)
     {
         //Vector3 destinationScale = new Vector3(2 * Radius, 2 * Radius, 2 * Radius);
 

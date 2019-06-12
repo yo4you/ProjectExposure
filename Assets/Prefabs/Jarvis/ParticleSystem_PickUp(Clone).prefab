@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4282703221668102}
-  m_Layer: 12
+  - component: {fileID: 3663397809329268665}
+  - component: {fileID: 2669811367491564413}
+  m_Layer: 13
   m_Name: ParticleSystem_PickUp(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,6 +35,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &3663397809329268665
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157061883471260}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 1.85
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2669811367491564413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157061883471260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c72db8b9813668749b75ba3ac41851bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToGive: 5
 --- !u!1 &1526026406848576
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +72,7 @@ GameObject:
   - component: {fileID: 4099135357399068}
   - component: {fileID: 212717328211765330}
   - component: {fileID: 95502997999960538}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: RadiatingRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +172,7 @@ GameObject:
   - component: {fileID: 4601353095344568}
   - component: {fileID: 198088720959751810}
   - component: {fileID: 199534652770272926}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4924,7 +4952,7 @@ GameObject:
   - component: {fileID: 4786821097248128}
   - component: {fileID: 108255836493293858}
   - component: {fileID: 428269349}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4956,7 +4984,7 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 0.5518868, g: 1, b: 0.88544595, a: 1}
-  m_Intensity: 1
+  m_Intensity: 5
   m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4993,7 +5021,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8192
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
