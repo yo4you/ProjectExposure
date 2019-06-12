@@ -96,4 +96,7 @@ MonoBehaviour:
   - {fileID: -927199367670048503, guid: caf3eb34a289eb342b503dff358bc052, type: 3}
   _ceilingObjects:
   - {fileID: -927199367670048503, guid: 6ebcb52a28b5be0468cb1a1fe565ccd4, type: 3}
-  _chanceToSpawn: 0
+  _mask:
+    serializedVersion: 2
+    m_Bits: 8192
+  _chanceToSpawn: 10
