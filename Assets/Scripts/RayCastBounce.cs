@@ -28,10 +28,13 @@ public class RayCastBounce : MonoBehaviour
 	private Vector3 _directionV = Vector3.zero;
 	private Vector3 _orthoLine = Vector3.zero;
 	private Vector3 _clickedPos = Vector3.zero;
+	private ShrimpController _shrimp;
 	private CanvasMouseTracker _mousetracker;
 
 	private void Start()
 	{
+		_shrimp = FindObjectOfType<ShrimpController>();
+		_shrimp.OnBubblePop += _shrimp_OnBubblePop;
 		_mousetracker = FindObjectOfType<CanvasMouseTracker>();
 
 		for (int i = 0; i < raysCount; i++)
@@ -44,6 +47,42 @@ public class RayCastBounce : MonoBehaviour
 			_trails[i].transform.position = transform.position;
 			_trailsPoints.Add(new List<Vector3>());
 		}
+	}
+
+	private void _shrimp_OnBubblePop(Vector3 pos)
+	{
+		Vector3 originToTarget = new Vector3(
+				targetObject.transform.position.x - pos.x,
+				targetObject.transform.position.y - pos.y,
+				rayDepthDistance
+				);
+
+		Vector3 orthoLine = Quaternion.AngleAxis(-90, Vector3.forward) * originToTarget;
+		_orthoLine = orthoLine;
+		_clickedPos = pos;
+
+		StopAllCoroutines();
+
+		for (int i = 0; i < raysCount; i++)
+		{
+			StartCoroutine(ResetTrailRenderer(_trails[i].GetComponent<TrailRenderer>()));
+			_trails[i].transform.position = pos;
+			_trailsPoints[i].Clear();
+		}
+
+		GameObject particleBig = Instantiate(particleAroundOrigin);
+		particleBig.transform.position = pos;
+
+		ThrowLineRays(_orthoLine, originToTarget);
+
+
+
+		for (int i = 0; i < raysCount; i++)
+		{
+			StartCoroutine(ThrowTrails(i));
+			//_trails[i].GetComponent<MoveEcho>().StartSpreading(_trailsPoints[i]);
+		}
+
 	}
 
 	private void ThrowLineRays(Vector3 orthogonalLine, Vector3 normal)
@@ -91,9 +130,8 @@ public class RayCastBounce : MonoBehaviour
 		{
 			_mousetracker = FindObjectOfType<CanvasMouseTracker>();
 		}
-		else if (Input.GetMouseButtonDown(0) && !_mousetracker.RayCastHitPlayer())
+		else if (Input.GetMouseButtonDown(0) && !_mousetracker.RayCastHitPlayer() && _shrimp.State== ShrimpController.MovementState.IDLE)
 		{
-
 
 			Vector3 mouse = Input.mousePosition;
 			Ray castPoint = Camera.main.ScreenPointToRay(mouse);
@@ -106,40 +144,12 @@ public class RayCastBounce : MonoBehaviour
 				//if (hit.point.z < 0) return;
 			}
 
+			_shrimp.MoveTo(clickPos);
+
+
 			clickPos = new Vector3(clickPos.x, clickPos.y, 0);
 
-			Vector3 originToTarget = new Vector3(
-				targetObject.transform.position.x - clickPos.x,
-				targetObject.transform.position.y - clickPos.y,
-				rayDepthDistance
-				);
-
-			Vector3 orthoLine = Quaternion.AngleAxis(-90, Vector3.forward) * originToTarget;
-			_orthoLine = orthoLine;
-			_clickedPos = clickPos;
-
-			StopAllCoroutines();
-
-			for (int i = 0; i < raysCount; i++)
-			{
-				StartCoroutine(ResetTrailRenderer(_trails[i].GetComponent<TrailRenderer>()));
-				_trails[i].transform.position = clickPos;
-				_trailsPoints[i].Clear();
-			}
-
-			GameObject particleBig = Instantiate(particleAroundOrigin);
-			particleBig.transform.position = clickPos;
-
-			ThrowLineRays(_orthoLine, originToTarget);
-
-
-
-			for (int i = 0; i < raysCount; i++)
-			{
-				StartCoroutine(ThrowTrails(i));
-				//_trails[i].GetComponent<MoveEcho>().StartSpreading(_trailsPoints[i]);
-			}
-
+			
 		}
 
 

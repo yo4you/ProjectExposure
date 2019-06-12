@@ -11,7 +11,8 @@ public class ExitSpawner : MonoBehaviour
 	private List<Node<Polygon>> _path;
 	bool _spawned = true;
 	private Node<Polygon> _exit;
-
+	[SerializeField]
+	float _minDist;
 	private void Start()
 	{
 		_levelFixer = FindObjectOfType<LevelMaterialFixer>();
@@ -37,8 +38,8 @@ public class ExitSpawner : MonoBehaviour
 
 		if (!exitSite.Data.IsWall && _angle < 180f)
 		{
-			//_angle += 10f;
-			//goto start;
+			_angle += 10f;
+			goto start;
 		};
 		_exit = exitSite;
 		var pos = exitSite.Data.Centre;
