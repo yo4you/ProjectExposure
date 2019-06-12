@@ -7,13 +7,11 @@ public class ScoreSystem : MonoBehaviour
     public delegate void AddScore();
     public static event AddScore IncreaseScore;
 
-    private int _scoreCounter;
-
     public static int currentScore;
 
     private void OnEnable()
     {
-        //IncreaseScore
+        
     }
 
     private void OnDisable()
@@ -35,6 +33,6 @@ public class ScoreSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        IncreaseScore?.Invoke();
     }
 }
