@@ -269,7 +269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166400810517484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -18.7}
+  m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 47.435257, y: 24.607021, z: 24.607021}
   m_Children: []
   m_Father: {fileID: 4378974528550718}
@@ -590,7 +590,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281092776525186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.17, y: -0.15, z: -1.74}
+  m_LocalPosition: {x: 0, y: 0, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4378974528550718}
@@ -605,12 +605,12 @@ Light:
   m_GameObject: {fileID: 1281092776525186}
   m_Enabled: 1
   serializedVersion: 9
-  m_Type: 2
-  m_Color: {r: 0.509434, g: 0.455288, b: 0.39649343, a: 1}
-  m_Intensity: 4.408723
-  m_Range: 4
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_Type: 0
+  m_Color: {r: 0.70825917, g: 0.82120496, b: 0.8679245, a: 1}
+  m_Intensity: 6
+  m_Range: 5
+  m_SpotAngle: 130
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -644,7 +644,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 12288
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -902,6 +902,7 @@ GameObject:
   - component: {fileID: 557073387}
   - component: {fileID: 557073389}
   - component: {fileID: 557073390}
+  - component: {fileID: 1004475319}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -960,7 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972fcc55a4a33634d85c0722bcb94d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxLineSegment: 0.2
+  _maxLineSegment: 0.6
   _speed: 4
   _rotationSmoothing: 10
   _playerZ: -8
@@ -1019,6 +1020,28 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1004475319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495220310952000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e45f00601d3bb49a38bab594209bee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hud: {fileID: 0}
+  NormalScoreText: {fileID: 0}
+  BonusScoreText: {fileID: 0}
+  iconIndicator: {fileID: 5300281112665766753, guid: 5b34bdb52e0fb744ba0b1d429cb0d8fa,
+    type: 3}
+  indicatorOffsetX: 0
+  indicatorOffsetY: 0
+  fadeInSpeed: 2
+  fadeOutSpeed: 0
+  extraPointsPerDistanceUnit: 1
 --- !u!1 &1537855522790228
 GameObject:
   m_ObjectHideFlags: 0
