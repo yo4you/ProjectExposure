@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1260975055814316925}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4670330191984900351}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_3_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3112789333583027883}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_1_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 953294004719659092}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_3_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7418389772330710504}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_4_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7095354582157814829}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_4_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8501468583526517489}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3886507722212992098}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_6_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2979834917127149036}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_6_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2757176667054991694}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 386290535142879520}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_3_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4417651488283807948}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_4_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6214790878295213436}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_5_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7337127642106617256}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_6_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3656132362494672613}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_5 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7746710872326121292}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_6_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9132652853380946978}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_4_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7180617565713820636}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7372478873382998149}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_4_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4422811600919405170}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3054174514310469942}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_4_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -658,7 +658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8092036643488098665}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_1_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -689,7 +689,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1825726951842840011}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_5_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,7 +720,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 236784132749297819}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_3_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -751,7 +751,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 759032722377098776}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8045793760282058841}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_3 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,7 +813,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8367382805206520317}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_7_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -844,7 +844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1304682846456398109}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_3_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -875,7 +875,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1851988788126702911}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_4_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -906,7 +906,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8720172663821339806}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_2_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -937,7 +937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 731253720695154572}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_5_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -967,7 +967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8549724752602978089}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_7_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -998,7 +998,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7204738776783924801}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_6_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,7 +1029,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6949335680758438773}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_6_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1060,7 +1060,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1159923776327244692}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_4 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1091,7 +1091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1763604135635179804}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_6 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1122,7 +1122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6826793068510714620}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_3_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1153,7 +1153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4307745520466933296}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_3_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1184,7 +1184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4102848262546352846}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_3_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1215,7 +1215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 704828114724782879}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1245,7 +1245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8594524206474442899}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_7_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1276,7 +1276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 101385721116588643}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1307,7 +1307,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8647321698585362156}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1338,7 +1338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6480641287846169552}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1380,7 +1380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8641586594888792979}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_2 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1411,7 +1411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4564372891975766342}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_2_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1442,7 +1442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4023557692490085265}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_3_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1473,7 +1473,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 303496478286958863}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_5_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1504,7 +1504,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5430852791342682542}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_2_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1535,7 +1535,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3587098200853010907}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_3_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1565,7 +1565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7581848058683917088}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1597,7 +1597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8080493142626832048}
   - component: {fileID: 3844131785026313272}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Jellyfish_Swim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1612,12 +1612,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5078077322940546211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -37.36, y: 0, z: 15.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4054351306489201866}
   - {fileID: 6480641287846169552}
-  - {fileID: 4691689975159707476}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1649,7 +1648,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7253387681105049273}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_4_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1680,7 +1679,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 849965082774101306}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_7 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1710,7 +1709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 635723990914675045}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_2_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1741,7 +1740,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5617578726594382997}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_4_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1772,7 +1771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4802948372250099296}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_4_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1803,7 +1802,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1781747667786370777}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_3_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1834,7 +1833,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3457485225336188706}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1865,7 +1864,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 785957674426556648}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_5_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1896,7 +1895,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 778229978192219211}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_5_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1927,7 +1926,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1071523200305990868}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_4_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1958,7 +1957,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3927145550888279655}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_1_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1989,7 +1988,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 451824687704350144}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_5_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2020,7 +2019,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1091841542047236921}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_3_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2052,7 +2051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4054351306489201866}
   - component: {fileID: 8415416158004901757}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Jellyfish1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2214,7 +2213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6041481985117950042}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_1_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2244,7 +2243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4592085900216850952}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_1_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2275,7 +2274,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2925253673236133201}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_8_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2306,7 +2305,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4573161170497285595}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_6_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2336,7 +2335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6573549747016122234}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_7_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2367,7 +2366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1379576701445307511}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_1_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2389,111 +2388,6 @@ Transform:
   m_Father: {fileID: 7202924588405768641}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8213803873451196982
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4691689975159707476}
-  - component: {fileID: 2781533941196705910}
-  - component: {fileID: 4506587224730494919}
-  m_Layer: 13
-  m_Name: Point Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4691689975159707476
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8213803873451196982}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8080493142626832048}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &2781533941196705910
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8213803873451196982}
-  m_Enabled: 1
-  serializedVersion: 9
-  m_Type: 2
-  m_Color: {r: 0.14796188, g: 0.8962264, b: 0.6697308, a: 1}
-  m_Intensity: 2
-  m_Range: 2.5
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!114 &4506587224730494919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8213803873451196982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fdb0bbfe342cde4cbe25fb0accfd653, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 1
 --- !u!1 &8249778206382123267
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,7 +2397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1025425705265918877}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_7_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2534,7 +2428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 890628523859128315}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_1_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2565,7 +2459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7202924588405768641}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_1_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2596,7 +2490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7601785580550728858}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_7_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2627,7 +2521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 733996682697855682}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_7_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2657,7 +2551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2626122139065650125}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_2_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2687,7 +2581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1002713488114802885}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_3_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2718,7 +2612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 326476447538126573}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_2_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2749,7 +2643,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3198669080470557950}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_1_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2780,7 +2674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2888248849957862493}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Head_3_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2810,7 +2704,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7905355713386242835}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_2_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2841,7 +2735,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5122033301847095490}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tentecale_4_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
