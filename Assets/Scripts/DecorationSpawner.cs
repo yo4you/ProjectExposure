@@ -1,30 +1,28 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class DecorationSpawner : MonoBehaviour
 {
 
 	[SerializeField]
-	List<GameObject> _floorObjects;
+	private List<GameObject> _floorObjects;
 
 	[SerializeField]
-	List<GameObject> _backObjects;
+	private List<GameObject> _backObjects;
 
 	[SerializeField]
-	List<GameObject> _ceilingObjects;
+	private List<GameObject> _ceilingObjects;
 	[SerializeField]
-	LayerMask _mask;
+	private LayerMask _mask;
 
 	[SerializeField]
-	float _chanceToSpawn;
+	private float _chanceToSpawn;
 
-	void Start()
-    {
+	private void Start()
+	{
 		FindObjectOfType<LevelMaterialFixer>().OnFinishMatFix += DecorationSpawner_OnGenerationComplete;
-    }
+	}
 
 	private void DecorationSpawner_OnGenerationComplete()
 	{
@@ -33,7 +31,10 @@ public class DecorationSpawner : MonoBehaviour
 		foreach (var poly in FindObjectOfType<VoronoiGenerator>().Polygons)
 		{
 			if (!poly.IsWall || UnityEngine.Random.Range(0, 100) > _chanceToSpawn)
+			{
 				continue;
+			}
+
 			var spawnPool = new List<List<GameObject>>() { _backObjects };
 			if (IsCeil(poly))
 			{
@@ -57,16 +58,15 @@ public class DecorationSpawner : MonoBehaviour
 		Vector3 pos = poly.Centre;
 		pos.z = -70;
 		clone.layer = 12;
-		Physics.Raycast(pos, Vector3.forward*1000f,out RaycastHit hit, _mask);
+		Physics.Raycast(pos, Vector3.forward * 1000f, out RaycastHit hit, _mask);
 		pos.z = hit.point.z;
-		clone.transform.Rotate(-90, 0, 0);
+		//clone.transform.Rotate(-90, 0, 0);
 		clone.transform.position = pos;
 	}
 
 	private bool IsFloor(Polygon poly)
 	{
-		return false;
-		//return poly.Node.ConnectionAngles.se;
+		return poly.Node.ConnectionAngles.Where(i => !i.Value.Data.IsWall).Any(i => i.Key > 270f);
 	}
 
 	private bool IsCeil(Polygon poly)
