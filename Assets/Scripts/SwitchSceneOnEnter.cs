@@ -12,6 +12,8 @@ public class SwitchSceneOnEnter : MonoBehaviour
 	private IEnumerator EndLevel()
 	{
 		yield return new WaitForSeconds(3);
+		PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level")+1);
+
 		SceneManager.LoadScene(0);
 	}
 	void Update()
