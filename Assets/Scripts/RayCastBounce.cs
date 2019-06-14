@@ -18,8 +18,9 @@ public class RayCastBounce : MonoBehaviour
 	[SerializeField] private GameObject particleBounce;
 	[SerializeField] private GameObject rippleBackgroundQuad;
 	[SerializeField] private GameObject sobelLightSource;
+	[SerializeField] private GameObject particleTappingObject;
 
-	public delegate void BouncedOffWalls(Vector3 position);
+    public delegate void BouncedOffWalls(Vector3 position);
 	public static event BouncedOffWalls OnWaveBounced;
 
 	private bool _isActive = false;
@@ -109,7 +110,13 @@ public class RayCastBounce : MonoBehaviour
 			Vector3 clickPos = Vector3.zero;
 			RaycastHit hit;
 
-			if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+
+            Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            GameObject circleUI = Instantiate(particleTappingObject, mousePosition, Quaternion.identity);
+            circleUI.GetComponent<ParticleSystem>()?.Play();
+
+            if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
 			{
 				clickPos = hit.point;
 				if (hit.point.z < rippleBackgroundQuad.transform.position.z)
