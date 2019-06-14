@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: a1c2011f379c036499d25d7db2a9b0f2
+guid: 03a0972752b795a41867a2bbbc0ef4c6
 ModelImporter:
   serializedVersion: 27
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: coral2
-    second: {fileID: 2100000, guid: 82a63798648d8f34dbaa8fbf37f49a86, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
