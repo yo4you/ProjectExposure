@@ -71,7 +71,8 @@ public class DecorationSpawner : MonoBehaviour
 
 	private bool IsCeil(Polygon poly)
 	{
-		return false;
+		return poly.Node.ConnectionAngles.Where(i => !i.Value.Data.IsWall).Any(i => i.Key > 45 && i.Key < 135f);
+
 	}
 
 }
