@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2430398613438488795}
   - component: {fileID: 8252296298482474018}
   m_Layer: 0
-  m_Name: Model_Coral
+  m_Name: Prefab_Coral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7690703192564410622}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.546, y: 0.21, z: 0.0069479}
-  m_LocalScale: {x: 1.8852, y: 1.8852, z: 1.8852}
+  m_LocalPosition: {x: -1.3809, y: 0.2885, z: 0.0069479}
+  m_LocalScale: {x: 2.643145, y: 2.643145, z: 2.643145}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8909422264205326878}
   - component: {fileID: 2925133257385297639}
   m_Layer: 0
-  m_Name: Model_Kelp
+  m_Name: Prefab_Kelp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3505207058778812987}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0073, y: 0.004, z: 0.04478}
-  m_LocalScale: {x: 1.5995, y: 1.5995, z: 1.5995}
+  m_LocalPosition: {x: -0.9699, y: 0.0067, z: 0.04478}
+  m_LocalScale: {x: 1.8971668, y: 1.8971668, z: 1.8971668}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
