@@ -5,15 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelCounter : MonoBehaviour
 {
-	[SerializeField]
-	GameObject _levelEnd;
 	private void Start()
 	{
 		var lvl = PlayerPrefs.GetInt("level");
 		SetVisible(lvl);
-		if (lvl == 3)
+		if (lvl == 2)
 		{
-			_levelEnd.SetActive(true);
+			SceneManager.LoadScene(1);
 		};
 	}
 	private void OnApplicationQuit()
@@ -24,10 +22,6 @@ public class LevelCounter : MonoBehaviour
 	{
 		var lvl = PlayerPrefs.GetInt("level");
 		SetVisible(lvl);
-		if (lvl == 3)
-		{
-
-		}
 	}
 
 	void SetVisible(int toEnable)

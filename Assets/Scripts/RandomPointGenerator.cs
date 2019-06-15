@@ -144,6 +144,25 @@ public class RandomPointGenerator : MonoBehaviour {
 		return Mathf.Sin(Mathf.Abs(Mathf.Sin(xy * 3.1415f)));
 	}
 
+
+	Color BiomeMap(float x, float y)
+	{
+		var color = Color.white;
+		float perlin = Mathf.PerlinNoise(x*10 + _randMapOffset.x, y*10 + _randMapOffset.y);
+		if (perlin < 0.8) {color = Color.red;}
+		if (perlin < 0.6) {color = Color.yellow;}
+		if (perlin < 0.4) {color = Color.green;}
+		if (perlin < 0.2) {color = Color.blue; }
+// 		var color = Color.white;
+// 		float perlin = Mathf.PerlinNoise(x * 10 + _randMapOffset.x, y * 10 + _randMapOffset.y);
+// 		color.r = 1;
+// 
+// 		color.g = x + perlin > 0.8 ? 1f : 0f;
+// 		color.b = y + perlin > 0.8 ? 1f : 0f;
+		return color;
+	}
+
+
 	/// <summary>
 	/// returns closeness of point X Y to the used bezier curve
 	/// </summary>
@@ -175,9 +194,11 @@ public class RandomPointGenerator : MonoBehaviour {
 		// draws black and white crosses on the randomly generated points
 		foreach (var point in Points)
 		{
-			var color = new Color(MapValidityPattern(point.x, point.y), MapValidityPattern(point.x, point.y), MapValidityPattern(point.x, point.y));
-			Debug.DrawLine(point - new Vector2(0.1f, 0.1f), point + new Vector2(0.1f, 0.1f), color);
-			Debug.DrawLine(point - new Vector2(0.1f, -0.1f), point + new Vector2(0.1f, -0.1f), color);
+			//var color = new Color(MapValidityPattern(point.x, point.y), MapValidityPattern(point.x, point.y), MapValidityPattern(point.x, point.y));
+			var color = BiomeMap(point.x,point.y);
+			const float poinsize = 0.01f;
+			Debug.DrawLine(point - new Vector2(poinsize, poinsize), point + new Vector2(poinsize, poinsize), color);
+			Debug.DrawLine(point - new Vector2(poinsize, -poinsize), point + new Vector2(poinsize, -poinsize), color);
 		}
 	}
 }
