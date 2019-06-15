@@ -9,7 +9,7 @@ class Polygon : IEquatable<Polygon>
 
 	public Vector2 Centre { get; set; }
 	public bool IsWall { get; set; } = false;
-
+	public BIOMES Biome { get; internal set; }
 	internal Node<Polygon> Node { get; set; }
 
 	public void AddVertex(Vector2 vert)

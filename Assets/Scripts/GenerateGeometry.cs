@@ -53,6 +53,7 @@ public partial class GenerateGeometry : MonoBehaviour
 	private bool _generatedVertexOrder = false;
 	private void Start()
 	{
+		FindObjectOfType<VoronoiGenerator>().OnGenerationComplete += Generate;
 		if (!_generatedVertexOrder)
 		{
 			GenerateVertexOrder();

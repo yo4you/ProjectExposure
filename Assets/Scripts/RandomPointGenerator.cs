@@ -148,7 +148,7 @@ public class RandomPointGenerator : MonoBehaviour {
 	Color BiomeMap(float x, float y)
 	{
 		var color = Color.white;
-		float perlin = Mathf.PerlinNoise(x*10 + _randMapOffset.x, y*10 + _randMapOffset.y);
+		float perlin = Mathf.PerlinNoise(x*3 + _randMapOffset.x, y*3 + _randMapOffset.y);
 		if (perlin < 0.8) {color = Color.red;}
 		if (perlin < 0.6) {color = Color.yellow;}
 		if (perlin < 0.4) {color = Color.green;}

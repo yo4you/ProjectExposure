@@ -8,6 +8,9 @@ using UnityEngine;
 [RequireComponent(typeof(RandomPointGenerator))]
 public partial class VoronoiGenerator : MonoBehaviour
 {
+
+	public delegate void GenerationCompleteHandlder();
+	public event GenerationCompleteHandlder OnGenerationComplete;
 	[SerializeField]
 	private int _maxPolyVertices = 11;
 	[SerializeField]
@@ -69,12 +72,8 @@ public partial class VoronoiGenerator : MonoBehaviour
 		GenerateVoronoi(_pointMap.Points, _pointMap.PointWidth, _pointMap.PointHeight);
 		Debug.Log("map generated in : " + (DateTime.Now - startTime).TotalMilliseconds);
 		startTime = DateTime.Now;
-		// apply the map the geomtry "meshes"
-		if (GetComponent<GenerateGeometry>() && GetComponent<GenerateGeometry>().isActiveAndEnabled)
-		{
-			GetComponent<GenerateGeometry>().Generate();
-		}
-
+		
+		OnGenerationComplete?.Invoke();
 		Debug.Log("polygons generated in : " + (DateTime.Now - startTime).TotalMilliseconds);
 
 	}
