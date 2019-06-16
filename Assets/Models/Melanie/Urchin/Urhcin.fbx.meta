@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 54b861d2ec9ab2d44961e31df0f67843
+guid: 5f4274c85d22e1a46af05104fbe5f30a
 ModelImporter:
   serializedVersion: 27
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Urchin
-    second: {fileID: 2100000, guid: daa5f5de51667b74494fa8d638c1dbec, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0

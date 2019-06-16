@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 63b847fd637facb45be300b5adf2e577
+guid: 16796979d9aa84243b0496bae1ad19db
 ModelImporter:
   serializedVersion: 27
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: kelp
-    second: {fileID: 2100000, guid: 66e16d56497fcd94ab5f22782b8d45a6, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
