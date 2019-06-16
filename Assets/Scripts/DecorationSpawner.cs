@@ -33,7 +33,7 @@ public class DecorationSpawner : MonoBehaviour
 
 		foreach (var poly in FindObjectOfType<VoronoiGenerator>().Polygons)
 		{
-			if (!poly.IsWall || UnityEngine.Random.Range(0, 100) > _chanceToSpawn)
+			if (!poly.IsBackGround || UnityEngine.Random.Range(0, 100) > _chanceToSpawn)
 			{
 				continue;
 			}
@@ -88,12 +88,12 @@ public class DecorationSpawner : MonoBehaviour
 
 	private bool IsFloor(Polygon poly)
 	{
-		return poly.Node.ConnectionAngles.Where(i => !i.Value.Data.IsWall).Any(i => i.Key > 270f);
+		return poly.Node.ConnectionAngles.Where(i => !i.Value.Data.IsBackGround).Any(i => i.Key > 270f);
 	}
 
 	private bool IsCeil(Polygon poly)
 	{
-		return poly.Node.ConnectionAngles.Where(i => !i.Value.Data.IsWall).Any(i => i.Key > 45 && i.Key < 135f);
+		return poly.Node.ConnectionAngles.Where(i => !i.Value.Data.IsBackGround).Any(i => i.Key > 45 && i.Key < 135f);
 
 	}
 

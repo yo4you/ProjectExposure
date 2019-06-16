@@ -132,13 +132,18 @@ public partial class GenerateGeometry : MonoBehaviour
 		foreach (var poly in polygons)
 		{
 			MeshFilter geometry;
-			if (IsBackGround(poly.Centre))
+
+			if (poly.IsBackGround)
+			{
+				poly.IsBackGround = !IsBackGround(poly.Centre);
+			}
+			if (!poly.IsBackGround)
 			{
 				geometry = _foreGroundGeometry[poly.Vertices.Count - 3].RandomObject().GetComponent<MeshFilter>();
 			}
 			else
 			{
-				poly.IsWall = true;
+				//poly.IsWall = true;
 
 				geometry = _backGroundGeometry[poly.Vertices.Count - 3].RandomObject().GetComponent<MeshFilter>();
 			}
@@ -183,7 +188,7 @@ public partial class GenerateGeometry : MonoBehaviour
 
 				}
 				newPos.z -= _heightMapIntensity * MapHeigthPattern(poly.Centre.x + newPos.x, poly.Centre.y + newPos.y);
-				newPos.z -= poly.IsWall ? 0 : _polyHeightIntensity;
+				newPos.z -= poly.IsBackGround ? 0 : _polyHeightIntensity;
 
 				newVerts.Add(newPos + (Vector3)poly.Centre);
 

@@ -68,12 +68,12 @@ public class SetPlayerSpawnPos : MonoBehaviour
 
 	private bool IsValidSpawn(Polygon poly)
 	{
-		if (!poly.IsWall)
+		if (!poly.IsBackGround)
 		{
 			return false;
 		}
 
-		return !poly.Node.ConnectionAngles.Values.All((i) => i.ConnectionAngles.Values.All((j) => !j.Data.IsWall));
+		return !poly.Node.ConnectionAngles.Values.All((i) => i.ConnectionAngles.Values.All((j) => !j.Data.IsBackGround));
 	}
 
 

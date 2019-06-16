@@ -34,12 +34,12 @@ public class ExitSpawner : MonoBehaviour
 		var exitSite = path.Last();
 
 		//var exitSite = path[(int)(path.Count * 0.8f)];
-		if (!exitSite.Data.IsWall && exitSite.ConnectionAngles.Any((i) => i.Value.Data.IsWall))
+		if (!exitSite.Data.IsBackGround && exitSite.ConnectionAngles.Any((i) => i.Value.Data.IsBackGround))
 		{
-			exitSite = exitSite.ConnectionAngles.First((i) => i.Value.Data.IsWall).Value;
+			exitSite = exitSite.ConnectionAngles.First((i) => i.Value.Data.IsBackGround).Value;
 		}
 
-		if (!exitSite.Data.IsWall || (Vector3.Distance(exitSite.Data.Centre, start.Node.Data.Centre) < _minDist))
+		if (!exitSite.Data.IsBackGround || (Vector3.Distance(exitSite.Data.Centre, start.Node.Data.Centre) < _minDist))
 		{
 			_angle += 5f;
 			if (_angle > 359f)

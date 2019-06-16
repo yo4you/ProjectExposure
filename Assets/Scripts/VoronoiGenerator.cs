@@ -72,7 +72,7 @@ public partial class VoronoiGenerator : MonoBehaviour
 		GenerateVoronoi(_pointMap.Points, _pointMap.PointWidth, _pointMap.PointHeight);
 		Debug.Log("map generated in : " + (DateTime.Now - startTime).TotalMilliseconds);
 		startTime = DateTime.Now;
-		
+
 		OnGenerationComplete?.Invoke();
 		Debug.Log("polygons generated in : " + (DateTime.Now - startTime).TotalMilliseconds);
 
@@ -145,7 +145,7 @@ public partial class VoronoiGenerator : MonoBehaviour
 					if (CheckCircle(pointIndex, surroundingPoints[point0i], surroundingPoints[point1i], ref surroundingPoints, ref points, out vertex))
 					{
 						// our vertex indicates a shared edge with two other sites, add them to the nodegraph connections 
-					//	float angle = (Mathf.Atan2(vertex.y - poly.Centre.y, vertex.x - poly.Centre.x) * Mathf.Rad2Deg + 405f) % 360f;
+						//	float angle = (Mathf.Atan2(vertex.y - poly.Centre.y, vertex.x - poly.Centre.x) * Mathf.Rad2Deg + 405f) % 360f;
 						float angle = (Mathf.Atan2(vertex.y - poly.Centre.y, vertex.x - poly.Centre.x) * Mathf.Rad2Deg - 180f);
 						if (!nodes[pointIndex].ConnectionAngles.ContainsKey(angle))
 						{
@@ -172,12 +172,16 @@ public partial class VoronoiGenerator : MonoBehaviour
 		// ensures there are no double connections in the nodelist
 
 		_polygons = _polygons.Distinct().ToList();
-		
+
 
 		// removes OOB polygons
 		var oobPolies = _polygons.Where(
-			(Polygon p) => !p.Vertices.TrueForAll((Vector2 vert) => _pointMap.InBound(vert))
+			(Polygon p) => !p.Vertices.TrueForAll((Vector2 vert) => _pointMap.InBound(vert)) || p.Vertices.Count < 3
 			);
+		foreach (var oobpoly in oobPolies)
+		{
+			oobpoly.Node.ConnectionAngles.Values.ToList().ForEach(i => i.Data.IsBackGround = false);
+		}
 		oobPolies.ToList().ForEach((poly) =>
 		{
 			poly.Node.ConnectionAngles.Values.ToList().ForEach(
@@ -314,17 +318,17 @@ public partial class VoronoiGenerator : MonoBehaviour
 		/// true false  = 0
 		/// 
 		///	 1 == 2 || 2
-		
+
 		foreach (var item in root.ConnectionAngles)
 		{
-			bool wall = (CheckWalls == item.Value.Data.IsWall) || item.Value.Data.IsWall;
+			bool wall = (CheckWalls == item.Value.Data.IsBackGround) || item.Value.Data.IsBackGround;
 			if (visited.Contains(item.Value) || !wall || Mathf.DeltaAngle(angle, item.Key) > 90)
 			{
 				continue;
 			}
 			if (item.Key > angle)
 			{
-				DrawNodeGraphLine(item.Value, angle, ref visited,CheckWalls);
+				DrawNodeGraphLine(item.Value, angle, ref visited, CheckWalls);
 				root.Data.Draw();
 				DrawArrow(root.Data.Centre, item.Value.Data.Centre, Color.green);
 				return;
@@ -333,13 +337,13 @@ public partial class VoronoiGenerator : MonoBehaviour
 
 
 		var finalItem = root.ConnectionAngles.First();
-		bool finalwall = (CheckWalls == finalItem.Value.Data.IsWall) || finalItem.Value.Data.IsWall;
+		bool finalwall = (CheckWalls == finalItem.Value.Data.IsBackGround) || finalItem.Value.Data.IsBackGround;
 
 		if (!visited.Contains(finalItem.Value) && finalwall && Mathf.DeltaAngle(angle, finalItem.Key) < 90)
 		{
 			root.Data.Draw();
 			DrawArrow(root.Data.Centre, finalItem.Value.Data.Centre, Color.green);
-			DrawNodeGraphLine(finalItem.Value, angle,ref visited, CheckWalls) ;
+			DrawNodeGraphLine(finalItem.Value, angle, ref visited, CheckWalls);
 		}
 
 	}
@@ -432,9 +436,9 @@ public partial class VoronoiGenerator : MonoBehaviour
 
 		var dist = pos0 - pos1;
 		dist = dist.normalized * 0.1f;
-		Debug.DrawLine(pos0, pos1, pcolor,10f);
+		Debug.DrawLine(pos0, pos1, pcolor, 10f);
 		//Gizmos.DrawSphere(pos0,0.1f);
-		Debug.DrawLine(pos1, pos1 + dist + new Vector2(-dist.y, dist.x), pcolor,10f);
-		Debug.DrawLine(pos1, pos1 + dist + new Vector2(dist.y, -dist.x), pcolor,10f);
+		Debug.DrawLine(pos1, pos1 + dist + new Vector2(-dist.y, dist.x), pcolor, 10f);
+		Debug.DrawLine(pos1, pos1 + dist + new Vector2(dist.y, -dist.x), pcolor, 10f);
 	}
 }

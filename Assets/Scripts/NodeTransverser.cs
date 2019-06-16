@@ -31,19 +31,53 @@ public class NodeTransverser : MonoBehaviour
 
 	public float PlayerZ => _playerZ;
 
+	private Quaternion _baseRotationRight;
+	private Quaternion _baseRotationLeft;
+	private Coroutine _resetRoutine;
+	[SerializeField]
+	private float _resetRotationSpeed = 5f;
 
 	private void Start()
 	{
+		_baseRotationRight = transform.GetChild(0).transform.rotation;
 		_generator = FindObjectOfType<VoronoiGenerator>();
 		_actor = FindObjectOfType<NodeGraphActor>();
+		_baseRotationLeft = _baseRotationRight * Quaternion.Euler(180, 0, 0);
 	}
 
 	public void EngagePath()
 	{
+		if (_resetRoutine != null)
+		{
+			StopCoroutine(_resetRoutine);
+		}
+
 		OptimizePath();
 		SmoothPath();
 		//StartCoroutine(StartEngagePath());
 		StartCoroutine(StartEngageSmoothPath());
+		OnPathResolve += ResetRotation;
+	}
+
+	private void ResetRotation()
+	{
+		_resetRoutine = StartCoroutine(StartResetRotation());
+	}
+
+	private IEnumerator StartResetRotation()
+	{
+		yield return new WaitForSeconds(0.5f);
+		var rotation = _baseRotationLeft;
+
+		if (transform.GetChild(0).TransformVector(Vector3.up).x > 0)
+			rotation = _baseRotationRight;
+		var startRot = transform.GetChild(0).transform.rotation;
+		for (float t = 0; t < 1f; t += Time.deltaTime * _resetRotationSpeed)
+		{
+			transform.GetChild(0).transform.rotation = Quaternion.Slerp(startRot, rotation, t);
+			yield return new WaitForEndOfFrame();
+
+		}
 	}
 
 	private void SmoothPath()
@@ -60,7 +94,7 @@ public class NodeTransverser : MonoBehaviour
 			var displacement0 = pathlist[i].Data.Centre - pathlist[i - 1].Data.Centre;
 			SmoothedPath.Enqueue(pathlist[i - 1].Data.Centre + displacement0 * _cornerSmoothing);
 			var displacement1 = pathlist[i + 1].Data.Centre - pathlist[i].Data.Centre;
-			if (!pathlist[i].ConnectionAngles.Values.Contains(pathlist[i+1]))
+			if (!pathlist[i].ConnectionAngles.Values.Contains(pathlist[i + 1]))
 			{
 				return;
 			}
@@ -106,8 +140,11 @@ public class NodeTransverser : MonoBehaviour
 		float dist = Vector2.Distance(start, next);
 		if (dist == 0)
 		{
- 			if (SmoothedPath.Count == 0)
- 				goto end;
+			if (SmoothedPath.Count == 0)
+			{
+				goto end;
+			}
+
 			start = next;
 			next = SmoothedPath.Dequeue();
 			goto start;
@@ -244,7 +281,7 @@ public class NodeTransverser : MonoBehaviour
 				continue;
 			}
 
-			if (child.Data.IsWall && dist > Vector2.SqrMagnitude(pos - child.Data.Centre))
+			if (child.Data.IsBackGround && dist > Vector2.SqrMagnitude(pos - child.Data.Centre))
 			//if (child.Data.IsWall && dist > (pos - child.Data.Centre).magnitude)
 			{
 				return false;
@@ -263,7 +300,7 @@ public class NodeTransverser : MonoBehaviour
 
 		foreach (var item in root.ConnectionAngles)
 		{
-			if (!item.Value.Data.IsWall || Mathf.DeltaAngle(angle, item.Key) > 90 || visited.Contains(item.Value))
+			if (!item.Value.Data.IsBackGround || Mathf.DeltaAngle(angle, item.Key) > 90 || visited.Contains(item.Value))
 			{
 				continue;
 			}
@@ -306,7 +343,7 @@ public class NodeTransverser : MonoBehaviour
 			foreach (var subdibpoint in subdivPoints)
 			{
 				var next = voronoi.Polygons.Aggregate((min, nextItem) =>
-				Vector2.SqrMagnitude(subdibpoint - min.Centre) < Vector2.SqrMagnitude(subdibpoint - nextItem.Centre) || !nextItem.IsWall ? min : nextItem).Node;
+				Vector2.SqrMagnitude(subdibpoint - min.Centre) < Vector2.SqrMagnitude(subdibpoint - nextItem.Centre) || !nextItem.IsBackGround ? min : nextItem).Node;
 				Path.Enqueue(next);
 			}
 
