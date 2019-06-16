@@ -28,7 +28,7 @@ MonoBehaviour:
     value: 3
   toneCurveToeStrength:
     overrideState: 1
-    value: 0.097
+    value: 0.193
   toneCurveToeLength:
     overrideState: 1
     value: 0.085
@@ -37,7 +37,7 @@ MonoBehaviour:
     value: 1
   toneCurveShoulderLength:
     overrideState: 1
-    value: 1
+    value: 0
   toneCurveShoulderAngle:
     overrideState: 1
     value: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
     value: 0
   colorFilter:
     overrideState: 1
-    value: {r: 1, g: 1, b: 1, a: 1}
+    value: {r: 0.75, g: 1, b: 0.9193135, a: 1}
   hueShift:
     overrideState: 1
     value: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: 1.1
+    value: 1
   contrast:
     overrideState: 1
     value: 11
@@ -104,13 +104,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.9486585, y: 0.9907429, z: 1, w: 0.0000000014641077}
+    value: {x: 0.9486585, y: 0.9907429, z: 1, w: 0.0000000015103943}
   gamma:
     overrideState: 1
-    value: {x: 0.9766183, y: 0.9896477, z: 1, w: 0}
+    value: {x: 0.86183184, y: 1, z: 0.99136424, w: 0}
   gain:
     overrideState: 1
-    value: {x: 0.98013926, y: 0.8546516, z: 1, w: 0}
+    value: {x: 0.9010427, y: 0.7047111, z: 1, w: 0}
   masterCurve:
     overrideState: 1
     value:
@@ -1332,7 +1332,7 @@ MonoBehaviour:
     value: 0
   intensity:
     overrideState: 1
-    value: 0.132
+    value: 0.25
   size:
     overrideState: 1
     value: 0.68
@@ -1400,7 +1400,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.46
+    value: 0.494
   smoothness:
     overrideState: 1
     value: 0.2
@@ -1439,7 +1439,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.04
+    value: 0.094
   fastMode:
     overrideState: 1
     value: 0
@@ -1461,7 +1461,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 10.74
+    value: 14.66
   threshold:
     overrideState: 1
     value: 7.21
@@ -1476,7 +1476,7 @@ MonoBehaviour:
     value: 7
   anamorphicRatio:
     overrideState: 1
-    value: 0
+    value: -0.721
   color:
     overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
@@ -1594,7 +1594,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.34
+    value: 0.28
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -1640,13 +1640,13 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 2.83
+    value: 0.9
   aperture:
     overrideState: 1
-    value: 21.6
+    value: 7.8
   focalLength:
     overrideState: 1
-    value: 188
+    value: 105
   kernelSize:
     overrideState: 1
     value: 3
