@@ -1,14 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class RegisterHighscore : MonoBehaviour
 {
+
 	public void Register()
 	{
 		var playerAccount = new PlayerAccount(
-			name: FindObjectOfType<ShowVirtualKeyboard>().Text,
+			name: PlayerPrefs.GetString("Name"),
 			score: PlayerPrefs.GetInt("score"),
 			male: PlayerPrefs.GetInt("Male") == 1,
-			age: PlayerPrefs.GetInt("Age")
+			age: PlayerPrefs.GetInt("Age"),
+			day: DateTime.Now
 			);
 
 		var highScoreManager = new HighScoreManager();

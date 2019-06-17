@@ -23,7 +23,7 @@ internal class HighScoreManager
 	internal void Add(PlayerAccount playerAccount)
 	{
 		Load(ref _accounts);
-		var acc = _accounts.Find(i => i.Name.Equals(playerAccount));
+		var acc = _accounts.Find(i => i.Name.Equals(playerAccount.Name));
 		if (acc != null)
 		{
 			acc.Score = Math.Max(acc.Score, playerAccount.Score);
