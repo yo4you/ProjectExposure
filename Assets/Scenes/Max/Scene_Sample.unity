@@ -263,7 +263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &145304577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,8 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df3b89f7fb9fef40ad8f8f8ad1808ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 6
-  rows: 2
+  columns: 8
+  rows: 8
   framesPerSecond: 30
   rend: {fileID: 145304579}
 --- !u!65 &145304578
