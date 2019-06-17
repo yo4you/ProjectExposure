@@ -17,6 +17,6 @@ public class ForegroundMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(cameraToFollow.transform.position.x * mainCameraSpeedRatio, transform.position.y, transform.position.z);
+        transform.position = new Vector3(cameraToFollow.transform.position.x * mainCameraSpeedRatio, cameraToFollow.transform.position.y * mainCameraSpeedRatio, transform.position.z);
     }
 }

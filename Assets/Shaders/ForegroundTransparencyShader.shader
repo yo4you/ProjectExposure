@@ -19,6 +19,7 @@ Shader "Unlit/ForegroundShader"
 
 		_FaderOffset("Fader Vertical Offset", Range(0,1)) = 0
 		_MaximumOpacity("Maximum Opacity", Range(0,1)) = 0
+		_Falloff("Falloff", Float) = 0
 
 
 
@@ -62,6 +63,7 @@ Shader "Unlit/ForegroundShader"
 			float _SourcePos_Y;
 			float _FaderOffset;
 			float _MaximumOpacity;
+			float _Falloff;
 
 			//float _AdditionalPositions[50];
 
@@ -94,14 +96,31 @@ Shader "Unlit/ForegroundShader"
 				blended.g = OverlayBlend(col.g, foregroundColor.g);
 				blended.b = OverlayBlend(col.b, foregroundColor.b);
 				
-				if (f.vertex.y > _ScreenUV_Y *(1 - _FaderOffset) && foregroundColor.a > 0)
-				{
-					foregroundColor.a = _MaximumOpacity * ((f.vertex.y - _ScreenUV_Y * (1- _FaderOffset)) / (_ScreenUV_Y * (1 - _FaderOffset)));
-				}
+				//if (f.vertex.y > _ScreenUV_Y *(1 - _FaderOffset) && foregroundColor.a > 0)
+				//{
+				//	foregroundColor.a = _MaximumOpacity * ((f.vertex.y - _ScreenUV_Y * (1- _FaderOffset)) / (_ScreenUV_Y * (1 - _FaderOffset)));
+				//}
 
+
+
+				float2 coord = (f.uv - 0.5) * _ScreenUV_X/ _ScreenUV_Y * 2;
+				float rf = sqrt(dot(coord, coord)) * _Falloff;
+				float rf2_1 = rf * rf + 1.0;
+				float e = 1.0 / (rf2_1 * rf2_1 * rf2_1 * rf2_1);
+
+				if (e < 1.0f)
+				{
+					//foregroundColor.a *= 15.0f;
+					foregroundColor.a *= (1 - e);
+					//foregroundColor.a *= 2.0f;
+				}
+				else {
+					foregroundColor.a = 0.0f;
+				}
+				//return fixed4(col.rgb * e, col.a);
+				//foregroundColor.a = (1-e);
 				//col *= foregroundColor;
 				col = lerp(col, foregroundColor, foregroundColor.a);
-
 				return col;
 			}
 

@@ -66,6 +66,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FaderOffset: 0.39
+    - _Falloff: 0.12
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -75,11 +76,11 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _ScreenUV_X: 535
-    - _ScreenUV_Y: 301
+    - _ScreenUV_X: 369
+    - _ScreenUV_Y: 208
     - _SmoothnessTextureChannel: 0
-    - _SourcePos_X: 164.5339
-    - _SourcePos_Y: 150.5
+    - _SourcePos_X: 184.5
+    - _SourcePos_Y: 104
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0

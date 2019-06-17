@@ -20,7 +20,8 @@
 		_Radius("Radius", Float) = 0
 
 		_FaderOffset("Fader Vertical Offset", Range(0,1)) = 0
-		_MaximumOpacity("Maximum Opacity", Range(0,1)) = 0
+		//_MaximumOpacity("Maximum Opacity", Range(0,1)) = 0
+		_Falloff(" Opacity fadeOff", Float) = 0
 
 	}
 	SubShader
@@ -66,8 +67,8 @@
 			float _Radius;
 			float _FaderOffset;
 			float _MaximumOpacity;
-			//float _AdditionalPositions[50];
-
+			float _Falloff;
+			
 			
 			v2f vert (appdata v)
 			{
@@ -161,6 +162,7 @@
 			float _ScreenUV_Y;
 			float _FaderOffset;
 			float _MaximumOpacity;
+			float _Falloff;
 
 			v2f vert(appdata v)
 			{
@@ -183,10 +185,29 @@
 
 				fixed4 foregroundColor = tex2D(_ForegroundRenderTexture, i.uv);
 
-				if (i.vertex.y > _ScreenUV_Y *(1 - _FaderOffset) && foregroundColor.a > 0)
+				//if (i.vertex.y > _ScreenUV_Y *(1 - _FaderOffset) && foregroundColor.a > 0)
+				//{
+				//	foregroundColor.a = _MaximumOpacity * ((i.vertex.y - _ScreenUV_Y * (1 - _FaderOffset)) / (_ScreenUV_Y * (1 - _FaderOffset)));
+				//}
+
+				float2 coord = (i.uv - 0.5) * _ScreenUV_X / _ScreenUV_Y * 2;
+				float rf = sqrt(dot(coord, coord)) * _Falloff;
+				float rf2_1 = rf * rf + 1.0;
+				float e = 1.0 / (rf2_1 * rf2_1 * rf2_1 * rf2_1);
+
+				if (e < 1.0f)
 				{
-					foregroundColor.a = _MaximumOpacity * ((i.vertex.y - _ScreenUV_Y * (1 - _FaderOffset)) / (_ScreenUV_Y * (1 - _FaderOffset)));
+					//foregroundColor.a *= 15.0f;
+					foregroundColor.a *= (1 - e);
+					//foregroundColor.a *= 2.0f;
 				}
+				else {
+					foregroundColor.a = 0.0f;
+				}
+				//return fixed4(col.rgb * e, col.a);
+				//foregroundColor.a = (1-e);
+				//col *= foregroundColor;
+				
 
 				//col *= foregroundColor;
 				collectablesColor = lerp(collectablesColor, foregroundColor, foregroundColor.a);
