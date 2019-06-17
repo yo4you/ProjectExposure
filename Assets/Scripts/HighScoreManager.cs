@@ -52,24 +52,24 @@ internal class HighScoreManager
 			strinBuilder.AppendLine(account.ToCSV());
 		}
 
-		// 		using (FileStream fileStrean = File.Create(_directory))
-		// 		{
-		// 			fileStrean.wri
-		// 		}
 		File.WriteAllText(_directory, strinBuilder.ToString());
 	}
 
-	private void Load(ref List<PlayerAccount> accounts)
+	public void Load(ref List<PlayerAccount> accounts)
 	{
 		accounts = new List<PlayerAccount>();
 		var content = File.ReadAllText(_directory);
 		using (StringReader reader = new StringReader(content))
 		{
-			string line = line = reader.ReadLine();
-			while (line != null)
+
+			var line = "";
+			do
 			{
+				line = reader.ReadLine();
+				if (line == null)
+					break;
 				accounts.Add(PlayerAccount.FromCSV(line));
-			}
+			} while (true);
 		}
 	}
 }
