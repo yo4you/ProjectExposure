@@ -26,6 +26,7 @@ public class ShrimpController : MonoBehaviour
 	private float _hideDist;
 	[SerializeField]
 	private float _digDepth;
+	private Animator _animator;
 
 	public MovementState State
 	{
@@ -37,17 +38,20 @@ public class ShrimpController : MonoBehaviour
 		}
 	}
 
+
+	private void Start()
+	{
+		FindObjectOfType<LevelMaterialFixer>().OnGenerationComplete += Spawn;
+		_animator = GetComponentInChildren<Animator>();
+	}
+
 	private void SwitchState(MovementState value)
 	{
 		if (value == MovementState.IDLE)
 		{
 			OnBubblePop?.Invoke(transform.position);
+			_animator.Play("Bubble");
 		}
-	}
-
-	private void Start()
-	{
-		FindObjectOfType<LevelMaterialFixer>().OnGenerationComplete += Spawn;
 	}
 
 	private void Spawn()
@@ -76,6 +80,9 @@ public class ShrimpController : MonoBehaviour
 
 	private void Approach(Vector3 target)
 	{
+
+		_animator.Play(target.y > transform.position.y ? "WalkForward" : "WalkBackward");
+
 		_moveTime += Time.deltaTime * _moveSpeed / _dist;
 		transform.position = Vector3.Lerp(_start, target, _moveTime);
 		//todo correct Z

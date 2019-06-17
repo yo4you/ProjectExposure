@@ -8,8 +8,8 @@ class Polygon : IEquatable<Polygon>
 	public List<Vector2> Vertices { get; set; } = new List<Vector2>();
 
 	public Vector2 Centre { get; set; }
-	public bool IsWall { get; set; } = false;
-
+	public bool IsBackGround { get; set; } = true;
+	public BIOMES Biome { get; internal set; }
 	internal Node<Polygon> Node { get; set; }
 
 	public void AddVertex(Vector2 vert)

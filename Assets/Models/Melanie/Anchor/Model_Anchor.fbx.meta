@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: b612ef2b3e97d6b4bbdf37a411a963b7
+guid: eb22f695ae8b8564180553eb3e60e399
 ModelImporter:
   serializedVersion: 27
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: AnchorMaterial
-    second: {fileID: 2100000, guid: 3e76728517ba73344bd08006c2c7fe3c, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0

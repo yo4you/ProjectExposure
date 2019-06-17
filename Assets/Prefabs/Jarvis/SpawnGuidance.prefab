@@ -60,9 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a0df9c41a1efb4e8571475e7b50cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tilesPerNode: 8
-  _guidingSpokes: 20
-  _guideSpawnPrefab: {fileID: 3046540772135254781, guid: 13824f619c7bb774fbbd84832ff062f4,
+  _tilesPerNode: 10
+  _guidingSpokes: 15
+  _guideSpawnPrefab: {fileID: 5078077322940546211, guid: 0eb2d3d3a7feb4b42bdbed8f10a8e1a5,
     type: 3}
   _pickupSpawnPrefab: {fileID: 1157061883471260, guid: f7580588cf549d847b490158a0b092ec,
     type: 3}
@@ -82,21 +82,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _floorObjects:
-  - {fileID: -927199367670048503, guid: b612ef2b3e97d6b4bbdf37a411a963b7, type: 3}
-  - {fileID: -927199367670048503, guid: 56d65323922ddf94391ba53df75461b7, type: 3}
-  - {fileID: -927199367670048503, guid: 2d2b19b3d032686449d55fa6dffc2742, type: 3}
-  - {fileID: -927199367670048503, guid: a1c2011f379c036499d25d7db2a9b0f2, type: 3}
-  - {fileID: -927199367670048503, guid: a842cae1707120e45a0a622859e84777, type: 3}
-  - {fileID: -927199367670048503, guid: f63334cfb33489d42803907371ce05b3, type: 3}
-  - {fileID: -927199367670048503, guid: c146f4bc674197c468d67133d7b31bff, type: 3}
-  - {fileID: -927199367670048503, guid: 54b861d2ec9ab2d44961e31df0f67843, type: 3}
+  - {fileID: 8796577413643015501, guid: 0b8b0b01029daee448db768bcc25d8a7, type: 3}
+  - {fileID: 4316204065989485936, guid: cc3b735ed07cc584eb83a82a78a41d24, type: 3}
+  - {fileID: 993433756316803881, guid: 65951ba9cb4985742bf2e06a896edb90, type: 3}
+  - {fileID: 8615667558394236383, guid: 69047319f4326314e8a31d2dd5d75d65, type: 3}
+  - {fileID: 9146530475758843392, guid: 6cf07ecda1d4e5a4b9002e4b3ffb2712, type: 3}
   _backObjects:
-  - {fileID: -927199367670048503, guid: a842cae1707120e45a0a622859e84777, type: 3}
-  - {fileID: -927199367670048503, guid: a1c2011f379c036499d25d7db2a9b0f2, type: 3}
-  - {fileID: -927199367670048503, guid: caf3eb34a289eb342b503dff358bc052, type: 3}
+  - {fileID: 7690703192564410622, guid: 25e8a6a27ae5cfe41970674843e9fb89, type: 3}
+  - {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92, type: 3}
+  - {fileID: 4316204065989485936, guid: cc3b735ed07cc584eb83a82a78a41d24, type: 3}
+  - {fileID: 4234436950038953759, guid: e19114121f6e5e54bb11dc6fb20bbec2, type: 3}
+  - {fileID: 9207781060890238528, guid: 9c58e49dc22294540af031494277f971, type: 3}
   _ceilingObjects:
-  - {fileID: -927199367670048503, guid: 6ebcb52a28b5be0468cb1a1fe565ccd4, type: 3}
+  - {fileID: 8796577413643015501, guid: 0b8b0b01029daee448db768bcc25d8a7, type: 3}
   _mask:
     serializedVersion: 2
     m_Bits: 8192
   _chanceToSpawn: 10
+  _decorations:
+  - _prefab: {fileID: 4906533897280263287, guid: c12ae656287912642ac6deaaeaa492ab,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 0
+    _coral: 1
+    _trash: 0
+    _algae: 0
+  - _prefab: {fileID: 4316204065989485936, guid: cc3b735ed07cc584eb83a82a78a41d24,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 1
+    _normal: 0
+    _coral: 1
+    _trash: 0
+    _algae: 0
+  - _prefab: {fileID: 7690703192564410622, guid: 25e8a6a27ae5cfe41970674843e9fb89,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 0
+    _normal: 0
+    _coral: 1
+    _trash: 0
+    _algae: 0
+  - _prefab: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 0
+    _normal: 0
+    _coral: 1
+    _trash: 0
+    _algae: 0
+  - _prefab: {fileID: 8615667558394236383, guid: 69047319f4326314e8a31d2dd5d75d65,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 0
+    _coral: 1
+    _trash: 0
+    _algae: 0
+  - _prefab: {fileID: 3505207058778812987, guid: 0d3c77f2dbe6ec4478b915c707dd2d10,
+      type: 3}
+    _background: 0
+    _roof: 1
+    _floor: 1
+    _normal: 0
+    _coral: 1
+    _trash: 0
+    _algae: 0
+  - _prefab: {fileID: 8796577413643015501, guid: 0b8b0b01029daee448db768bcc25d8a7,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 0
+    _coral: 1
+    _trash: 0
+    _algae: 0
+  - _prefab: {fileID: 993433756316803881, guid: 65951ba9cb4985742bf2e06a896edb90,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 0
+    _coral: 1
+    _trash: 0
+    _algae: 0
+  - _prefab: {fileID: 9146530475758843392, guid: 6cf07ecda1d4e5a4b9002e4b3ffb2712,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 0
+    _coral: 1
+    _trash: 0
+    _algae: 0

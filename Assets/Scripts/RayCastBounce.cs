@@ -18,7 +18,8 @@ public class RayCastBounce : MonoBehaviour
 	[SerializeField] private GameObject particleBounce;
 	[SerializeField] private GameObject rippleBackgroundQuad;
 	[SerializeField] private GameObject sobelLightSource;
-	[SerializeField] private GameObject particleTappingObject;
+	[SerializeField]
+	private LayerMask _layerMask;
 
     public delegate void BouncedOffWalls(Vector3 position);
 	public static event BouncedOffWalls OnWaveBounced;
@@ -54,7 +55,7 @@ public class RayCastBounce : MonoBehaviour
 	private void _shrimp_OnBubblePop(Vector3 clickPos)
 	{
 
-		
+
 
 		//clickPos = new Vector3(clickPos.x, clickPos.y, rippleBackgroundQuad.transform.position.z);
 
@@ -110,13 +111,7 @@ public class RayCastBounce : MonoBehaviour
 			Vector3 clickPos = Vector3.zero;
 			RaycastHit hit;
 
-
-            Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            GameObject circleUI = Instantiate(particleTappingObject, mousePosition, Quaternion.identity);
-            circleUI.GetComponent<ParticleSystem>()?.Play();
-
-            if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+			if (Physics.Raycast(castPoint, out hit, Mathf.Infinity, _layerMask))
 			{
 				clickPos = hit.point;
 				if (hit.point.z < rippleBackgroundQuad.transform.position.z)

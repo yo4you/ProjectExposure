@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4741065722651017164}
   - component: {fileID: 4364164617269396986}
   - component: {fileID: 8046852760364136707}
+  - component: {fileID: 868171787}
   m_Layer: 0
-  m_Name: Model_helmet
+  m_Name: Prefab_helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &868171787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8615667558394236383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64b1ee29f6b3c4eb8b1bd90026c4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationRange: {x: 30, y: 30, z: 180}

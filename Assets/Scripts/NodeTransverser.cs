@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class NodeTransverser : MonoBehaviour
@@ -31,19 +32,59 @@ public class NodeTransverser : MonoBehaviour
 
 	public float PlayerZ => _playerZ;
 
+	private Quaternion _baseRotationRight;
+	private Quaternion _baseRotationLeft;
+	private Animator _animation;
+	private Coroutine _resetRoutine;
+	[SerializeField]
+	private float _resetRotationSpeed = 5f;
+	private bool _pathComplete = true;
 
 	private void Start()
 	{
+		_baseRotationRight = transform.GetChild(0).transform.rotation;
 		_generator = FindObjectOfType<VoronoiGenerator>();
 		_actor = FindObjectOfType<NodeGraphActor>();
+		_baseRotationLeft = _baseRotationRight * Quaternion.Euler(180, 0, 0);
+		_animation = transform.GetChild(0).GetChild(0).GetComponent<Animator>();
 	}
 
 	public void EngagePath()
 	{
+		_animation.SetBool("Swim", true);
+		_animation.SetBool("Idle", false);
+
+		if (_resetRoutine != null)
+		{
+			StopCoroutine(_resetRoutine);
+		}
+
 		OptimizePath();
 		SmoothPath();
 		//StartCoroutine(StartEngagePath());
 		StartCoroutine(StartEngageSmoothPath());
+		OnPathResolve += ResetRotation;
+	}
+
+	private void ResetRotation()
+	{
+		_resetRoutine = StartCoroutine(StartResetRotation());
+	}
+
+	private IEnumerator StartResetRotation()
+	{
+		yield return new WaitForSeconds(0.5f);
+		var rotation = _baseRotationLeft;
+
+		if (transform.GetChild(0).TransformVector(Vector3.up).x > 0)
+			rotation = _baseRotationRight;
+		var startRot = transform.GetChild(0).transform.rotation;
+		for (float t = 0; t < 1f; t += Time.deltaTime * _resetRotationSpeed)
+		{
+			transform.GetChild(0).transform.rotation = Quaternion.Slerp(startRot, rotation, t);
+			yield return new WaitForEndOfFrame();
+
+		}
 	}
 
 	private void SmoothPath()
@@ -55,18 +96,21 @@ public class NodeTransverser : MonoBehaviour
 		{
 			if (!pathlist[i - 1].ConnectionAngles.Values.Contains(pathlist[i]))
 			{
+				_pathComplete = false;
 				return;
 			}
 			var displacement0 = pathlist[i].Data.Centre - pathlist[i - 1].Data.Centre;
 			SmoothedPath.Enqueue(pathlist[i - 1].Data.Centre + displacement0 * _cornerSmoothing);
 			var displacement1 = pathlist[i + 1].Data.Centre - pathlist[i].Data.Centre;
-			if (!pathlist[i].ConnectionAngles.Values.Contains(pathlist[i+1]))
+			if (!pathlist[i].ConnectionAngles.Values.Contains(pathlist[i + 1]))
 			{
+				_pathComplete = false;
 				return;
 			}
 			SmoothedPath.Enqueue(pathlist[i].Data.Centre + displacement1 * (1f - _cornerSmoothing));
 		}
 		SmoothedPath.Enqueue(pathlist[pathlist.Count - 1].Data.Centre);
+		_pathComplete = true;
 	}
 
 	private void OptimizePath()
@@ -106,8 +150,11 @@ public class NodeTransverser : MonoBehaviour
 		float dist = Vector2.Distance(start, next);
 		if (dist == 0)
 		{
- 			if (SmoothedPath.Count == 0)
- 				goto end;
+			if (SmoothedPath.Count == 0)
+			{
+				goto end;
+			}
+
 			start = next;
 			next = SmoothedPath.Dequeue();
 			goto start;
@@ -147,78 +194,21 @@ public class NodeTransverser : MonoBehaviour
 			t -= 1f;
 			start = next;
 			next = SmoothedPath.Dequeue();
-			// 			if (!start.ConnectionAngles.Values.Contains(next))
-			// 			{
-			// 				OnPathResolve?.Invoke();
-			// 				yield break;
-			// 			}
+			
 		}
 		goto start;
 
 	end:
 		OnPathResolve?.Invoke();
+		_animation.SetBool("Swim", false);
+		_animation.SetBool("Idle", true);
+
+		if(!_pathComplete)
+			_animation.Play("Hit");
+		
 		yield return null;
 	}
 
-
-	private IEnumerator StartEngagePath()
-	{
-		if (Path.Count == 0)
-		{
-			yield break;
-		}
-
-		var start = _actor.CurrentNode;
-		var next = Path.Dequeue();
-		float t = 0f;
-
-	start:
-		t += Time.deltaTime * _speed;
-		var pos = Vector3.Lerp(start.Data.Centre, next.Data.Centre, t);
-		pos.z = _playerZ;
-		transform.position = pos;
-
-		//rotation
-		Vector3 lookTarget = DirectionApproxiomate(transform.position, Path.ToList());
-		lookTarget.z = transform.position.z;
-
-		var targetRotation = Quaternion.LookRotation(lookTarget, Vector3.forward);
-		var directionVector = targetRotation * Vector3.forward;
-		if (directionVector.x > 0)
-		{
-			var euler = targetRotation.eulerAngles;
-			euler.x += 180f;
-			euler.z = 180f - euler.z;
-			targetRotation.eulerAngles = euler;
-		}
-
-		transform.GetChild(0).rotation = Quaternion.RotateTowards(transform.GetChild(0).rotation, targetRotation, Time.deltaTime * _rotationSpeed);
-
-		yield return new WaitForEndOfFrame();
-		if (t > 1f)
-		{
-			_actor.CurrentNode = next;
-
-			if (_path.Count == 0)
-			{
-				goto end;
-			}
-
-			t -= 1f;
-			start = next;
-			next = _path.Dequeue();
-			if (!start.ConnectionAngles.Values.Contains(next))
-			{
-				OnPathResolve?.Invoke();
-				yield break;
-			}
-		}
-		goto start;
-
-	end:
-		OnPathResolve?.Invoke();
-		yield return null;
-	}
 
 	internal void RandomPath()
 	{
@@ -244,7 +234,7 @@ public class NodeTransverser : MonoBehaviour
 				continue;
 			}
 
-			if (child.Data.IsWall && dist > Vector2.SqrMagnitude(pos - child.Data.Centre))
+			if (child.Data.IsBackGround && dist > Vector2.SqrMagnitude(pos - child.Data.Centre))
 			//if (child.Data.IsWall && dist > (pos - child.Data.Centre).magnitude)
 			{
 				return false;
@@ -263,7 +253,7 @@ public class NodeTransverser : MonoBehaviour
 
 		foreach (var item in root.ConnectionAngles)
 		{
-			if (!item.Value.Data.IsWall || Mathf.DeltaAngle(angle, item.Key) > 90 || visited.Contains(item.Value))
+			if (!item.Value.Data.IsBackGround || Mathf.DeltaAngle(angle, item.Key) > 90 || visited.Contains(item.Value))
 			{
 				continue;
 			}
@@ -306,7 +296,7 @@ public class NodeTransverser : MonoBehaviour
 			foreach (var subdibpoint in subdivPoints)
 			{
 				var next = voronoi.Polygons.Aggregate((min, nextItem) =>
-				Vector2.SqrMagnitude(subdibpoint - min.Centre) < Vector2.SqrMagnitude(subdibpoint - nextItem.Centre) || !nextItem.IsWall ? min : nextItem).Node;
+				Vector2.SqrMagnitude(subdibpoint - min.Centre) < Vector2.SqrMagnitude(subdibpoint - nextItem.Centre) || !nextItem.IsBackGround ? min : nextItem).Node;
 				Path.Enqueue(next);
 			}
 
