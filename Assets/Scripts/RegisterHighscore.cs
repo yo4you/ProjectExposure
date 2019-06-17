@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RegisterHighscore : MonoBehaviour
 {
 	public void Register()
 	{
 		var playerAccount = new PlayerAccount(
-			name : FindObjectOfType<ShowVirtualKeyboard>().Text,
+			name: FindObjectOfType<ShowVirtualKeyboard>().Text,
 			score: PlayerPrefs.GetInt("score"),
 			male: PlayerPrefs.GetInt("Male") == 1,
 			age: PlayerPrefs.GetInt("Age")
