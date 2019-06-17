@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class GenderSelector : MonoBehaviour
 {
-	public bool Male { get; set; } = true;
-	void SetMale(bool male)
+	private void Start()
 	{
-		Male = male;
+		PlayerPrefs.SetInt("Male", 1);
+
+	}
+	public void SetMale(bool male)
+	{
+		PlayerPrefs.SetInt("Male", male ?  1 : 0);
 	}
 }

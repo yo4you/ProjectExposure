@@ -9,8 +9,8 @@ public class RegisterHighscore : MonoBehaviour
 		var playerAccount = new PlayerAccount(
 			name : FindObjectOfType<ShowVirtualKeyboard>().Text,
 			score: PlayerPrefs.GetInt("score"),
-			male: FindObjectOfType<GenderSelector>().Male,
-			age: FindObjectOfType<AgeSelector>().Age
+			male: PlayerPrefs.GetInt("Male") == 1,
+			age: PlayerPrefs.GetInt("Age")
 			);
 
 		var highScoreManager = new HighScoreManager();
