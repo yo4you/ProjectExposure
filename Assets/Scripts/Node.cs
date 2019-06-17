@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Node<T> : IEquatable<Node<T>> where T : IEquatable<T>
@@ -20,4 +21,5 @@ public class Node<T> : IEquatable<Node<T>> where T : IEquatable<T>
 		return other.Data.Equals(Data);
 	}
 
+	
 }

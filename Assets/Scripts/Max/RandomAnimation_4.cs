@@ -38,12 +38,12 @@ public class RandomAnimation_4 : StateMachineBehaviour
     override public void OnStateMachineEnter(Animator animator, int stateMachinePathHash)
     {
         animator.SetInteger("randomAccId", Random.Range(0, 3));
-        Debug.Log("OnStateMachineEnter");
+        //Debug.Log("OnStateMachineEnter");
     }
 
     // OnStateMachineExit is called when exiting a state machine via its Exit Node
     override public void OnStateMachineExit(Animator animator, int stateMachinePathHash)
     {
-        Debug.Log("OnStateMachineExit");
+      //  Debug.Log("OnStateMachineExit");
     }
 }

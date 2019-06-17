@@ -6,7 +6,7 @@ public class SetPlayerSpawnPos : MonoBehaviour
 	private VoronoiGenerator _voronoi;
 
 	internal Polygon SpawningPoly { get; set; }
-	bool _spawned = true;
+	private bool _spawned = true;
 	private int[] _levelSeeds =
 		{
 		5071,
@@ -29,6 +29,11 @@ public class SetPlayerSpawnPos : MonoBehaviour
 
 	private void Spawn()
 	{
+		Respawn();
+		_spawned = false;
+	}
+	public void Respawn()
+	{
 		_voronoi = FindObjectOfType<VoronoiGenerator>();
 		// get a random poly as a starting point
 		int randIndex;
@@ -37,15 +42,16 @@ public class SetPlayerSpawnPos : MonoBehaviour
 		{
 			//randIndex = Random.Range(0, _voronoi.Polygons.Count);
 			randIndex = _levelSeeds[Random.Range(0, _levelSeeds.Length)];
-
 			poly = _voronoi.Polygons[randIndex];
 			// keep picking random polies till we find a valid spawn position
 		} while (!IsValidSpawn(poly));
-		Debug.Log(randIndex);
+		//Debug.Log(randIndex);
 		SpawningPoly = poly;
+		var actor = GetComponent<NodeGraphActor>();
+		actor.CurrentNode = poly.Node;
 		transform.position = new Vector3(poly.Centre.x, poly.Centre.y, transform.position.z);
-		_spawned = false;
 	}
+
 	private void Update()
 	{
 
@@ -58,16 +64,16 @@ public class SetPlayerSpawnPos : MonoBehaviour
 				_spawned = true;
 			}
 		}
-
 	}
+
 	private bool IsValidSpawn(Polygon poly)
 	{
-		if (!poly.IsWall)
+		if (!poly.IsBackGround)
 		{
 			return false;
 		}
 
-		return !poly.Node.ConnectionAngles.Values.All((i) => i.ConnectionAngles.Values.All((j) => !j.Data.IsWall));
+		return !poly.Node.ConnectionAngles.Values.All((i) => i.ConnectionAngles.Values.All((j) => !j.Data.IsBackGround));
 	}
 
 

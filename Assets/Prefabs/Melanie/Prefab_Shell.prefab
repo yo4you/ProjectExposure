@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 907726153040186636}
   - component: {fileID: 8197644921143162682}
   - component: {fileID: 2521853012659276739}
+  - component: {fileID: 6649788652709781651}
   m_Layer: 0
   m_Name: Prefab_Shell
   m_TagString: Untagged
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6649788652709781651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4234436950038953759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64b1ee29f6b3c4eb8b1bd90026c4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationRange: {x: 0, y: 180, z: 0}
