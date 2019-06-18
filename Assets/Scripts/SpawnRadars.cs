@@ -23,31 +23,33 @@ public class SpawnRadars : MonoBehaviour
 	// Use this for initialization
 	private void Start()
 	{
-		FindObjectOfType<ShrimpController>().OnBubblePop += SpawnRadars_OnBubblePop; ;
+		FindObjectOfType<ShrimpController>().OnBubblePop += SpawnRadars_OnBubblePop;
 		started = true;
 		_mousetracker = FindObjectOfType<CanvasMouseTracker>();
 	}
 
-	private void SpawnRadars_OnBubblePop(Vector3 pos)
+   
+
+    private void SpawnRadars_OnBubblePop(Vector3 pos)
 	{
 
 		OnScannerPlaced?.Invoke();
 
 		//spawn UI for big circle
-		GameObject bigcircleUI = Instantiate(bigcircleObject, Camera.main.WorldToScreenPoint(new Vector3(
-			pos.x,
-			pos.y,
-			0)),
-			Quaternion.identity);
-		bigcircleUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas_SS").transform, true);
+		//GameObject bigcircleUI = Instantiate(bigcircleObject, Camera.main.WorldToScreenPoint(new Vector3(
+		//	pos.x,
+		//	pos.y,
+		//	0)),
+		//	Quaternion.identity);
+		//bigcircleUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas_SS").transform, true);
 
 
 
-		Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
-		mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-		GameObject circleUI = Instantiate(particleTappingObject, mousePosition, Quaternion.identity);
-		circleUI.GetComponent<ParticleSystem>()?.Play();
+		//Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
+		//mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        //
+		//GameObject circleUI = Instantiate(particleTappingObject, mousePosition, Quaternion.identity);
+		//circleUI.GetComponent<ParticleSystem>()?.Play();
 
 		lightSpawned = false;
 

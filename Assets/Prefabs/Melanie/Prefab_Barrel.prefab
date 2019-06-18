@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8135299578439118165}
   - component: {fileID: 2583635405382635948}
   - component: {fileID: 1850182399}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Prefab_Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

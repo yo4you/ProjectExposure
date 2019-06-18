@@ -18909,7 +18909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FocusTracksTarget: 0
   m_FocusOffset: 0
-  m_Profile: {fileID: 11400000, guid: 9ff9b3ae0151bc94d8c95ac058b68dfc, type: 2}
+  m_Profile: {fileID: 11400000, guid: cc635c0d2a312f94883c1d9b6e6683c1, type: 2}
 --- !u!114 &1090310511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20478,11 +20478,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2012561859}
     m_Modifications:
-    - target: {fileID: 4777576080880880087, guid: 2c57a5ca204e6f24ab4a135fde5a437c,
-        type: 3}
-      propertyPath: m_Name
-      value: Prefab_Cutscene_Info
-      objectReference: {fileID: 0}
     - target: {fileID: 3967407389979332833, guid: 2c57a5ca204e6f24ab4a135fde5a437c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20587,6 +20582,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4777576080880880087, guid: 2c57a5ca204e6f24ab4a135fde5a437c,
+        type: 3}
+      propertyPath: m_Name
+      value: Prefab_Cutscene_Info
       objectReference: {fileID: 0}
     - target: {fileID: 3408337223652032402, guid: 2c57a5ca204e6f24ab4a135fde5a437c,
         type: 3}
@@ -33837,7 +33837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FocusTracksTarget: 0
   m_FocusOffset: 0
-  m_Profile: {fileID: 11400000, guid: 081c434957921a34cbc9c6dd9adb4c6d, type: 2}
+  m_Profile: {fileID: 11400000, guid: ed4b7e4edd53a0f4c8eac8d98d906f15, type: 2}
 --- !u!114 &2103880313
 MonoBehaviour:
   m_ObjectHideFlags: 0

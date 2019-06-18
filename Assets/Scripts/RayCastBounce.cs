@@ -21,7 +21,7 @@ public class RayCastBounce : MonoBehaviour
 	[SerializeField]
 	private LayerMask _layerMask;
 
-	public delegate void BouncedOffWalls(Vector3 position);
+    public delegate void BouncedOffWalls(Vector3 position);
 	public static event BouncedOffWalls OnWaveBounced;
 
 	private bool _isActive = false;

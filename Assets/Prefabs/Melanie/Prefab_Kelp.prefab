@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8909422264205326878}
   - component: {fileID: 2925133257385297639}
   - component: {fileID: 1198265545}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Prefab_Kelp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
