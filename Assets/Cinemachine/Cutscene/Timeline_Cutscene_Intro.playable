@@ -1318,7 +1318,7 @@ MonoBehaviour:
     m_Start: 39.416666666666664
     m_ClipIn: 0
     m_Asset: {fileID: 4529215752035129260}
-    m_Duration: 2.383333333333333
+    m_Duration: 2.4833333333333343
     m_TimeScale: 1
     m_ParentTrack: {fileID: -7749776835761278366}
     m_EaseInDuration: 0
@@ -22856,15 +22856,15 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: CM vcam2
   - m_Version: 1
-    m_Start: 39.18333333333333
+    m_Start: 38.233333333333334
     m_ClipIn: 0
     m_Asset: {fileID: -8802039341559282887}
-    m_Duration: 8.5
+    m_Duration: 9.449999999999996
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8432121902789827991}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 1.5333333333333385
+    m_BlendInDuration: 1.3833333333333329
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -22910,13 +22910,13 @@ MonoBehaviour:
     m_Start: 32.4
     m_ClipIn: 0
     m_Asset: {fileID: 2037887957768901762}
-    m_Duration: 8.31666666666667
+    m_Duration: 7.216666666666669
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8432121902789827991}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 1.5333333333333385
+    m_BlendOutDuration: 1.3833333333333329
     m_MixInCurve:
       serializedVersion: 2
       m_Curve: []
@@ -23090,25 +23090,7 @@ MonoBehaviour:
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -23490,7 +23472,7 @@ MonoBehaviour:
     m_Start: 36.400001525878906
     m_ClipIn: 0
     m_Asset: {fileID: -2028719034818980110}
-    m_Duration: 2.2666666666666666
+    m_Duration: 1.899998474121091
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8989371148606040670}
     m_EaseInDuration: 0
