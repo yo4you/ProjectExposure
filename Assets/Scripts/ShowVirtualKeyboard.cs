@@ -20,15 +20,15 @@ public class ShowVirtualKeyboard : MonoBehaviour, ISelectHandler, IDeselectHandl
 
 		//HighScoreManager hs = new HighScoreManager();
 		_virtualKeyboard = new VirtualKeyboard();
-		_virtualKeyboard.HideTouchKeyboard();
-		_virtualKeyboard.ShowTouchKeyboard();
+// 		_virtualKeyboard.HideTouchKeyboard();
+// 		_virtualKeyboard.ShowTouchKeyboard();
 
 		_field = GetComponent<InputField>();
 		GetComponent<InputField>().onEndEdit.AddListener((i) =>
 		{
 			_virtualKeyboard.HideTouchKeyboard();
-			Text = _field.text;
-
+			//Text = _field.text;
+			PlayerPrefs.SetString("Name", _field.text);
 		});
 	}
 

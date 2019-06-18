@@ -91,11 +91,19 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Radius: 0.27
+<<<<<<< HEAD
+    - _ScreenUV_X: 611
+    - _ScreenUV_Y: 344
+    - _SmoothnessTextureChannel: 0
+    - _SourcePos_X: 305.5
+    - _SourcePos_Y: 172
+=======
     - _ScreenUV_X: 535
     - _ScreenUV_Y: 301
     - _SmoothnessTextureChannel: 0
     - _SourcePos_X: 267.5
     - _SourcePos_Y: 150.5
+>>>>>>> origin/gen
     - _SpecularHighlights: 1
     - _SrcBlend: 5
     - _UVSec: 0

@@ -5,11 +5,9 @@ using UnityEngine;
 public class BindUberShaderValues : MonoBehaviour {
 
 
-    GameObject player;
 
 	// Use this for initialization
 	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player");
 
 	}
 	

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 9063172002582103811}
   - component: {fileID: 44433833250209077}
   - component: {fileID: 6026191504163783116}
-  m_Layer: 0
-  m_Name: Model_Seaweed
+  m_Layer: 13
+  m_Name: Prefab_Seaweed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

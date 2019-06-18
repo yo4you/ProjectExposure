@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4292558695632720186}
   - component: {fileID: 5100676064057551628}
   - component: {fileID: 1582369513653344245}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Prefab_Tire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

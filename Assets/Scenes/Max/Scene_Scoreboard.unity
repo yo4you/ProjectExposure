@@ -1174,6 +1174,8 @@ MonoBehaviour:
   _accountPrefab: {fileID: 4390665028887134777, guid: a4dd0cf32ea6c864aaeff61fd2bf61da,
     type: 3}
   _distance: 20
+  _daily: 0
+  _accounts: 10
 --- !u!1 &83158280
 GameObject:
   m_ObjectHideFlags: 0

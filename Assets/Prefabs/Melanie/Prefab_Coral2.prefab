@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2932470033880902619}
   - component: {fileID: 8903247706935858978}
   - component: {fileID: 1417576445}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Prefab_Coral2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
