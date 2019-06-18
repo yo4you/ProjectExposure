@@ -9,9 +9,10 @@ public class RayCastBounce : MonoBehaviour
 	[SerializeField] private float _maxDistance = 10f;
 	[SerializeField] private int _raysCount = 6;
 	[SerializeField] private float _lightScannerDepth = -10;
-	//[SerializeField] bool _drawRays = false;
+    [SerializeField] private float _minimumDistanceInBetweenRipples = 3.0f;
+    //[SerializeField] bool _drawRays = false;
 
-	[SerializeField] private GameObject targetObject;
+    [SerializeField] private GameObject targetObject;
 	[SerializeField] private GameObject line;
 	[SerializeField] private GameObject trailObject;
 	[SerializeField] private GameObject particleAroundOrigin;
@@ -29,13 +30,17 @@ public class RayCastBounce : MonoBehaviour
 	private List<GameObject> _lineRenderers = new List<GameObject>();
 	private List<GameObject> _trails = new List<GameObject>();
 	private List<List<Vector3>> _trailsPoints = new List<List<Vector3>>();
-	private Vector3 _directionV = Vector3.zero;
+	private List<Vector3> _middlePoints = new List<Vector3>();
+    private Vector3 _directionV = Vector3.zero;
 	private Vector3 _orthoLine = Vector3.zero;
 	private Vector3 _clickedPos = Vector3.zero;
 	private ShrimpController _shrimp;
 	private CanvasMouseTracker _mousetracker;
 
-	private void Start()
+    List<bool> trailsIdle = new List<bool>();
+
+    bool startedMovement = false;
+    private void Start()
 	{
 		_shrimp = FindObjectOfType<ShrimpController>();
 		_shrimp.OnBubblePop += _shrimp_OnBubblePop;
@@ -49,7 +54,10 @@ public class RayCastBounce : MonoBehaviour
 			_trails.Add(Instantiate(trailObject));
 			_trails[i].transform.position = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y, rippleBackgroundQuad.transform.position.z);
 			_trailsPoints.Add(new List<Vector3>());
-		}
+            _middlePoints.Add(new Vector3());
+            trailsIdle.Add(true);
+
+        }
 	}
 
 	private void _shrimp_OnBubblePop(Vector3 clickPos)
@@ -74,7 +82,7 @@ public class RayCastBounce : MonoBehaviour
 		for (int i = 0; i < _raysCount; i++)
 		{
 			StartCoroutine(ResetTrailRenderer(_trails[i].GetComponent<TrailRenderer>()));
-			_trails[i].transform.position = clickPos;
+			_trails[i].transform.position = new Vector3(clickPos.x, clickPos.y, rippleBackgroundQuad.transform.position.z);
 			_trailsPoints[i].Clear();
 		}
 
@@ -118,6 +126,15 @@ public class RayCastBounce : MonoBehaviour
 				{
 					return;
 				}
+
+                startedMovement = false;
+
+                for (int i = 0; i < _trails.Count; i++)
+                {
+                    //_trails[i] = Instantiate(trailObject);
+                    trailsIdle[i] = false;
+                    _trails[i].transform.position = new Vector3(clickPos.x, clickPos.y, rippleBackgroundQuad.transform.position.z);
+                }
 			}
 			_shrimp.MoveTo(clickPos);
 
@@ -159,37 +176,61 @@ public class RayCastBounce : MonoBehaviour
 
 	}
 
-	private void SpawnParticlesOnBounce(int index)
-	{
+    private void GenerateMiddlePoint(int trailIndex, int pointIndex)
+    {
+        Vector3 origin = _trails[trailIndex].transform.position;
+        Vector3 dest = _trailsPoints[trailIndex][pointIndex];
+
+        _middlePoints[trailIndex] = new Vector3((dest.x + origin.x)/2, (dest.y + origin.y)/2, rippleBackgroundQuad.transform.position.z);
+        print("Generated middle point for: " + _trails[trailIndex].transform.position + " to " + _trailsPoints[trailIndex][pointIndex] + " in " + _middlePoints[trailIndex]);
+
+    }
+
+    private void SpawnParticlesOnBounce(int index)
+    {
+        if (_trails[index] == null || trailsIdle[index]) return;
+
 		for (int i = 0; i < _trailsPoints[index].Count - 1; i++)
 		{
-			if (Vector3.Distance(_trails[index].transform.position, _trailsPoints[index][i]) < 0.01f)
-			{
+            if (!startedMovement)
+            {
+                GenerateMiddlePoint(index, i);
+                print("Generated middle from start");
+                startedMovement = true;
+            }
 
-				bool lightSpawned = false;
+            //print(_trails[index].transform.position);
+            //if (i == 0) continue;
+            //spawn in between origin and destination
+            
+            print("checking " + _trails[index].transform.position + "with " + _middlePoints[index]);
+            if ( Vector3.Distance(_trailsPoints[index][i+1], _middlePoints[index]) > _minimumDistanceInBetweenRipples 
+                && Vector3.Distance(_trails[index].transform.position, _middlePoints[index]) < 1f)
+            {
+                GameObject particleOnBounce = Instantiate(particleBounce);
+                particleOnBounce.transform.position = _trails[index].transform.position;
+            
+                //OnWaveBounced?.Invoke(_trails[index].transform.position);
+            
+                print("on middle pos");
+            
+                GenerateMiddlePoint(index, i + 1);
+            }
+
+            //spawn when reached the destination
+            if (Vector3.Distance(_trails[index].transform.position, _trailsPoints[index][i]) < 0.01f)
+			{
 
 				GameObject particleOnBounce = Instantiate(particleBounce);
 				particleOnBounce.transform.position = _trails[index].transform.position;
 
 				OnWaveBounced?.Invoke(_trails[index].transform.position);
 
-				/*
-                if (!lightSpawned)
+                if (i == _trailsPoints[index].Count - 2)
                 {
-                    GameObject light = 
-                        Instantiate
-                        (
-                            sobelLightSource, 
-                            new Vector3(
-                                _trails[index].transform.position.x,
-                                _trails[index].transform.position.y, 
-                                _trails[index].transform.position.z + _lightScannerDepth),
-                            Quaternion.identity
-                        );
-
-                    StartCoroutine(ScaleSobelLigthRange(light, 8.0f));
-                    lightSpawned = true;
-                }*/
+                    trailsIdle[index] = true;
+                    print("trail started idling");
+                }
 			}
 
 		}
@@ -253,9 +294,9 @@ public class RayCastBounce : MonoBehaviour
 			RayCast(new Ray(new Vector3(hit.point.x, hit.point.y, rippleBackgroundQuad.transform.position.z), reflectAngle), index);
 			return true;
 		}
-		// _lineRenderers[index].GetComponent<LineRenderer>().positionCount = (_lineBounces[index] + 2);
-		// _lineRenderers[index].GetComponent<LineRenderer>().SetPosition(_lineBounces[index] + 1, ray.GetPoint(_maxDistance));
-		_trailsPoints[index].Add(new Vector3(ray.GetPoint(_maxDistance).x, ray.GetPoint(_maxDistance).y, rippleBackgroundQuad.transform.position.z));
+        // _lineRenderers[index].GetComponent<LineRenderer>().positionCount = (_lineBounces[index] + 2);
+        // _lineRenderers[index].GetComponent<LineRenderer>().SetPosition(_lineBounces[index] + 1, ray.GetPoint(_maxDistance));
+        //if (_lineBounces[index] <= _maxIterations - 1) _trailsPoints[index].Add(new Vector3(ray.GetPoint(_maxDistance).x, ray.GetPoint(_maxDistance).y, rippleBackgroundQuad.transform.position.z));
 
 		return false;
 	}
@@ -293,7 +334,9 @@ public class RayCastBounce : MonoBehaviour
 
 		}
 
+        //_trails[i].transform.position = new Vector3(_shrimp.transform.position.x, _shrimp.transform.position.y, rippleBackgroundQuad.transform.position.z);
 
+        //Destroy(_trails[i]);
 
 	}
 
