@@ -93,7 +93,7 @@
 			{
 				float4 sobelColor = tex2D(_SobelRenderTexture, i.uv);// float2(_ScreenUV_X,_ScreenUV_Y));
 				float4 mainColor = tex2D(_MainRenderTexture, i.uv);// float2(_ScreenUV_X, _ScreenUV_Y));
-				float4 collectablesColor = tex2D(_CollectablesRenderTexture, i.uv);// float2(_ScreenUV_X, _ScreenUV_Y));
+				//float4 collectablesColor = tex2D(_CollectablesRenderTexture, i.uv);// float2(_ScreenUV_X, _ScreenUV_Y));
 
 
 				float2 pointPos = float2(i.vertex.x, i.vertex.y) / float2(_ScreenUV_X , _ScreenUV_Y);
@@ -114,17 +114,6 @@
 
 
 				float4 res = (playerColor);// +elementColor)*0.5f;
-
-				//fixed4 foregroundColor = tex2D(_ForegroundRenderTexture, i.uv);
-				//
-				//if (i.vertex.y > _ScreenUV_Y *(1 - _FaderOffset) && foregroundColor.a > 0)
-				//{
-				//	foregroundColor.a = _MaximumOpacity * ((i.vertex.y - _ScreenUV_Y * (1 - _FaderOffset)) / (_ScreenUV_Y * (1 - _FaderOffset)));
-				//}
-				//
-				////col *= foregroundColor;
-				//res = lerp(res, foregroundColor, foregroundColor.a);
-
 
 				return res;
 			}
@@ -177,11 +166,87 @@
 			float4 frag(v2f i) : SV_Target
 			{
 				float4 collectablesColor = tex2D(_CollectablesRenderTexture, i.uv);
+				fixed4 foregroundColor = tex2D(_ForegroundRenderTexture, i.uv);
 
-				//if (collectablesColor.r == 0 && collectablesColor.g==0 && collectablesColor.b==0)
-				//{
-				//	discard;
-				//}
+				if (collectablesColor.r == 0 && collectablesColor.g==0 && collectablesColor.b==0 && foregroundColor.a == 0)
+				{
+					discard;
+				}
+
+				//
+				////if (i.vertex.y > _ScreenUV_Y *(1 - _FaderOffset) && foregroundColor.a > 0)
+				////{
+				////	foregroundColor.a = _MaximumOpacity * ((i.vertex.y - _ScreenUV_Y * (1 - _FaderOffset)) / (_ScreenUV_Y * (1 - _FaderOffset)));
+				////}
+				//
+				float2 coord = (i.uv - 0.5) * _ScreenUV_X / _ScreenUV_Y * 2;
+				float rf = sqrt(dot(coord, coord)) * _Falloff;
+				float rf2_1 = rf * rf + 1.0;
+				float e = 1.0 / (rf2_1 * rf2_1 * rf2_1 * rf2_1);
+				
+				if (e < 1.0f)
+				{
+					//foregroundColor.a *= 15.0f;
+					foregroundColor.a *= (1 - e);
+					//foregroundColor.a *= 2.0f;
+				}
+				else {
+					foregroundColor.a = 0.0f;
+				}
+
+				collectablesColor = lerp(collectablesColor, foregroundColor, foregroundColor.a);
+
+				return collectablesColor;
+			}
+
+
+
+
+			ENDCG
+		}
+			/*
+		Pass
+		{
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+
+			#include "UnityCG.cginc"
+
+			struct appdata
+			{
+				float4 vertex : POSITION;
+				float2 uv : TEXCOORD0;
+			};
+
+			struct v2f
+			{
+				float2 uv : TEXCOORD0;
+				float4 vertex : SV_POSITION;
+			};
+
+			float4 _MainTex_ST;
+			sampler2D _CollectablesRenderTexture;
+			sampler2D _ForegroundRenderTexture;
+			float _ScreenUV_X;
+			float _ScreenUV_Y;
+			float _FaderOffset;
+			float _MaximumOpacity;
+			float _Falloff;
+
+			v2f vert(appdata v)
+			{
+				v2f o;
+				o.vertex = UnityObjectToClipPos(v.vertex);
+				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+
+				return o;
+			}
+
+
+			float4 frag(v2f i) : SV_Target
+			{
+				//float4 collectablesColor = tex2D(_CollectablesRenderTexture, i.uv);
 
 				fixed4 foregroundColor = tex2D(_ForegroundRenderTexture, i.uv);
 
@@ -204,15 +269,11 @@
 				else {
 					foregroundColor.a = 0.0f;
 				}
-				//return fixed4(col.rgb * e, col.a);
-				//foregroundColor.a = (1-e);
-				//col *= foregroundColor;
-				
 
-				//col *= foregroundColor;
-				collectablesColor = lerp(collectablesColor, foregroundColor, foregroundColor.a);
+				//collectablesColor = lerp(collectablesColor, foregroundColor, foregroundColor.a);
+				//return collectablesColor;
 
-				return collectablesColor;
+				return foregroundColor;
 			}
 
 
@@ -220,97 +281,7 @@
 
 			ENDCG
 		}
-
-
+		*/
 	}
 
-	/*SubShader
-	{
-
-		Tags { "Queue" = "Transparent" "RenderType" = "Transparent" }
-		LOD 100
-		//Cull Off
-		//ZWrite Off
-		Blend SrcAlpha OneMinusSrcAlpha
-
-		Pass
-		{
-			CGPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag
-
-			#include "UnityCG.cginc"
-
-			struct appdata
-			{
-				float4 vertex : POSITION;
-				float2 uv : TEXCOORD0;
-			};
-
-			struct v2f
-			{
-				float2 uv : TEXCOORD0;
-				float4 vertex : SV_POSITION;
-			};
-
-			sampler2D _MainTex;
-			//sampler2D _RingTex;
-			sampler2D _ForegroundRenderTexture;
-			float4 _MainTex_ST;
-			float _ScreenUV_X;
-			float _ScreenUV_Y;
-			float _SourcePos_X;
-			float _SourcePos_Y;
-			float _FaderOffset;
-			float _MaximumOpacity;
-
-			//float _AdditionalPositions[50];
-
-
-			fixed4 OverlayBlend(fixed basePixel, fixed blendPixel)
-			{
-				if (basePixel < 0.5)
-				{
-					return 2.0f*(basePixel*blendPixel);
-				}
-				else
-				{
-					return (1.0f - 2.0f*(1.0f - basePixel)*(1.0f - blendPixel));
-				}
-			}
-
-			v2f vert(appdata v) {
-				v2f o;
-				o.vertex = UnityObjectToClipPos(v.vertex);
-				o.uv = v.uv * _MainTex_ST.xy + _MainTex_ST.zw;
-				return o;
-			}
-
-			fixed4 frag(v2f f) : SV_Target{
-				fixed4 col = tex2D(_MainTex, f.uv);
-				fixed4 foregroundColor = tex2D(_ForegroundRenderTexture, f.uv);
-
-				fixed4 blended = col;
-				blended.r = OverlayBlend(col.r, foregroundColor.r);
-				blended.g = OverlayBlend(col.g, foregroundColor.g);
-				blended.b = OverlayBlend(col.b, foregroundColor.b);
-
-				if (f.vertex.y > _ScreenUV_Y *(1 - _FaderOffset) && foregroundColor.a > 0)
-				{
-					foregroundColor.a = _MaximumOpacity * ((f.vertex.y - _ScreenUV_Y * (1 - _FaderOffset)) / (_ScreenUV_Y * (1 - _FaderOffset)));
-				}
-
-				//col *= foregroundColor;
-				col = lerp(col, foregroundColor, foregroundColor.a);
-
-				return col;
-			}
-
-
-
-			ENDCG
-		}
-
-
-	}*/
 }

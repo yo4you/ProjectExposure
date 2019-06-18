@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7504969787123650314}
   - component: {fileID: 1548117857475523900}
   - component: {fileID: 5062201658588498373}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Prefab_Shell2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9207781060890238528}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e64b1ee29f6b3c4eb8b1bd90026c4d6, type: 3}
