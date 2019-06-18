@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreToGive: 5
+  player: {fileID: 0}
 --- !u!1 &1526026406848576
 GameObject:
   m_ObjectHideFlags: 0
@@ -4896,7 +4897,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 97b9f4ed1acd97a4d89334fa3d8d2794, type: 2}
+  - {fileID: 2100000, guid: 606c135b589914c49ad1a70343b3df28, type: 2}
   - {fileID: 2100000, guid: f53fddf9e15b80942be52bc9648592fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

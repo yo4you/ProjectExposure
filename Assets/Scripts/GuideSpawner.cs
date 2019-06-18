@@ -20,6 +20,8 @@ public class GuideSpawner : MonoBehaviour {
 	int _exitTileMargin = 10;
 	[SerializeField]
 	private int _minBranchDistance;
+	[SerializeField]
+	LayerMask _mask;
 
 	private void Start()
 	{
@@ -49,7 +51,8 @@ public class GuideSpawner : MonoBehaviour {
 			{
 				SpawnPickup(nodes[i]);
 			}
-			spawn.transform.position = new Vector3(pos.x,pos.y,_playerZ);
+			Physics.Raycast(new Vector3(pos.x, pos.y, -90), Vector3.forward * 900f, out RaycastHit hit);
+			spawn.transform.position = new Vector3(pos.x,pos.y,hit.point.z - 0.2f);
 			spawn.transform.Rotate( Vector3.forward, 270f + Mathf.Rad2Deg * Mathf.Atan2(centre.y - pos.y, centre.x - pos.x));
 		}
 	}

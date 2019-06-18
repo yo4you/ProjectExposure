@@ -1051,11 +1051,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3970665260384221114}
     m_Modifications:
-    - target: {fileID: 3949226756922932604, guid: ea94d490f43f46b42954c7bf1019bcbe,
-        type: 3}
-      propertyPath: m_Name
-      value: HintSystem (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 3949226756922932605, guid: ea94d490f43f46b42954c7bf1019bcbe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1161,6 +1156,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3949226756922932604, guid: ea94d490f43f46b42954c7bf1019bcbe,
+        type: 3}
+      propertyPath: m_Name
+      value: HintSystem (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea94d490f43f46b42954c7bf1019bcbe, type: 3}
 --- !u!224 &3949226755906676389 stripped
@@ -1176,11 +1176,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3970665260384221114}
     m_Modifications:
-    - target: {fileID: 8595902247727840443, guid: f6bd30932c674d84184277420b55cc54,
-        type: 3}
-      propertyPath: m_Name
-      value: ScorePlayerHUD
-      objectReference: {fileID: 0}
     - target: {fileID: 8595902247727840442, guid: f6bd30932c674d84184277420b55cc54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1285,6 +1280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595902247727840443, guid: f6bd30932c674d84184277420b55cc54,
+        type: 3}
+      propertyPath: m_Name
+      value: ScorePlayerHUD
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6bd30932c674d84184277420b55cc54, type: 3}
