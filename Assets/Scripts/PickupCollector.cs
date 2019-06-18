@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PickupCollector : MonoBehaviour
 {
-    GameObject _hud;
+    PickupHud _hud;
     Text _normalScoreText;
     Text _bonusScoreText;
     //   [SerializeField] GameObject canvas;
@@ -22,9 +22,7 @@ public class PickupCollector : MonoBehaviour
 
 	private void Start()
 	{
-		_hud = FindObjectOfType<PickupHud>().gameObject;
-		_normalScoreText = _hud.GetComponentsInChildren<Text>()[0];
-		_normalScoreText = _hud.GetComponentsInChildren<Text>()[1];
+
 	}
 
 	private void OnEnable()
@@ -68,8 +66,14 @@ public class PickupCollector : MonoBehaviour
 
     void ShowHUD()
     {
-        _hud.GetComponent<Image>().enabled = true;
-        foreach (Transform child in _hud.transform)
+		if (!_hud)
+		{
+			_hud = FindObjectOfType<PickupHud>();
+			_normalScoreText = _hud.GetComponentsInChildren<Text>()[0];
+			_bonusScoreText = _hud.GetComponentsInChildren<Text>()[1];
+		}
+		//_hud.GetComponent<Image>().enabled = true;
+		foreach (Transform child in _hud.gameObject.transform)
         {
             child.gameObject.GetComponent<Text>().enabled = true;
         }

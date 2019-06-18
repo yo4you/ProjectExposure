@@ -12,7 +12,7 @@ using UnityEditor;
 [RequireComponent(typeof(VoronoiGenerator))]
 public partial class GenerateGeometry : MonoBehaviour
 {
-
+	
 	[SerializeField]
 	private List<MultiObject> _backGroundGeometry;
 	[SerializeField]
@@ -51,6 +51,8 @@ public partial class GenerateGeometry : MonoBehaviour
 	[SerializeField]
 	private int _chunkSize = 10;
 	private bool _generatedVertexOrder = false;
+	[SerializeField]
+	private float _innerEdgeHeigthDiffrence = 0.8f;
 	private void Start()
 	{
 		FindObjectOfType<VoronoiGenerator>().OnGenerationComplete += Generate;
@@ -128,6 +130,7 @@ public partial class GenerateGeometry : MonoBehaviour
 		go.AddComponent<MeshRenderer>().material = _material;
 		List<Vector3> meshVerts = new List<Vector3>(65000);
 		List<int> meshTris = new List<int>(196608);
+		List<Vector2> meshUvs = new List<Vector2>(65000);
 
 		foreach (var poly in polygons)
 		{
@@ -148,13 +151,18 @@ public partial class GenerateGeometry : MonoBehaviour
 				geometry = _backGroundGeometry[poly.Vertices.Count - 3].RandomObject().GetComponent<MeshFilter>();
 			}
 
-			var vertIdentities = _meshData[geometry.sharedMesh].Identifiers;
+			List<MeshVertex> vertIdentities = _meshData[geometry.sharedMesh].Identifiers;
 			int vertCount = geometry.sharedMesh.vertices.Length;
 			var newVerts = new List<Vector3>(vertCount);
+			var newUVs = new List<Vector2>(vertCount);
+			var uvIdentities = _meshData[geometry.sharedMesh].UVIdentifiers;
 			for (int index = 0; index < vertCount; index++)
 			{
 				Vector3 newPos = new Vector3();
 				var identity = vertIdentities[index];
+
+				newUVs.Add(geometry.sharedMesh.uv[index]);
+				//newUVs.Add(uvIdentities[(int)identity]);
 
 				if (identity >= MeshVertex.BOTTOM_EDGE)
 				{
@@ -179,7 +187,7 @@ public partial class GenerateGeometry : MonoBehaviour
 				else if (identity >= MeshVertex.TOP_EDGE)
 				{
 					newPos = poly.Vertices[identity - MeshVertex.TOP_EDGE] - poly.Centre;
-					newPos.z -= _polyHeightIntensity * 0.8f;
+					newPos.z -= _polyHeightIntensity * _innerEdgeHeigthDiffrence;
 
 				}
 				else if (identity == MeshVertex.CENTRE)
@@ -195,12 +203,15 @@ public partial class GenerateGeometry : MonoBehaviour
 			}
 			int totalVertCount = meshVerts.Count;
 			meshVerts.AddRange(newVerts);
+			meshUvs.AddRange(newUVs);
 			meshTris.AddRange(geometry.sharedMesh.triangles.Select(i => i += totalVertCount));
 
 		}
 		mesh.SetVertices(meshVerts);
 		mesh.SetTriangles(meshTris, 0);
 		mesh.RecalculateNormals();
+		mesh.SetUVs(0, meshUvs);
+
 		return go;
 	}
 
@@ -341,20 +352,25 @@ public partial class GenerateGeometry : MonoBehaviour
 					edge.Add(tri0.Indices.Except(tri1.Indices).First());
 
 				}
+				innerEdgeIndexOrder.Insert(0, innerEdgeIndexOrder.Last());
+				innerEdgeIndexOrder = innerEdgeIndexOrder.GetRange(0, innerEdgeIndexOrder.Count - 1);
 
 				// assign the correct vertex definitions
 				var vertData = new MeshVertexIdentifiers();
 				for (int i = 0; i < mesh.vertexCount; i++)
 				{
 					vertData.Identifiers.Add(MeshVertex.CENTRE);
+					//vertData.UVIdentifiers.Add(Vector2.zero);
 				}
 
+				Vector2[] uv  = mesh.uv;
 				List<int> outp = new List<int>();
 				for (int index = 0; index < mesh.vertices.Length; index++)
 				{
 					if (centre.Contains(index))
 					{
 						vertData.Identifiers[index] = (MeshVertex.CENTRE);
+						vertData.UVIdentifiers[(int)MeshVertex.CENTRE] = mesh.uv[centre.First()];
 					}
 
 					for (int edgeIndex = 0; edgeIndex < edge.Count(); edgeIndex++)
@@ -362,11 +378,13 @@ public partial class GenerateGeometry : MonoBehaviour
 						if (mesh.vertices[edge[edgeIndex]] == mesh.vertices[index])
 						{
 							vertData.Identifiers[index] = MeshVertex.TOP_EDGE + edgeIndex;
+							vertData.UVIdentifiers[(int)MeshVertex.TOP_EDGE + edgeIndex] = mesh.uv[edge[edgeIndex]];
+
 						}
 						else if (Mathf.Approximately(mesh.vertices[edge[edgeIndex]].x, mesh.vertices[index].x) && Mathf.Approximately(mesh.vertices[edge[edgeIndex]].z, mesh.vertices[index].z))
 						{
-
 							vertData.Identifiers[index] = MeshVertex.BOTTOM_EDGE + edgeIndex;
+							vertData.UVIdentifiers[(int)MeshVertex.BOTTOM_EDGE + edgeIndex] = mesh.uv[index];
 						}
 					}
 					for (int edgeIndex = 0; edgeIndex < innerEdgeIndexOrder.Count(); edgeIndex++)
@@ -374,6 +392,8 @@ public partial class GenerateGeometry : MonoBehaviour
 						if (mesh.vertices[innerEdgeIndexOrder[edgeIndex]] == mesh.vertices[index])
 						{
 							vertData.Identifiers[index] = MeshVertex.INNER_EDGE0 + edgeIndex;
+							vertData.UVIdentifiers[(int)MeshVertex.INNER_EDGE0 + edgeIndex] = mesh.uv[innerEdgeIndexOrder[edgeIndex]];
+
 						}
 					}
 				}
