@@ -2028,7 +2028,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Jaarlijkse Highscores
+  m_Text: top 10 - dit jaar
 --- !u!222 &152711564
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5071,7 +5071,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Dagelijks Highscores
+  m_Text: top 10 - vandaag
 --- !u!222 &422627165
 CanvasRenderer:
   m_ObjectHideFlags: 0

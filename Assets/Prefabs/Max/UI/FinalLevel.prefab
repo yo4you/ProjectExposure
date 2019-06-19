@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7364422357453386592}
   m_Layer: 5
-  m_Name: LevelUpCover
+  m_Name: FinalLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level up!
+  m_Text: Goed gedaan!
 --- !u!95 &7475478726347861522
 Animator:
   serializedVersion: 3

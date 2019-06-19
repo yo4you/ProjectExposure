@@ -22160,6 +22160,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2012561859}
     m_Modifications:
+    - target: {fileID: 4777576080880880087, guid: 2c57a5ca204e6f24ab4a135fde5a437c,
+        type: 3}
+      propertyPath: m_Name
+      value: Prefab_Cutscene_Info
+      objectReference: {fileID: 0}
     - target: {fileID: 3967407389979332833, guid: 2c57a5ca204e6f24ab4a135fde5a437c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22264,11 +22269,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4777576080880880087, guid: 2c57a5ca204e6f24ab4a135fde5a437c,
-        type: 3}
-      propertyPath: m_Name
-      value: Prefab_Cutscene_Info
       objectReference: {fileID: 0}
     - target: {fileID: 3408337223652032402, guid: 2c57a5ca204e6f24ab4a135fde5a437c,
         type: 3}
