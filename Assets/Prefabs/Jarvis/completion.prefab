@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de00012c9acc9e540b611dbb93ee6372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scene: 2
 --- !u!1 &5655816399293255202
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,11 +276,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5655816399276765158}
     m_Modifications:
-    - target: {fileID: 6567930983072025974, guid: c2d127961d2faa842a098ab486969baa,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelUpCover
-      objectReference: {fileID: 0}
     - target: {fileID: 7364422357453386592, guid: c2d127961d2faa842a098ab486969baa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -384,6 +380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567930983072025974, guid: c2d127961d2faa842a098ab486969baa,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelUpCover
       objectReference: {fileID: 0}
     - target: {fileID: 7475478724843371576, guid: c2d127961d2faa842a098ab486969baa,
         type: 3}

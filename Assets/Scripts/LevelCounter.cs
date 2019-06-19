@@ -11,7 +11,7 @@ public class LevelCounter : MonoBehaviour
 		SetVisible(lvl);
 		if (lvl == 2)
 		{
-			SceneManager.LoadScene(1);
+			SceneManager.LoadScene(3);
 		};
 	}
 	private void OnApplicationQuit()
