@@ -45,7 +45,7 @@ public class GuideSpawner : MonoBehaviour {
 
 		for (int i = _exitTileMargin; i < nodes.Count; i+= _tilesPerNode)
 		{
-			var spawn = Instantiate(_guideSpawnPrefab);
+			var spawn = Instantiate(_guideSpawnPrefab,transform);
 			var pos = nodes[i].Data.Centre;// * _levelFixer.Scale.x;
 			if (UnityEngine.Random.Range(0, 100) < _pickupSpawnChance)
 			{
@@ -64,7 +64,7 @@ public class GuideSpawner : MonoBehaviour {
 		VoronoiGenerator.DrawNodeGraphLine(node,  UnityEngine.Random.Range(0f,360f), ref line, true);
 		if (line.Count > _minBranchDistance)
 		{
-			var spawn = Instantiate(_pickupSpawnPrefab);
+			var spawn = Instantiate(_pickupSpawnPrefab,transform);
 			var pos = line[_minBranchDistance-1].Data.Centre;
 			spawn.transform.position = new Vector3(pos.x, pos.y, _playerZ); ;
 		}

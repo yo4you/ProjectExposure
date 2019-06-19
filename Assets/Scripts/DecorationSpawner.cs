@@ -51,7 +51,7 @@ public class DecorationSpawner : MonoBehaviour
 			// 			var pool = spawnPool[UnityEngine.Random.Range(0, spawnPool.Count)];
 			var pool = GetSpawnableDecorations(IsFloor(poly), IsCeil(poly), poly.Biome);
 			var prefab = pool[UnityEngine.Random.Range(0, pool.Count)];
-			var clone = Instantiate(prefab.Prefab);
+			var clone = Instantiate(prefab.Prefab,transform);
 			PlaceOn(clone, poly);
 
 		}
