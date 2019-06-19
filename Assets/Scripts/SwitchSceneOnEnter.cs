@@ -18,8 +18,5 @@ public class SwitchSceneOnEnter : MonoBehaviour
 
 		SceneManager.LoadScene(_scene);
 	}
-	void Update()
-    {
-        
-    }
+
 }

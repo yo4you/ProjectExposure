@@ -7,9 +7,18 @@ public class ScoreSystem : MonoBehaviour
     public delegate void AddScore();
     public static event AddScore IncreaseScore;
 
-    public static int currentScore;
+	private static int currentScore;
 
-    private void OnEnable()
+	public static int CurrentScore
+	{
+		get { return PlayerPrefs.GetInt("score"); }
+		set
+		{
+			PlayerPrefs.SetInt("score", value);
+		}
+	}
+
+	private void OnEnable()
     {
         
     }
