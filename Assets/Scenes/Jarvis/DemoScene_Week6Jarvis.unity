@@ -26,14 +26,14 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 99c4c3d2241b59943b1565952b85cd89, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 2048
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
@@ -631,7 +631,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 70.8
+  field of view: 73
   orthographic: 0
   orthographic size: 8
   m_Depth: -1
@@ -880,7 +880,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 70.8
+  field of view: 73
   orthographic: 0
   orthographic size: 15
   m_Depth: 5
@@ -1099,7 +1099,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 70.8
+  field of view: 73
   orthographic: 0
   orthographic size: 8
   m_Depth: -1
@@ -1227,7 +1227,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 70.8
+  field of view: 73
   orthographic: 0
   orthographic size: 8
   m_Depth: -1
@@ -3024,7 +3024,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 70.8
+  field of view: 73
   orthographic: 0
   orthographic size: 8
   m_Depth: -1

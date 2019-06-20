@@ -91,4 +91,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e64b1ee29f6b3c4eb8b1bd90026c4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationRange: {x: 30, y: 0, z: 10}
+  _rotationRange: {x: 20, y: 0, z: 10}

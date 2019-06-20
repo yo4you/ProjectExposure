@@ -187,7 +187,7 @@ MonoBehaviour:
     _normal: 1
     _coral: 1
     _trash: 0
-    _algae: 0
+    _algae: 1
   - _prefab: {fileID: 366963679709554908, guid: cbe512e2ea69ba741b9d6def3e50ce6d,
       type: 3}
     _background: 1
@@ -229,6 +229,15 @@ MonoBehaviour:
     _background: 0
     _roof: 1
     _floor: 0
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 1
+  - _prefab: {fileID: 9146530475758843392, guid: 6cf07ecda1d4e5a4b9002e4b3ffb2712,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
     _normal: 1
     _coral: 1
     _trash: 0
