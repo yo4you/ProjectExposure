@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class StartingPan : MonoBehaviour
 {
+	[SerializeField]
 	private const float _camHeight = 5f;
+	[SerializeField]
+	private float _panSpeed;
+	[SerializeField]
+	private GameObject _findMePrefab;
 
 	private void Start()
 	{
@@ -40,8 +45,8 @@ public class StartingPan : MonoBehaviour
 		{
 			start.Add(cam, cam.transform.position);
 		}
-		var target = exit.transform.position - Vector3.forward * 5;
-		for (float t = 0; t < 1f; t += Time.deltaTime)
+		var target = exit.transform.position - Vector3.forward * _camHeight;
+		for (float t = 0; t < 1f; t += Time.deltaTime / _panSpeed)
 		{
 			foreach (var camera in cameras)
 			{
@@ -53,9 +58,12 @@ public class StartingPan : MonoBehaviour
 			}
 			yield return new WaitForEndOfFrame();
 		}
-		yield return new WaitForSeconds(2f);
 
-		for (float t = 0; t < 1f; t += Time.deltaTime)
+		var findme = Instantiate(_findMePrefab, FindObjectOfType<Canvas>().transform);
+		yield return new WaitForSeconds(2f);
+		Destroy(findme);
+
+		for (float t = 0; t < 1f; t += Time.deltaTime / _panSpeed)
 		{
 			foreach (var camera in cameras)
 			{
@@ -63,7 +71,6 @@ public class StartingPan : MonoBehaviour
 				var campos = Vector3.Lerp(target, start[camera], Mathf.SmoothStep(0f, 1f, t));
 				campos.z -= CameraCurve(t)* _camHeight;
 				camera.transform.position = campos;
-
 			}
 			yield return new WaitForEndOfFrame();
 		}

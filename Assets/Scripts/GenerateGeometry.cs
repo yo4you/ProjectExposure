@@ -53,8 +53,12 @@ public partial class GenerateGeometry : MonoBehaviour
 	private bool _generatedVertexOrder = false;
 	[SerializeField]
 	private float _innerEdgeHeigthDiffrence = 0.8f;
+
+	AssignBiomes _biomes;
+
 	private void Start()
 	{
+		_biomes = FindObjectOfType<AssignBiomes>();
 		FindObjectOfType<VoronoiGenerator>().OnGenerationComplete += Generate;
 		if (!_generatedVertexOrder)
 		{
@@ -160,8 +164,16 @@ public partial class GenerateGeometry : MonoBehaviour
 			{
 				Vector3 newPos = new Vector3();
 				var identity = vertIdentities[index];
+				var uv = geometry.sharedMesh.uv[index];
+				uv.x /= 3f;
+ 				var biome = (int)poly.Biome;
+				if (biome > _biomes.BiomeSets.Count - 1 || biome < 0)
+					Debug.Log(biome);
+				
+				uv += Vector2.right * _biomes.BiomeSets[biome].Uv /3f;
+				
 
-				newUVs.Add(geometry.sharedMesh.uv[index]);
+				newUVs.Add(uv);
 				//newUVs.Add(uvIdentities[(int)identity]);
 
 				if (identity >= MeshVertex.BOTTOM_EDGE)
