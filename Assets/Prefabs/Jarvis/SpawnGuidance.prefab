@@ -62,13 +62,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tilesPerNode: 10
   _guidingSpokes: 15
-  _guideSpawnPrefab: {fileID: 5078077322940546211, guid: 0eb2d3d3a7feb4b42bdbed8f10a8e1a5,
+  _guideSpawnPrefab: {fileID: 5079402879304713343, guid: 42c34717e8f55dd4c852f808ca63e2ee,
     type: 3}
   _pickupSpawnPrefab: {fileID: 1157061883471260, guid: f7580588cf549d847b490158a0b092ec,
     type: 3}
   _pickupSpawnChance: 26
   _exitTileMargin: 15
   _minBranchDistance: 4
+  _mask:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!114 &1334961841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,24 +84,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11744b1732168614a89b269e8729da45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _floorObjects:
-  - {fileID: 8796577413643015501, guid: 0b8b0b01029daee448db768bcc25d8a7, type: 3}
-  - {fileID: 4316204065989485936, guid: cc3b735ed07cc584eb83a82a78a41d24, type: 3}
-  - {fileID: 993433756316803881, guid: 65951ba9cb4985742bf2e06a896edb90, type: 3}
-  - {fileID: 8615667558394236383, guid: 69047319f4326314e8a31d2dd5d75d65, type: 3}
-  - {fileID: 9146530475758843392, guid: 6cf07ecda1d4e5a4b9002e4b3ffb2712, type: 3}
-  _backObjects:
-  - {fileID: 7690703192564410622, guid: 25e8a6a27ae5cfe41970674843e9fb89, type: 3}
-  - {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92, type: 3}
-  - {fileID: 4316204065989485936, guid: cc3b735ed07cc584eb83a82a78a41d24, type: 3}
-  - {fileID: 4234436950038953759, guid: e19114121f6e5e54bb11dc6fb20bbec2, type: 3}
-  - {fileID: 9207781060890238528, guid: 9c58e49dc22294540af031494277f971, type: 3}
-  _ceilingObjects:
-  - {fileID: 8796577413643015501, guid: 0b8b0b01029daee448db768bcc25d8a7, type: 3}
   _mask:
     serializedVersion: 2
     m_Bits: 8192
-  _chanceToSpawn: 10
+  _chanceToSpawn: 5
   _decorations:
   - _prefab: {fileID: 4906533897280263287, guid: c12ae656287912642ac6deaaeaa492ab,
       type: 3}
@@ -107,23 +96,23 @@ MonoBehaviour:
     _floor: 1
     _normal: 0
     _coral: 1
-    _trash: 0
-    _algae: 0
+    _trash: 1
+    _algae: 1
   - _prefab: {fileID: 4316204065989485936, guid: cc3b735ed07cc584eb83a82a78a41d24,
       type: 3}
-    _background: 1
+    _background: 0
     _roof: 0
     _floor: 1
     _normal: 0
-    _coral: 1
-    _trash: 0
+    _coral: 0
+    _trash: 1
     _algae: 0
   - _prefab: {fileID: 7690703192564410622, guid: 25e8a6a27ae5cfe41970674843e9fb89,
       type: 3}
     _background: 1
     _roof: 0
     _floor: 0
-    _normal: 0
+    _normal: 1
     _coral: 1
     _trash: 0
     _algae: 0
@@ -141,43 +130,106 @@ MonoBehaviour:
     _background: 0
     _roof: 0
     _floor: 1
-    _normal: 0
-    _coral: 1
-    _trash: 0
+    _normal: 1
+    _coral: 0
+    _trash: 1
     _algae: 0
   - _prefab: {fileID: 3505207058778812987, guid: 0d3c77f2dbe6ec4478b915c707dd2d10,
       type: 3}
     _background: 0
-    _roof: 1
-    _floor: 1
-    _normal: 0
-    _coral: 1
-    _trash: 0
-    _algae: 0
-  - _prefab: {fileID: 8796577413643015501, guid: 0b8b0b01029daee448db768bcc25d8a7,
-      type: 3}
-    _background: 0
     _roof: 0
     _floor: 1
-    _normal: 0
+    _normal: 1
     _coral: 1
     _trash: 0
-    _algae: 0
+    _algae: 1
+  - _prefab: {fileID: 8796577413643015501, guid: 0b8b0b01029daee448db768bcc25d8a7,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
   - _prefab: {fileID: 993433756316803881, guid: 65951ba9cb4985742bf2e06a896edb90,
       type: 3}
     _background: 0
     _roof: 0
     _floor: 1
-    _normal: 0
-    _coral: 1
-    _trash: 0
-    _algae: 0
-  - _prefab: {fileID: 9146530475758843392, guid: 6cf07ecda1d4e5a4b9002e4b3ffb2712,
+    _normal: 1
+    _coral: 0
+    _trash: 1
+    _algae: 1
+  - _prefab: {fileID: 6808417457084939545, guid: 746182031a0c4b54fa1a41029e64f608,
       type: 3}
     _background: 0
     _roof: 0
     _floor: 1
-    _normal: 0
+    _normal: 1
+    _coral: 0
+    _trash: 0
+    _algae: 0
+  - _prefab: {fileID: 4234436950038953759, guid: e19114121f6e5e54bb11dc6fb20bbec2,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 1
+  - _prefab: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 0
+    _normal: 1
     _coral: 1
     _trash: 0
     _algae: 0
+  - _prefab: {fileID: 366963679709554908, guid: cbe512e2ea69ba741b9d6def3e50ce6d,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+  - _prefab: {fileID: 8977700905361368460, guid: 7c4f066209036014f9998a506fd543b7,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+  - _prefab: {fileID: 2596823813838525406, guid: e93855b1da3074440b37e903b8c23f8d,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+  - _prefab: {fileID: 8945733944267970217, guid: aff10e8de18da1546b539f9b95605998,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+  - _prefab: {fileID: 3505207058778812987, guid: 4fab3f1a4080c3246887bad2f8c6a58e,
+      type: 3}
+    _background: 0
+    _roof: 1
+    _floor: 0
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 1

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7504969787123650314}
   - component: {fileID: 1548117857475523900}
   - component: {fileID: 5062201658588498373}
+  - component: {fileID: -2464694299456750464}
   m_Layer: 13
   m_Name: Prefab_Shell2
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6808417457084939545}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.3683, y: 0.2446, z: 0.147101}
-  m_LocalScale: {x: 3.1589155, y: 3.1589155, z: 3.1589155}
+  m_LocalPosition: {x: -2.1041, y: 0.0767, z: 0.147101}
+  m_LocalScale: {x: 7.0173, y: 7.0173, z: 7.0173}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,6 +79,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-2464694299456750464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6808417457084939545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e64b1ee29f6b3c4eb8b1bd90026c4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationRange: {x: 0, y: 0, z: 0}
 --- !u!114 &1744398363870901189
 MonoBehaviour:
   m_ObjectHideFlags: 0
