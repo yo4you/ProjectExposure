@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: VignetteAroundPlayer
-  m_Shader: {fileID: 4800000, guid: a3c45747680ef9041abf37888d4786da, type: 3}
-  m_ShaderKeywords: _ALPHABLEND_ON
+  m_Name: Material_Lighting 1
+  m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -21,10 +21,6 @@ Material:
     m_TexEnvs:
     - _BumpMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _CollectablesRenderTexture:
-        m_Texture: {fileID: 8400000, guid: 0fc2afbc9f6a82b4dad1b3a0b6e3d81b, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -43,16 +39,8 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _ForegroundRenderTexture:
-        m_Texture: {fileID: 8400000, guid: 03da90bb6b64a9047adc5542da87909c, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainRenderTexture:
-        m_Texture: {fileID: 8400000, guid: b54ab65a50d83694db99a826a63b9193, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 098306e5c49f33749a873801f2563b1d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -67,39 +55,25 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _RingTex:
-        m_Texture: {fileID: 2800000, guid: cbc6016323257094cb34cdfec76458b9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SobelRenderTexture:
-        m_Texture: {fileID: 8400000, guid: ed4167f19b9f7fd4c84ded07c02871bb, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DstBlend: 10
-    - _FaderOffset: 0
-    - _Falloff: 0.24
+    - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _MaximumOpacity: 0.22
+    - _InvFade: 1
     - _Metallic: 0
-    - _Mode: 2
+    - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Radius: 0.27
-    - _ScreenUV_X: 816
-    - _ScreenUV_Y: 459
     - _SmoothnessTextureChannel: 0
-    - _SourcePos_X: -459.7888
-    - _SourcePos_Y: -565.92737
     - _SpecularHighlights: 1
-    - _SrcBlend: 5
+    - _SrcBlend: 1
     - _UVSec: 0
-    - _ZWrite: 0
+    - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _TintColor: {r: 1, g: 0, b: 0, a: 0.5}
