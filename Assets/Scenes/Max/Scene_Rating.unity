@@ -10383,7 +10383,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Wat vindt je van \u201Ctechnologie\u201D?\n"
+  m_Text: "Wat vind je van \u201Ctechnologie\u201D?\n"
 --- !u!222 &846888804
 CanvasRenderer:
   m_ObjectHideFlags: 0

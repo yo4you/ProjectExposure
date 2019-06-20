@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Material_AnglerFish
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _PARALLAXMAP
+  m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 07739b50c5bb668479d4e2486900aa7a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -36,23 +36,23 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: a8df0648c6fa6334fb827ab073f105d3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 065c4a490360f904a88908b1a8d0b6e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b4adbcd40ec64b54688a857f3840d91e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2fd21621905094944841d25c207d6050, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 343dec07394eac649a16152ce8910e7e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 908e4ced67608e5488f3cb0298f75532, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: b88fc29b2766cb6498fb394a146b7546, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7d5a8b44e5c43fe4d945ed90a26e7be5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 9f47b922df8eff04f88c1a3996f3591f, type: 3}
+        m_Texture: {fileID: 2800000, guid: d87972846bff6114ba1bdc8bd69c00bc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
