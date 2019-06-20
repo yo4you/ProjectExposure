@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Max/Scene_Scoreboard.unity
     guid: e1bd913f238a89d44aa2955b9041bcd5
+  - enabled: 1
+    path: Assets/Scenes/Max/Scene_Rating.unity
+    guid: 74b41eaffa7612d48a87565aa75f029e
   m_configObjects: {}

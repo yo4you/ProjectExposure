@@ -20,6 +20,8 @@ public class GuideSpawner : MonoBehaviour {
 	int _exitTileMargin = 10;
 	[SerializeField]
 	private int _minBranchDistance;
+	[SerializeField]
+	LayerMask _mask;
 
 	private void Start()
 	{
@@ -43,13 +45,14 @@ public class GuideSpawner : MonoBehaviour {
 
 		for (int i = _exitTileMargin; i < nodes.Count; i+= _tilesPerNode)
 		{
-			var spawn = Instantiate(_guideSpawnPrefab);
+			var spawn = Instantiate(_guideSpawnPrefab,transform);
 			var pos = nodes[i].Data.Centre;// * _levelFixer.Scale.x;
 			if (UnityEngine.Random.Range(0, 100) < _pickupSpawnChance)
 			{
 				SpawnPickup(nodes[i]);
 			}
-			spawn.transform.position = new Vector3(pos.x,pos.y,_playerZ);
+			Physics.Raycast(new Vector3(pos.x, pos.y, -90), Vector3.forward * 900f, out RaycastHit hit);
+			spawn.transform.position = new Vector3(pos.x,pos.y,hit.point.z - 0.2f);
 			spawn.transform.Rotate( Vector3.forward, 270f + Mathf.Rad2Deg * Mathf.Atan2(centre.y - pos.y, centre.x - pos.x));
 		}
 	}
@@ -61,7 +64,7 @@ public class GuideSpawner : MonoBehaviour {
 		VoronoiGenerator.DrawNodeGraphLine(node,  UnityEngine.Random.Range(0f,360f), ref line, true);
 		if (line.Count > _minBranchDistance)
 		{
-			var spawn = Instantiate(_pickupSpawnPrefab);
+			var spawn = Instantiate(_pickupSpawnPrefab,transform);
 			var pos = line[_minBranchDistance-1].Data.Centre;
 			spawn.transform.position = new Vector3(pos.x, pos.y, _playerZ); ;
 		}

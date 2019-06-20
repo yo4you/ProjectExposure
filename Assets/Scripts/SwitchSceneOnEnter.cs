@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SwitchSceneOnEnter : MonoBehaviour
 {
+	[SerializeField]
+	int _scene = 0;
     void Start()
     {
 		StartCoroutine(EndLevel());
@@ -14,10 +16,7 @@ public class SwitchSceneOnEnter : MonoBehaviour
 		yield return new WaitForSeconds(3);
 		PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level")+1);
 
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene(_scene);
 	}
-	void Update()
-    {
-        
-    }
+
 }
