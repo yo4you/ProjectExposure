@@ -50,7 +50,7 @@ MonoBehaviour:
   _corner1: {x: 1, y: 1}
   _pointWidth: 80
   _pointHeight: 80
-  _offset: 0.004
+  _offset: 0.005
   _drawDebug: 0
   _mapFocus: {x: 0.2, y: -0.52}
   _randRange: 2
@@ -86,6 +86,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27741ce06de8ef042b8b993f32c631fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _biomeSets:
+  - _biome: 0
+    _uv: 0
+  - _biome: 1
+    _uv: 0
+  - _biome: 2
+    _uv: 1
+  - _biome: 3
+    _uv: 2
+  _mapScale: 2
 --- !u!114 &114625646151682996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,12 +155,12 @@ MonoBehaviour:
   _randRange: 2
   _lineWidth: 2
   _perlinPower: 0.3
-  _heightMapIntensity: 0.03
+  _heightMapIntensity: 0.01
   _polyHeightIntensity: 0.06
-  _cutoff: 0.82
+  _cutoff: 0.794
   _mapScale: 8
   _save: 0
   _wallHeight: 0.02
   _material: {fileID: 2100000, guid: 0488c37b5b01965429502e37177d08a2, type: 2}
   _chunkSize: 400
-  _innerEdgeHeigthDiffrence: 0.95
+  _innerEdgeHeigthDiffrence: 0.8
