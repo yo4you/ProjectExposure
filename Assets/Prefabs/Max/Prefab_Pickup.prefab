@@ -297,6 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToGive: 5
   player: {fileID: 0}
+  _hintRadiusBorder: 10
 --- !u!1 &7017109397377916150
 GameObject:
   m_ObjectHideFlags: 0
