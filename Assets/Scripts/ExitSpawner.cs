@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -50,11 +51,25 @@ public class ExitSpawner : MonoBehaviour
 			}
 			goto start;
 		};
+		if (IsCorner(exitSite))
+		{
+			var freespot = exitSite.ConnectionAngles.Values.First(i => !IsCorner(i));
+			if (freespot!=null)
+			{
+				exitSite = freespot;
+			}
+		}
 		_exit = exitSite;
+
 		var pos = exitSite.Data.Centre;
 		exit.transform.position = new Vector3(pos.x, pos.y, FindObjectOfType<NodeTransverser>().PlayerZ);
 		_spawned = false;
 		_path = path;
+	}
+
+	private bool IsCorner(Node<Polygon> site)
+	{
+		return site.ConnectionAngles.Values.All(i => i.Data.IsBackGround);
 	}
 
 	private void Update()

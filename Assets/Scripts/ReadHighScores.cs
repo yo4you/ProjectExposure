@@ -40,7 +40,7 @@ public class ReadHighScores : MonoBehaviour
 			listings++;
 			var display = Instantiate(_accountPrefab, transform);
 			display.GetComponent<HighScoreAccount>().Display(acc);
-			display.transform.position += Vector3.down * _distance * i;
+			display.transform.position += Vector3.down * _distance * listings;
 		}
 
 	}
