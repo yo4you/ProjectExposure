@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Max/Scene_Rating.unity
     guid: 74b41eaffa7612d48a87565aa75f029e
+  - enabled: 1
+    path: Assets/Scenes/Jarvis/DemoScene_Week6JarvisTurorial.unity
+    guid: 1f97a80c45be403478a2db2468c1f6b4
   m_configObjects: {}
