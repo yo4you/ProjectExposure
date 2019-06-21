@@ -155,9 +155,9 @@ MonoBehaviour:
   _randRange: 2
   _lineWidth: 2
   _perlinPower: 0.3
-  _heightMapIntensity: 0.02
-  _polyHeightIntensity: 0.04
-  _cutoff: 0.831
+  _heightMapIntensity: 0.01
+  _polyHeightIntensity: 0.06
+  _cutoff: 0.794
   _mapScale: 8
   _save: 0
   _wallHeight: 0.02
