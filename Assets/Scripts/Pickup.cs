@@ -18,7 +18,12 @@ public class Pickup : MonoBehaviour
             _distanceToPlayer = value;
         }
     }
-    public int Score { get { return scoreToGive; } }
+
+	private void Start()
+	{
+		player = FindObjectOfType<NodeTransverser>().gameObject;
+	}
+	public int Score { get { return scoreToGive; } }
 
     private void Update()
     {

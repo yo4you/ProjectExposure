@@ -13,20 +13,26 @@ public class ResetLevel : MonoBehaviour
         
     }
 
-    void Update()
+	public void Reset()
+	{
+		PlayerPrefs.SetInt("score", 0);
+		PlayerPrefs.SetInt("level", 0);
+	}
+
+	void Update()
     {
-		if (Input.GetMouseButtonDown(0))
-		{
-			if (_levelEnding != null)
-			{
-				StopCoroutine(_levelEnding);
-				_levelEnding = null;
-			}
-		}
-		if (Input.GetMouseButtonDown(1))
-		{
-			_levelEnding =  StartCoroutine(EndLevel());
-		}
+// 		if (Input.GetMouseButtonDown(0))
+// 		{
+// 			if (_levelEnding != null)
+// 			{
+// 				StopCoroutine(_levelEnding);
+// 				_levelEnding = null;
+// 			}
+// 		}
+// 		if (Input.GetMouseButtonDown(1))
+// 		{
+// 			_levelEnding =  StartCoroutine(EndLevel());
+// 		}
     }
 
 	private IEnumerator EndLevel()

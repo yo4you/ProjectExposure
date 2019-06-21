@@ -11,6 +11,7 @@ public class CameraControl : MonoBehaviour {
     Camera _camera;
 
 	void Start () {
+		_player = FindObjectOfType<NodeTransverser>().gameObject;
         _camera = GetComponent<Camera>();
 	}
 	

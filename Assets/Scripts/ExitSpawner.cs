@@ -26,7 +26,7 @@ public class ExitSpawner : MonoBehaviour
 		var _playerSpawner = FindObjectOfType<SetPlayerSpawnPos>();
 		Polygon start = _playerSpawner.SpawningPoly;
 		var path = new List<Node<Polygon>>();
-		var exit = Instantiate(_exitPrefab);
+		var exit = Instantiate(_exitPrefab,transform);
 
 	start:
 		VoronoiGenerator.DrawNodeGraphLine(start.Node, _angle, ref path);
