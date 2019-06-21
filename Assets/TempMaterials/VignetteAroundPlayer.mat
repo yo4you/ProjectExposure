@@ -94,8 +94,8 @@ Material:
     - _ScreenUV_X: 1031
     - _ScreenUV_Y: 580
     - _SmoothnessTextureChannel: 0
-    - _SourcePos_X: 88.0928
-    - _SourcePos_Y: -1237.84
+    - _SourcePos_X: 515.5
+    - _SourcePos_Y: 290
     - _SpecularHighlights: 1
     - _SrcBlend: 5
     - _UVSec: 0

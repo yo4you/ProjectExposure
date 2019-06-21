@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.08744214, g: 0.100418285, b: 0.14150941, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.23
+  m_FogDensity: 0.29
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -4439,6 +4439,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8101147134048515500, guid: 5cf033d447505e3458340bb0f93cf00d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c235391cf7daf584488aab579a000cca, type: 2}
     - target: {fileID: 8101147134062339240, guid: 5cf033d447505e3458340bb0f93cf00d,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -4479,11 +4484,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.y
       value: -1.8465351e-10
       objectReference: {fileID: 0}
-    - target: {fileID: 8101147134048515500, guid: 5cf033d447505e3458340bb0f93cf00d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c235391cf7daf584488aab579a000cca, type: 2}
     - target: {fileID: 8101147134062339262, guid: 5cf033d447505e3458340bb0f93cf00d,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -10639,11 +10639,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1952244827578339984, guid: 62ede17679643534ba7fe92b0111dfa9,
-        type: 3}
-      propertyPath: m_Name
-      value: Seaweed_Single
-      objectReference: {fileID: 0}
     - target: {fileID: 3264157050966401155, guid: 62ede17679643534ba7fe92b0111dfa9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10698,6 +10693,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -2.6820002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952244827578339984, guid: 62ede17679643534ba7fe92b0111dfa9,
+        type: 3}
+      propertyPath: m_Name
+      value: Seaweed_Single
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62ede17679643534ba7fe92b0111dfa9, type: 3}
