@@ -5,235 +5,309 @@ using UnityEngine;
 public class RayCastBounce : MonoBehaviour
 {
 
-	[SerializeField] private int _maxIterations = 3;
-	[SerializeField] private float _maxDistance = 10f;
-	[SerializeField] private int _raysCount = 6;
-	[SerializeField] private float _lightScannerDepth = -10;
+    [SerializeField] private int _maxIterations = 3;
+    [SerializeField] private float _maxDistance = 10f;
+    [SerializeField] private int _raysCount = 6;
+    [SerializeField] private float _lightScannerDepth = -10;
     [SerializeField] private float _minimumDistanceInBetweenRipples = 3.0f;
+    [SerializeField] private int _wavePoolCap = 5;
+
     //[SerializeField] bool _drawRays = false;
 
     [SerializeField] private GameObject targetObject;
-	[SerializeField] private GameObject line;
-	[SerializeField] private GameObject trailObject;
-	[SerializeField] private GameObject particleAroundOrigin;
-	[SerializeField] private GameObject particleBounce;
-	[SerializeField] private GameObject rippleBackgroundQuad;
-	[SerializeField] private GameObject sobelLightSource;
-	[SerializeField]
-	private LayerMask _layerMask;
+    [SerializeField] private GameObject line;
+    [SerializeField] private GameObject trailObject;
+    [SerializeField] private GameObject particleAroundOrigin;
+    [SerializeField] private GameObject particleBounce;
+    [SerializeField] private GameObject rippleBackgroundQuad;
+    [SerializeField] private GameObject sobelLightSource;
+    [SerializeField]
+    private LayerMask _layerMask;
 
     public delegate void BouncedOffWalls(Vector3 position);
-	public static event BouncedOffWalls OnWaveBounced;
+    public static event BouncedOffWalls OnWaveBounced;
 
-	private bool _isActive = false;
-	private List<int> _lineBounces = new List<int>();
-	private List<GameObject> _lineRenderers = new List<GameObject>();
-	private List<GameObject> _trails = new List<GameObject>();
-	private List<List<Vector3>> _trailsPoints = new List<List<Vector3>>();
-	private List<Vector3> _middlePoints = new List<Vector3>();
+    private bool _isActive = false;
+    private List<List<int>> _lineBounces = new List<List<int>>();
+    //private List<List<GameObject>> _lineRenderers = new List<List<GameObject>>();
+    private List<List<GameObject>> _trails = new List<List<GameObject>>();
+    private List<List<List<Vector3>>> _trailsPoints = new List<List<List<Vector3>>>();
+    private List<List<Vector3>> _middlePoints = new List<List<Vector3>>();
+    private List<List<Coroutine>> _throwCoroutines = new List<List<Coroutine>>();
     private Vector3 _directionV = Vector3.zero;
-	private Vector3 _orthoLine = Vector3.zero;
-	private Vector3 _clickedPos = Vector3.zero;
-	private ShrimpController _shrimp;
-	private CanvasMouseTracker _mousetracker;
+    private Vector3 _orthoLine = Vector3.zero;
+    private Vector3 _clickedPos = Vector3.zero;
+    private ShrimpController _shrimp;
+    private CanvasMouseTracker _mousetracker;
 
-    List<bool> trailsIdle = new List<bool>();
+    private int _currentFlyingWaveIndex = 0;
 
+    List<List<bool>> trailsIdle = new List<List<bool>>();
+    bool veryStart = true;
     bool startedMovement = false;
     private void Start()
-	{
-		_shrimp = FindObjectOfType<ShrimpController>();
-		_shrimp.OnBubblePop += _shrimp_OnBubblePop;
-		_mousetracker = FindObjectOfType<CanvasMouseTracker>();
+    {
+        _shrimp = FindObjectOfType<ShrimpController>();
+        _shrimp.OnBubblePop += _shrimp_OnBubblePop;
+        _mousetracker = FindObjectOfType<CanvasMouseTracker>();
 
-		for (int i = 0; i < _raysCount; i++)
-		{
+        for (int i = 0; i < _raysCount; i++)
+        {
 
-			_lineBounces.Add(0);
-			_lineRenderers.Add(Instantiate(line));
-			_trails.Add(Instantiate(trailObject));
-			_trails[i].transform.position = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y, rippleBackgroundQuad.transform.position.z);
-			_trailsPoints.Add(new List<Vector3>());
-            _middlePoints.Add(new Vector3());
-            trailsIdle.Add(true);
+            _lineBounces.Add(new List<int>());
+            //_lineRenderers.Add(new List<GameObject>());
+
+            _trailsPoints.Add(new List<List<Vector3>>());
+            _middlePoints.Add(new List<Vector3>());
+            _trails.Add(new List<GameObject>());
+            trailsIdle.Add(new List<bool>());
+            _throwCoroutines.Add(new List<Coroutine>());
+            for (int j = 0; j < _wavePoolCap; j++)
+            {
+                _trails[i].Add(Instantiate(trailObject));
+                _trails[i][j].transform.position = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y, rippleBackgroundQuad.transform.position.z);
+                _trailsPoints[i].Add(new List<Vector3>());
+                _trailsPoints[i][j] = new List<Vector3>();
+                _middlePoints[i].Add(new Vector3());
+                _lineBounces[i].Add(0);
+                //_lineRenderers[i].Add(Instantiate(line));
+                trailsIdle[i].Add(true);
+                _throwCoroutines[i].Add(null);
+            }
+
 
         }
-	}
+    }
 
-	private void _shrimp_OnBubblePop(Vector3 clickPos)
-	{
+    private void _shrimp_OnBubblePop(Vector3 clickPos)
+    {
+        if (veryStart)
+        {
+            veryStart = false;
+            return;
+        }
+        //if (_currentFlyingWaveIndex > _wavePoolCap) _currentFlyingWaveIndex = 0;
+        //_currentFlyingWaveIndex++;
 
+        //clickPos = new Vector3(clickPos.x, clickPos.y, rippleBackgroundQuad.transform.position.z);
 
+        Vector3 originToTarget = new Vector3(
+            targetObject.transform.position.x - clickPos.x,
+            targetObject.transform.position.y - clickPos.y,
+            0//rippleBackgroundQuad.transform.position.z
+            );
 
-		//clickPos = new Vector3(clickPos.x, clickPos.y, rippleBackgroundQuad.transform.position.z);
+        Vector3 orthoLine = Quaternion.AngleAxis(-90, Vector3.forward) * originToTarget;
+        _orthoLine = new Vector3(orthoLine.x, orthoLine.y, 0);
+        _clickedPos = clickPos;
 
-		Vector3 originToTarget = new Vector3(
-			targetObject.transform.position.x - clickPos.x,
-			targetObject.transform.position.y - clickPos.y,
-			0//rippleBackgroundQuad.transform.position.z
-			);
+        //StopAllCoroutines();
 
-		Vector3 orthoLine = Quaternion.AngleAxis(-90, Vector3.forward) * originToTarget;
-		_orthoLine = new Vector3(orthoLine.x, orthoLine.y, 0);
-		_clickedPos = clickPos;
+        for (int i = 0; i < _raysCount; i++)
+        {
+            //StartCoroutine(ResetTrailRenderer(_trails[i][_currentFlyingWaveIndex].GetComponent<TrailRenderer>()));
+            _trails[i][_currentFlyingWaveIndex].transform.position = new Vector3(clickPos.x, clickPos.y, rippleBackgroundQuad.transform.position.z);
+            //_trailsPoints[i][_currentFlyingWaveIndex].Clear();
+        }
 
-		StopAllCoroutines();
+        GameObject particleBig = Instantiate(particleAroundOrigin);
+        particleBig.transform.position = clickPos;
 
-		for (int i = 0; i < _raysCount; i++)
-		{
-			StartCoroutine(ResetTrailRenderer(_trails[i].GetComponent<TrailRenderer>()));
-			_trails[i].transform.position = new Vector3(clickPos.x, clickPos.y, rippleBackgroundQuad.transform.position.z);
-			_trailsPoints[i].Clear();
-		}
-
-		GameObject particleBig = Instantiate(particleAroundOrigin);
-		particleBig.transform.position = clickPos;
-
-		ThrowLineRays(_orthoLine, originToTarget);
-
-
-
-		for (int i = 0; i < _raysCount; i++)
-		{
-			StartCoroutine(ThrowTrails(i));
-			//_trails[i].GetComponent<MoveEcho>().StartSpreading(_trailsPoints[i]);
-			//SpawnParticlesOnBounce(i);
-		}
-	}
+        ThrowLineRays(_orthoLine, originToTarget);
 
 
-	private void Update()
-	{
+        for (int i = 0; i < _raysCount; i++)
+        {
+            //for (int j = 0; j < _wavePoolCap; j++)
+            //{
+            //    if (trailsIdle[i][j]) StartCoroutine(ThrowTrails(i, j));
+            //
+            //}
+
+            if (!trailsIdle[i][_currentFlyingWaveIndex])
+            {
+                print("started throwing");
+                _trails[i][_currentFlyingWaveIndex].GetComponent<TrailRenderer>().enabled = true;
+                _throwCoroutines[i][_currentFlyingWaveIndex] = StartCoroutine(ThrowTrails(i, _currentFlyingWaveIndex));
+            }
+            //_trails[i].GetComponent<MoveEcho>().StartSpreading(_trailsPoints[i]);
+            //SpawnParticlesOnBounce(i);
+        }
+    }
 
 
-		if (!_mousetracker)
-		{
-			_mousetracker = FindObjectOfType<CanvasMouseTracker>();
-		}
-		else if (Input.GetMouseButtonDown(0) && !_mousetracker.RayCastHitPlayer())
-		{
+    private void Update()
+    {
 
 
-			Vector3 mouse = Input.mousePosition;
-			Ray castPoint = Camera.main.ScreenPointToRay(mouse);
-			Vector3 clickPos = Vector3.zero;
-			RaycastHit hit;
+        if (!_mousetracker)
+        {
+            _mousetracker = FindObjectOfType<CanvasMouseTracker>();
+        }
+        else if (Input.GetMouseButtonDown(0) && !_mousetracker.RayCastHitPlayer())
+        {
 
-			if (Physics.Raycast(castPoint, out hit, Mathf.Infinity, _layerMask))
-			{
-				clickPos = hit.point;
-				if (hit.point.z < rippleBackgroundQuad.transform.position.z)
-				{
-					return;
-				}
+
+            Vector3 mouse = Input.mousePosition;
+            Ray castPoint = Camera.main.ScreenPointToRay(mouse);
+            Vector3 clickPos = Vector3.zero;
+            RaycastHit hit;
+
+            if (Physics.Raycast(castPoint, out hit, Mathf.Infinity, _layerMask))
+            {
+                clickPos = hit.point;
+                if (hit.point.z < rippleBackgroundQuad.transform.position.z)
+                {
+                    return;
+                }
 
                 startedMovement = false;
 
                 for (int i = 0; i < _trails.Count; i++)
                 {
                     //_trails[i] = Instantiate(trailObject);
-                    trailsIdle[i] = false;
-                    _trails[i].transform.position = new Vector3(clickPos.x, clickPos.y, rippleBackgroundQuad.transform.position.z);
+
+                    _currentFlyingWaveIndex++;
+                    if (_currentFlyingWaveIndex > _wavePoolCap - 1) _currentFlyingWaveIndex = 0;
+
+                    if (!trailsIdle[i][_currentFlyingWaveIndex])
+                    {
+                        StopCoroutine(_throwCoroutines[i][_currentFlyingWaveIndex]);
+                        //_trailsPoints[i][_currentFlyingWaveIndex].Clear();
+                        print("force stop");
+
+                        //_trails[i][_currentFlyingWaveIndex]
+                        _trails[i][_currentFlyingWaveIndex].GetComponent<TrailRenderer>().enabled = false;
+                        _trails[i][_currentFlyingWaveIndex].transform.position = new Vector3(clickPos.x, clickPos.y, rippleBackgroundQuad.transform.position.z);
+                        //_trails[i][_currentFlyingWaveIndex].GetComponent<TrailRenderer>().enabled = true;
+                        //trailsIdle[i][_currentFlyingWaveIndex] = true;
+                    }
+                    else
+                    {
+
+                        trailsIdle[i][_currentFlyingWaveIndex] = false;
+                        _trails[i][_currentFlyingWaveIndex].GetComponent<TrailRenderer>().enabled = false;
+                        _trails[i][_currentFlyingWaveIndex].transform.position = new Vector3(clickPos.x, clickPos.y, rippleBackgroundQuad.transform.position.z);
+                        //_trails[i][_currentFlyingWaveIndex].GetComponent<TrailRenderer>().enabled = true;
+
+                    }
+
                 }
-			}
-			_shrimp.MoveTo(clickPos);
+            }
+            _shrimp.MoveTo(clickPos);
 
 
-		}
+        }
 
-		for (int i = 0; i < _raysCount; i++)
-		{
-			SpawnParticlesOnBounce(i);
-		}
-	}
+        for (int i = 0; i < _raysCount; i++)
+        {
+            for (int j = 0; j < _wavePoolCap; j++)
+            {
+                SpawnParticlesOnBounce(i, j);
+                CheckTrailsInactivity(i, j);
+            }
+        }
+    }
 
-	private void ThrowLineRays(Vector3 orthogonalLine, Vector3 normal)
-	{
-		for (int i = 0; i < _raysCount; i++)
-		{
-			float angle = 180.0f / (_raysCount + 1) * (i + 1);
-			Vector3 directionVector = Quaternion.AngleAxis(angle, Vector3.forward) * orthogonalLine;
-
-			_directionV = directionVector;
-			GenerateRays(directionVector, i);
-
-		}
-	}
-
-
-
-	private void GenerateRays(Vector3 dir, int index)
-	{
-
-		_lineBounces[index] = 0;
-
-		bool hasCaughtSmth = RayCast(new Ray(new Vector3(_clickedPos.x, _clickedPos.y, rippleBackgroundQuad.transform.position.z), dir), index);
-
-		//if (!_drawRays) return;
-		//_lineRenderers[index].GetComponent<LineRenderer>().positionCount = (1);
-		//_lineRenderers[index].GetComponent<LineRenderer>().SetPosition(0, new Vector3(_clickedPos.x, _clickedPos.y, rippleBackgroundQuad.transform.position.z));
-		//_lineRenderers[index].GetComponent<LineRenderer>().enabled = hasCaughtSmth;
-
-	}
-
-    private void GenerateMiddlePoint(int trailIndex, int pointIndex)
+    private void ThrowLineRays(Vector3 orthogonalLine, Vector3 normal)
     {
-        Vector3 origin = _trails[trailIndex].transform.position;
-        Vector3 dest = _trailsPoints[trailIndex][pointIndex];
+        for (int i = 0; i < _raysCount; i++)
+        {
+            float angle = 180.0f / (_raysCount + 1) * (i + 1);
+            Vector3 directionVector = Quaternion.AngleAxis(angle, Vector3.forward) * orthogonalLine;
 
-        _middlePoints[trailIndex] = new Vector3((dest.x + origin.x)/2, (dest.y + origin.y)/2, rippleBackgroundQuad.transform.position.z);
-        print("Generated middle point for: " + _trails[trailIndex].transform.position + " to " + _trailsPoints[trailIndex][pointIndex] + " in " + _middlePoints[trailIndex]);
+            _directionV = directionVector;
+            GenerateRays(directionVector, i);
+
+        }
+    }
+
+    private void CheckTrailsInactivity(int trailIndex, int poolIndex)
+    {
+        if (trailsIdle[trailIndex][poolIndex])
+        {
+            if (_throwCoroutines[trailIndex][poolIndex]!=null) StopCoroutine(_throwCoroutines[trailIndex][poolIndex]);
+            //_trails[trailIndex][poolIndex].transform.position = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y, rippleBackgroundQuad.transform.position.z);
+        }
+    }
+    private void GenerateRays(Vector3 dir, int index)
+    {
+        
+        //for (int i = 0; i < _wavePoolCap; i++)
+       
+            _lineBounces[index][_currentFlyingWaveIndex] = 0;
+            _trailsPoints[index][_currentFlyingWaveIndex].Clear();
+            bool hasCaughtSmth = RayCast(new Ray(new Vector3(_clickedPos.x, _clickedPos.y, rippleBackgroundQuad.transform.position.z), dir), index, _currentFlyingWaveIndex);
+
+       
+
+        //if (!_drawRays) return;
+        //_lineRenderers[index][_currentFlyingWaveIndex].GetComponent<LineRenderer>().positionCount = (1);
+        //_lineRenderers[index][_currentFlyingWaveIndex].GetComponent<LineRenderer>().SetPosition(0, new Vector3(_clickedPos.x, _clickedPos.y, rippleBackgroundQuad.transform.position.z));
+        //_lineRenderers[index][_currentFlyingWaveIndex].GetComponent<LineRenderer>().enabled = hasCaughtSmth;
 
     }
 
-    private void SpawnParticlesOnBounce(int index)
+    private void GenerateMiddlePoint(int trailIndex, int pointIndex, int indexOfPooledElement)
     {
-        if (_trails[index] == null || trailsIdle[index]) return;
+        Vector3 origin = _trails[trailIndex][indexOfPooledElement].transform.position;
+        Vector3 dest = _trailsPoints[trailIndex][indexOfPooledElement][pointIndex];
 
-		for (int i = 0; i < _trailsPoints[index].Count - 1; i++)
-		{
+        _middlePoints[trailIndex][indexOfPooledElement] = new Vector3((dest.x + origin.x) / 2, (dest.y + origin.y) / 2, rippleBackgroundQuad.transform.position.z);
+        //print("Generated middle point for: " + _trails[trailIndex][indexOfPooledElement].transform.position + " to " + _trailsPoints[trailIndex][indexOfPooledElement][pointIndex] + " in " + _middlePoints[trailIndex][indexOfPooledElement]);
+
+    }
+
+    private void SpawnParticlesOnBounce(int rayIndex, int trailPoolIndex)
+    {
+        if (_trails[rayIndex][trailPoolIndex] == null || trailsIdle[rayIndex][trailPoolIndex]) return;
+
+
+        for (int pointIndex = 0; pointIndex < _trailsPoints[rayIndex][trailPoolIndex].Count - 1; pointIndex++)
+        {
+
             if (!startedMovement)
             {
-                GenerateMiddlePoint(index, i);
-                print("Generated middle from start");
+                GenerateMiddlePoint(rayIndex, pointIndex, trailPoolIndex);
+                //print("Generated middle from start");
                 startedMovement = true;
             }
 
-            //print(_trails[index].transform.position);
-            //if (i == 0) continue;
-            //spawn in between origin and destination
-            
-            print("checking " + _trails[index].transform.position + "with " + _middlePoints[index]);
-            if ( Vector3.Distance(_trailsPoints[index][i+1], _middlePoints[index]) > _minimumDistanceInBetweenRipples 
-                && Vector3.Distance(_trails[index].transform.position, _middlePoints[index]) < 1f)
+            //print("checking " + _trails[index].transform.position + "with " + _middlePoints[index]);
+            //spawn when reached the middle
+            if (Vector3.Distance(_trailsPoints[rayIndex][trailPoolIndex][pointIndex + 1], _middlePoints[rayIndex][trailPoolIndex]) > _minimumDistanceInBetweenRipples
+                && Vector3.Distance(_trails[rayIndex][trailPoolIndex].transform.position, _middlePoints[rayIndex][trailPoolIndex]) < 1f)
             {
                 GameObject particleOnBounce = Instantiate(particleBounce);
-                particleOnBounce.transform.position = _trails[index].transform.position;
-            
-                //OnWaveBounced?.Invoke(_trails[index].transform.position);
-            
-                print("on middle pos");
-            
-                GenerateMiddlePoint(index, i + 1);
+                particleOnBounce.transform.position = _trails[rayIndex][trailPoolIndex].transform.position;
+
+                //print("on middle pos");
+
+                GenerateMiddlePoint(rayIndex, pointIndex + 1, trailPoolIndex);
             }
+        }
+        
 
+        for (int pointIndex = 0; pointIndex < _trailsPoints[rayIndex][trailPoolIndex].Count - 1; pointIndex++)
+        { 
             //spawn when reached the destination
-            if (Vector3.Distance(_trails[index].transform.position, _trailsPoints[index][i]) < 0.01f)
-			{
+            if (Vector3.Distance(_trails[rayIndex][trailPoolIndex].transform.position, _trailsPoints[rayIndex][trailPoolIndex][pointIndex]) < 0.01f)
+            {
 
-				GameObject particleOnBounce = Instantiate(particleBounce);
-				particleOnBounce.transform.position = _trails[index].transform.position;
+                GameObject particleOnBounce = Instantiate(particleBounce);
+                particleOnBounce.transform.position = _trails[rayIndex][trailPoolIndex].transform.position;
 
-				OnWaveBounced?.Invoke(_trails[index].transform.position);
+                OnWaveBounced?.Invoke(_trails[rayIndex][trailPoolIndex].transform.position);
 
-                if (i == _trailsPoints[index].Count - 2)
+                if (pointIndex == _trailsPoints[rayIndex][trailPoolIndex].Count - 2)
                 {
-                    trailsIdle[index] = true;
-                    print("trail started idling");
+                    trailsIdle[rayIndex][trailPoolIndex] = true;
+                    //print("trail started idling " + trailPoolIndex);
                 }
-			}
+            }
+         }
 
-		}
+
 
 	}
 
@@ -275,28 +349,26 @@ public class RayCastBounce : MonoBehaviour
 		}
 	}
 
-	private bool RayCast(Ray ray, int index)
+	private bool RayCast(Ray ray, int index, int trailOfPoolIndex)
 	{
 		RaycastHit hit;
-		if (Physics.Raycast(ray, out hit, _maxDistance) && _lineBounces[index] <= _maxIterations - 1)
+		if (Physics.Raycast(ray, out hit, _maxDistance) && _lineBounces[index][trailOfPoolIndex] <= _maxIterations - 1)
 		{
-			_lineBounces[index]++;
+			_lineBounces[index][trailOfPoolIndex]++;
 
 			// GameObject particleOnBounce = Instantiate(particleBounce);
 			// particleBounce.transform.position = hit.point;
 
 			var reflectAngle = Vector3.Reflect(ray.direction, hit.normal);
-			//_lineRenderers[index].GetComponent<LineRenderer>().positionCount = (_lineBounces[index] + 1);
-			//_lineRenderers[index].GetComponent<LineRenderer>().SetPosition(_lineBounces[index], hit.point);
+			//_lineRenderers[index][trailOfPoolIndex].GetComponent<LineRenderer>().positionCount = (_lineBounces[index][trailOfPoolIndex] + 1);
+			//_lineRenderers[index][trailOfPoolIndex].GetComponent<LineRenderer>().SetPosition(_lineBounces[index][trailOfPoolIndex], hit.point);
 
-			_trailsPoints[index].Add(new Vector3(hit.point.x, hit.point.y, rippleBackgroundQuad.transform.position.z));
-			//_trails[index].transform.position = Vector3.MoveTowards(_trails[index].transform.position, hit.point, Time.deltaTime);
-			RayCast(new Ray(new Vector3(hit.point.x, hit.point.y, rippleBackgroundQuad.transform.position.z), reflectAngle), index);
+			_trailsPoints[index][trailOfPoolIndex].Add(new Vector3(hit.point.x, hit.point.y, rippleBackgroundQuad.transform.position.z));
+			RayCast(new Ray(new Vector3(hit.point.x, hit.point.y, rippleBackgroundQuad.transform.position.z), reflectAngle), index, trailOfPoolIndex);
 			return true;
 		}
-        // _lineRenderers[index].GetComponent<LineRenderer>().positionCount = (_lineBounces[index] + 2);
-        // _lineRenderers[index].GetComponent<LineRenderer>().SetPosition(_lineBounces[index] + 1, ray.GetPoint(_maxDistance));
-        //if (_lineBounces[index] <= _maxIterations - 1) _trailsPoints[index].Add(new Vector3(ray.GetPoint(_maxDistance).x, ray.GetPoint(_maxDistance).y, rippleBackgroundQuad.transform.position.z));
+        //_lineRenderers[index][trailOfPoolIndex].GetComponent<LineRenderer>().positionCount = (_lineBounces[index][trailOfPoolIndex] + 2);
+        //_lineRenderers[index][trailOfPoolIndex].GetComponent<LineRenderer>().SetPosition(_lineBounces[index][trailOfPoolIndex] + 1, ray.GetPoint(_maxDistance));
 
 		return false;
 	}
@@ -309,34 +381,27 @@ public class RayCastBounce : MonoBehaviour
 		tr.time = trailTime;
 	}
 
-	private IEnumerator ThrowTrails(int i)
+    IEnumerator ResetTrailDist(TrailRenderer trailRenderer)
+    {
+        yield return new WaitForSeconds(.1f);
+        trailRenderer.time = 1;
+
+    }
+    private IEnumerator ThrowTrails(int trailIndex, int trailInPoolIndex)
 	{
-		_trails[i].GetComponent<TrailRenderer>().Clear();
-		for (int j = 0; j < _trailsPoints[i].Count; j++)
-		{
+        for (int pointIndex = 0; pointIndex < _trailsPoints[trailIndex][trailInPoolIndex].Count - 1; pointIndex++)
+        {
 
-			while (Vector3.Distance(_trails[i].transform.position, _trailsPoints[i][j]) > 0.005f)
-			{
-				_trails[i].transform.position = Vector3.MoveTowards(_trails[i].transform.position, _trailsPoints[i][j], 4.0f * Time.deltaTime);
-				//_trails[i].transform.LookAt(_trailsPoints[i][j], Vector3.forward);
+            while (Vector3.Distance(_trails[trailIndex][trailInPoolIndex].transform.position, _trailsPoints[trailIndex][trailInPoolIndex][pointIndex]) > 0.005f)
+            {
+                _trails[trailIndex][trailInPoolIndex].transform.position = Vector3.MoveTowards(_trails[trailIndex][trailInPoolIndex].transform.position, _trailsPoints[trailIndex][trailInPoolIndex][pointIndex], 4.0f * Time.deltaTime);
+                //print("moving trail " + trailInPoolIndex);
+                yield return null;
+            }
 
+        }
 
-				//GameObject particleOnBounce = Instantiate(particleBounce);
-				//particleBounce.transform.position = _trails[i].transform.position;
-
-				yield return null;
-			}
-
-			//SpawnParticlesOnBounce(i);
-
-
-			//_trailsPoints[i].RemoveAt(j);
-
-		}
-
-        //_trails[i].transform.position = new Vector3(_shrimp.transform.position.x, _shrimp.transform.position.y, rippleBackgroundQuad.transform.position.z);
-
-        //Destroy(_trails[i]);
+        
 
 	}
 

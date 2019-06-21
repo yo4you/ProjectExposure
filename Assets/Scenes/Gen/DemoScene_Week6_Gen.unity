@@ -2182,7 +2182,7 @@ PrefabInstance:
     - target: {fileID: 114281744279779304, guid: 7145d1a67ff90634488071c9f27d3880,
         type: 3}
       propertyPath: _raysCount
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114281744279779304, guid: 7145d1a67ff90634488071c9f27d3880,
         type: 3}
@@ -2193,6 +2193,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _maxDistance
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114281744279779304, guid: 7145d1a67ff90634488071c9f27d3880,
+        type: 3}
+      propertyPath: _wavePoolCap
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7145d1a67ff90634488071c9f27d3880, type: 3}
