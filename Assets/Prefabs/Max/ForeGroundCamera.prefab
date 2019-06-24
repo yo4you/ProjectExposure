@@ -68,7 +68,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 03da90bb6b64a9047adc5542da87909c, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2706772109215371100}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2706772109215371100}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -5155,6 +5155,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8236198944566896228, guid: c12ae656287912642ac6deaaeaa492ab,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7653944
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236198944566896228, guid: c12ae656287912642ac6deaaeaa492ab,
+        type: 3}
       propertyPath: m_LocalScale.y
       value: 0.76539445
       objectReference: {fileID: 0}
@@ -5162,11 +5167,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.76539445
-      objectReference: {fileID: 0}
-    - target: {fileID: 8236198944566896228, guid: c12ae656287912642ac6deaaeaa492ab,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.7653944
       objectReference: {fileID: 0}
     - target: {fileID: 307861285, guid: c12ae656287912642ac6deaaeaa492ab, type: 3}
       propertyPath: m_Enabled
@@ -5243,6 +5243,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 907726153040186636, guid: e19114121f6e5e54bb11dc6fb20bbec2,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.0181892
+      objectReference: {fileID: 0}
+    - target: {fileID: 907726153040186636, guid: e19114121f6e5e54bb11dc6fb20bbec2,
+        type: 3}
       propertyPath: m_LocalScale.y
       value: 2.0181894
       objectReference: {fileID: 0}
@@ -5250,11 +5255,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.0181894
-      objectReference: {fileID: 0}
-    - target: {fileID: 907726153040186636, guid: e19114121f6e5e54bb11dc6fb20bbec2,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.0181892
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e19114121f6e5e54bb11dc6fb20bbec2, type: 3}
@@ -5327,6 +5327,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 907726153040186636, guid: e19114121f6e5e54bb11dc6fb20bbec2,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.94077885
+      objectReference: {fileID: 0}
+    - target: {fileID: 907726153040186636, guid: e19114121f6e5e54bb11dc6fb20bbec2,
+        type: 3}
       propertyPath: m_LocalScale.y
       value: 0.940779
       objectReference: {fileID: 0}
@@ -5334,11 +5339,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.940779
-      objectReference: {fileID: 0}
-    - target: {fileID: 907726153040186636, guid: e19114121f6e5e54bb11dc6fb20bbec2,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.94077885
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e19114121f6e5e54bb11dc6fb20bbec2, type: 3}
@@ -5670,11 +5670,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8583485958973826386}
     m_Modifications:
-    - target: {fileID: 1952244827578339984, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
-        type: 3}
-      propertyPath: m_Name
-      value: Seaweed_Single_AnimationOffset (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 3264157050966401155, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5745,6 +5740,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.5668263
       objectReference: {fileID: 0}
+    - target: {fileID: 1952244827578339984, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
+        type: 3}
+      propertyPath: m_Name
+      value: Seaweed_Single_AnimationOffset (3)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ac580bfb9f8efe43b912ba3b0c350f4, type: 3}
 --- !u!1001 &7477897738762740249
@@ -5754,6 +5754,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8583485958973826386}
     m_Modifications:
+    - target: {fileID: 9146530475758843392, guid: 6cf07ecda1d4e5a4b9002e4b3ffb2712,
+        type: 3}
+      propertyPath: m_Name
+      value: Prefab_Urhcin
+      objectReference: {fileID: 0}
     - target: {fileID: 5238909956399629331, guid: 6cf07ecda1d4e5a4b9002e4b3ffb2712,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5814,11 +5819,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3.612264
       objectReference: {fileID: 0}
-    - target: {fileID: 9146530475758843392, guid: 6cf07ecda1d4e5a4b9002e4b3ffb2712,
-        type: 3}
-      propertyPath: m_Name
-      value: Prefab_Urhcin
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cf07ecda1d4e5a4b9002e4b3ffb2712, type: 3}
 --- !u!1001 &7477897738774309453
@@ -5828,11 +5828,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8583485958973826386}
     m_Modifications:
-    - target: {fileID: 1952244827578339984, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
-        type: 3}
-      propertyPath: m_Name
-      value: Seaweed_Single_AnimationOffset
-      objectReference: {fileID: 0}
     - target: {fileID: 3264157050966401155, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5903,6 +5898,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5.6039
       objectReference: {fileID: 0}
+    - target: {fileID: 1952244827578339984, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
+        type: 3}
+      propertyPath: m_Name
+      value: Seaweed_Single_AnimationOffset
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ac580bfb9f8efe43b912ba3b0c350f4, type: 3}
 --- !u!1001 &7477897739191315227
@@ -5912,11 +5912,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8583485958973826386}
     m_Modifications:
-    - target: {fileID: 1952244827578339984, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
-        type: 3}
-      propertyPath: m_Name
-      value: Seaweed_Single_AnimationOffset (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 3264157050966401155, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5987,6 +5982,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3.8595178
       objectReference: {fileID: 0}
+    - target: {fileID: 1952244827578339984, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
+        type: 3}
+      propertyPath: m_Name
+      value: Seaweed_Single_AnimationOffset (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ac580bfb9f8efe43b912ba3b0c350f4, type: 3}
 --- !u!1001 &7477897739448322964
@@ -5996,11 +5996,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7477897738421172706}
     m_Modifications:
-    - target: {fileID: 5078077322940546211, guid: 0eb2d3d3a7feb4b42bdbed8f10a8e1a5,
-        type: 3}
-      propertyPath: m_Name
-      value: Jellyfish_Swim
-      objectReference: {fileID: 0}
     - target: {fileID: 8080493142626832048, guid: 0eb2d3d3a7feb4b42bdbed8f10a8e1a5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6071,6 +6066,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 5078077322940546211, guid: 0eb2d3d3a7feb4b42bdbed8f10a8e1a5,
+        type: 3}
+      propertyPath: m_Name
+      value: Jellyfish_Swim
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eb2d3d3a7feb4b42bdbed8f10a8e1a5, type: 3}
 --- !u!4 &1721916489923233060 stripped
@@ -6086,11 +6086,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2706772109215371099}
     m_Modifications:
-    - target: {fileID: -1519605553484150178, guid: fb5b9acb016649547add900983c9fe63,
-        type: 3}
-      propertyPath: m_Name
-      value: ForegroundLayer
-      objectReference: {fileID: 0}
     - target: {fileID: 1213860146650615666, guid: fb5b9acb016649547add900983c9fe63,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6146,6 +6141,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1519605553484150178, guid: fb5b9acb016649547add900983c9fe63,
+        type: 3}
+      propertyPath: m_Name
+      value: ForegroundLayer
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb5b9acb016649547add900983c9fe63, type: 3}
 --- !u!4 &8583485958973826386 stripped
@@ -6161,11 +6161,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8583485958973826386}
     m_Modifications:
-    - target: {fileID: 1952244827578339984, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
-        type: 3}
-      propertyPath: m_Name
-      value: Seaweed_Single_AnimationOffset (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 3264157050966401155, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6236,6 +6231,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 6.4087296
       objectReference: {fileID: 0}
+    - target: {fileID: 1952244827578339984, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
+        type: 3}
+      propertyPath: m_Name
+      value: Seaweed_Single_AnimationOffset (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ac580bfb9f8efe43b912ba3b0c350f4, type: 3}
 --- !u!1001 &7477897739870815915
@@ -6245,11 +6245,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7477897739332129531}
     m_Modifications:
-    - target: {fileID: 5078077322940546211, guid: 0eb2d3d3a7feb4b42bdbed8f10a8e1a5,
-        type: 3}
-      propertyPath: m_Name
-      value: Jellyfish_Swim
-      objectReference: {fileID: 0}
     - target: {fileID: 8080493142626832048, guid: 0eb2d3d3a7feb4b42bdbed8f10a8e1a5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6319,6 +6314,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078077322940546211, guid: 0eb2d3d3a7feb4b42bdbed8f10a8e1a5,
+        type: 3}
+      propertyPath: m_Name
+      value: Jellyfish_Swim
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eb2d3d3a7feb4b42bdbed8f10a8e1a5, type: 3}
@@ -6397,6 +6397,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 907726153040186636, guid: e19114121f6e5e54bb11dc6fb20bbec2,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5999629
+      objectReference: {fileID: 0}
+    - target: {fileID: 907726153040186636, guid: e19114121f6e5e54bb11dc6fb20bbec2,
+        type: 3}
       propertyPath: m_LocalScale.y
       value: 0.59996295
       objectReference: {fileID: 0}
@@ -6404,11 +6409,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.59996295
-      objectReference: {fileID: 0}
-    - target: {fileID: 907726153040186636, guid: e19114121f6e5e54bb11dc6fb20bbec2,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5999629
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e19114121f6e5e54bb11dc6fb20bbec2, type: 3}
@@ -6481,6 +6481,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 907726153040186636, guid: e19114121f6e5e54bb11dc6fb20bbec2,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5999629
+      objectReference: {fileID: 0}
+    - target: {fileID: 907726153040186636, guid: e19114121f6e5e54bb11dc6fb20bbec2,
+        type: 3}
       propertyPath: m_LocalScale.y
       value: 0.59996295
       objectReference: {fileID: 0}
@@ -6488,11 +6493,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.59996295
-      objectReference: {fileID: 0}
-    - target: {fileID: 907726153040186636, guid: e19114121f6e5e54bb11dc6fb20bbec2,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5999629
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e19114121f6e5e54bb11dc6fb20bbec2, type: 3}
