@@ -21,6 +21,8 @@ public class RayCastBounce : MonoBehaviour
     [SerializeField] private GameObject particleBounce;
     [SerializeField] private GameObject rippleBackgroundQuad;
     [SerializeField] private GameObject sobelLightSource;
+    [SerializeField] private GameObject crossClickObject;
+    [SerializeField] private GameObject pointerClickObject;
     [SerializeField]
     private LayerMask _layerMask;
 
@@ -137,9 +139,7 @@ public class RayCastBounce : MonoBehaviour
 
 
     private void Update()
-    {
-
-
+    {   
         if (!_mousetracker)
         {
             _mousetracker = FindObjectOfType<CanvasMouseTracker>();
@@ -147,18 +147,27 @@ public class RayCastBounce : MonoBehaviour
         else if (Input.GetMouseButtonDown(0) && !_mousetracker.RayCastHitPlayer())
         {
 
-
             Vector3 mouse = Input.mousePosition;
             Ray castPoint = Camera.main.ScreenPointToRay(mouse);
             Vector3 clickPos = Vector3.zero;
             RaycastHit hit;
+
+            
 
             if (Physics.Raycast(castPoint, out hit, Mathf.Infinity, _layerMask))
             {
                 clickPos = hit.point;
                 if (hit.point.z < rippleBackgroundQuad.transform.position.z)
                 {
+                    GameObject crossMisclick = Instantiate(crossClickObject);
+                    crossMisclick.transform.position = new Vector3(clickPos.x, clickPos.y, hit.point.z);
+
                     return;
+                }
+                else
+                {
+                    GameObject crossClick = Instantiate(pointerClickObject);
+                    crossClick.transform.position = new Vector3(clickPos.x, clickPos.y, hit.point.z);
                 }
 
                 startedMovement = false;
