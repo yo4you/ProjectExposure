@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.10813456, g: 0.11293994, b: 0.16981131, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.29
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -1969,14 +1969,14 @@ RectTransform:
   m_GameObject: {fileID: 152711561}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 80890219}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 433, y: 292}
+  m_AnchoredPosition: {x: 433, y: 288.6}
   m_SizeDelta: {x: 572.14, y: 61.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152711563
@@ -4448,6 +4448,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8101147134048515500, guid: 5cf033d447505e3458340bb0f93cf00d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c235391cf7daf584488aab579a000cca, type: 2}
     - target: {fileID: 8101147134062339240, guid: 5cf033d447505e3458340bb0f93cf00d,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -4488,11 +4493,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.y
       value: -1.8465351e-10
       objectReference: {fileID: 0}
-    - target: {fileID: 8101147134048515500, guid: 5cf033d447505e3458340bb0f93cf00d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c235391cf7daf584488aab579a000cca, type: 2}
     - target: {fileID: 8101147134062339262, guid: 5cf033d447505e3458340bb0f93cf00d,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -5065,14 +5065,14 @@ RectTransform:
   m_GameObject: {fileID: 422627162}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children: []
   m_Father: {fileID: 80890219}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -417, y: 292}
+  m_AnchoredPosition: {x: -417, y: 288.6}
   m_SizeDelta: {x: 572.14, y: 61.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &422627164

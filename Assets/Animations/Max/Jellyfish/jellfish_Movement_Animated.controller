@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Animation_Jellyfis_Foreground
-  m_Speed: 1
+  m_Speed: 1.58
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []

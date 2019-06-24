@@ -332,7 +332,7 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 0.43
+    value: 0.55
   aperture:
     overrideState: 1
     value: 32
@@ -341,7 +341,7 @@ MonoBehaviour:
     value: 77
   kernelSize:
     overrideState: 1
-    value: 0
+    value: 3
 --- !u!114 &3466346002650708645
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -407,7 +407,7 @@ MonoBehaviour:
     value: 0
   saturation:
     overrideState: 1
-    value: 0
+    value: 14.4
   brightness:
     overrideState: 1
     value: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.9486585, y: 0.9907429, z: 1, w: 0.0000000014641077}
+    value: {x: 0.8964616, y: 0.9542422, z: 1, w: 0.0000000014641077}
   gamma:
     overrideState: 1
     value: {x: 0.9766183, y: 0.9896477, z: 1, w: 0}
