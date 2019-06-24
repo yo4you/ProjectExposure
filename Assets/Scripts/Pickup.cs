@@ -1,27 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] int scoreToGive;
-    [SerializeField] GameObject player;
+	[SerializeField] private int scoreToGive;
+	[SerializeField] private GameObject player;
+	private Animator _animator;
+	[SerializeField]
+	private float _hintRadiusBorder = 20f;
 
-    private float _distanceToPlayer;
+	private float _distanceToPlayer;
 
-    public float Distance {
-        get {
-            return _distanceToPlayer;
-        }
-        set {
-            _distanceToPlayer = value;
-        }
-    }
-    public int Score { get { return scoreToGive; } }
+	public float Distance
+	{
+		get => _distanceToPlayer;
+		set => _distanceToPlayer = value;
+	}
 
-    private void Update()
-    {
-        
-    }
+	private void Start()
+	{
+		player = FindObjectOfType<NodeTransverser>().gameObject;
+		_animator =  GetComponentInChildren<Animator>();
+	}
+	public int Score => scoreToGive;
+
+	private void Update()
+	{
+		var newDistance = Vector2.Distance(transform.position, player.transform.position);
+		if (_distanceToPlayer < _hintRadiusBorder && newDistance > _hintRadiusBorder)
+		{
+			_animator.SetBool("Shaking", true);
+
+		}
+		if (newDistance < _hintRadiusBorder)
+		{
+			_animator.SetBool("Shaking", false);
+
+		}
+		_distanceToPlayer = newDistance;
+	}
+
+
 }

@@ -25,25 +25,25 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 1
-    value: 0
+    value: 3
   toneCurveToeStrength:
     overrideState: 1
-    value: 0.248
+    value: 0
   toneCurveToeLength:
     overrideState: 1
-    value: 0.231
+    value: 0
   toneCurveShoulderStrength:
     overrideState: 1
-    value: 1
+    value: 0.446
   toneCurveShoulderLength:
     overrideState: 1
-    value: 0.5
+    value: 1.73
   toneCurveShoulderAngle:
     overrideState: 1
     value: 0
   toneCurveGamma:
     overrideState: 1
-    value: 1
+    value: 0.74
   ldrLut:
     overrideState: 1
     value: {fileID: 0}

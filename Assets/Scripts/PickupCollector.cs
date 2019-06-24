@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PickupCollector : MonoBehaviour
 {
-    GameObject _hud;
+    PickupHud _hud;
     Text _normalScoreText;
     Text _bonusScoreText;
     //   [SerializeField] GameObject canvas;
@@ -22,9 +22,7 @@ public class PickupCollector : MonoBehaviour
 
 	private void Start()
 	{
-		_hud = FindObjectOfType<PickupHud>().gameObject;
-		_normalScoreText = _hud.GetComponentsInChildren<Text>()[0];
-		_normalScoreText = _hud.GetComponentsInChildren<Text>()[1];
+
 	}
 
 	private void OnEnable()
@@ -59,7 +57,7 @@ public class PickupCollector : MonoBehaviour
 
             _bonusScore = (int)other.GetComponent<Pickup>().Distance * extraPointsPerDistanceUnit;
             _normalScore = other.GetComponent<Pickup>().Score;
-            ScoreSystem.currentScore += _normalScore  + _bonusScore;
+            ScoreSystem.CurrentScore += _normalScore  + _bonusScore;
             Destroy(other.gameObject);
             //SpawnIcon();
             ShowHUD();
@@ -68,17 +66,15 @@ public class PickupCollector : MonoBehaviour
 
     void ShowHUD()
     {
-        _hud.GetComponent<Image>().enabled = true;
-        foreach (Transform child in _hud.transform)
-        {
-            child.gameObject.GetComponent<Text>().enabled = true;
-        }
+		if (!_hud)
+		{
+			_hud = FindObjectOfType<PickupHud>();
+			
+		}
+	
+		_hud.Score(_normalScore, _bonusScore);
 
-        _normalScoreText.text = _normalScore.ToString();
-        _bonusScoreText.text =   _bonusScore.ToString();
-
-
-        StartCoroutine("IndicatorPopup");
+		//StartCoroutine("IndicatorPopup");
 
     }
 

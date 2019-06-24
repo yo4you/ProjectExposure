@@ -71,7 +71,7 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: 0.13
+    value: 1
   contrast:
     overrideState: 1
     value: -1
@@ -1531,10 +1531,10 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   shutterAngle:
-    overrideState: 0
-    value: 270
+    overrideState: 1
+    value: 135
   sampleCount:
-    overrideState: 0
+    overrideState: 1
     value: 10
 --- !u!114 &3638356461936102235
 MonoBehaviour:
@@ -1640,10 +1640,10 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 0.16
+    value: 0.2
   aperture:
     overrideState: 1
-    value: 19.1
+    value: 20.4
   focalLength:
     overrideState: 1
     value: 28

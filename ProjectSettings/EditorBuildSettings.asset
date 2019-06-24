@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Max/Scene_Cinematics.unity
     guid: f32496be0661f9e4ea0308ae952e6812
   - enabled: 1
+    path: Assets/Scenes/Jarvis/DemoScene_Week8Jarvis.unity
+    guid: a4979cfc5a7919548bbfbaff0ebeacbf
+  - enabled: 0
     path: Assets/Scenes/Jarvis/DemoScene_Week6Jarvis.unity
     guid: f1b34e2becc738a45bf04e06648ace5d
   - enabled: 1
@@ -20,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Max/Scene_Scoreboard.unity
     guid: e1bd913f238a89d44aa2955b9041bcd5
+  - enabled: 1
+    path: Assets/Scenes/Max/Scene_Rating.unity
+    guid: 74b41eaffa7612d48a87565aa75f029e
+  - enabled: 1
+    path: Assets/Scenes/Jarvis/DemoScene_Week6JarvisTurorial.unity
+    guid: 1f97a80c45be403478a2db2468c1f6b4
   m_configObjects: {}

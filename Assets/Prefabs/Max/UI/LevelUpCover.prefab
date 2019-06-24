@@ -211,7 +211,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Jullie hebt me gevonden!
+  m_Text: Level up!
 --- !u!95 &7475478726347861522
 Animator:
   serializedVersion: 3

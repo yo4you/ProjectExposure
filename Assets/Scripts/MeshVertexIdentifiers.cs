@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 internal class MeshVertexIdentifiers
 {
@@ -28,4 +29,6 @@ internal class MeshVertexIdentifiers
 			_identifiers = value;
 		}
 	}
+
+	public Dictionary<int,Vector2> UVIdentifiers { get; internal set; } = new Dictionary<int, Vector2>();
 }

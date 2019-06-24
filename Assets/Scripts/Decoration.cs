@@ -20,6 +20,9 @@ internal class Decoration
 	private bool _trash;
 	[SerializeField]
 	private bool _algae;
+	[SerializeField]
+	int _chanceToSpawn = 0;
+
 	public bool Background { get => _background; set => _background = value; }
 	public bool Roof { get => _roof; set => _roof = value; }
 	public bool Floor { get => _floor; set => _floor = value; }
@@ -50,6 +53,11 @@ internal class Decoration
 
 	internal bool Placable(bool floor, bool ceil, bool backGround)
 	{
+
+		if (UnityEngine.Random.Range(0, 100) >= _chanceToSpawn)
+		{
+			return false;
+		}
 		if (Floor && floor)
 		{
 			return true;

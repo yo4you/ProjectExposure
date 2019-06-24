@@ -27,6 +27,7 @@ public partial class VoronoiGenerator : MonoBehaviour
 	private Node<Polygon> _nodeGraph;
 	[SerializeField]
 	private bool _drawNodeGraph;
+	public Vector2 MapSize => new Vector2(_pointMap.PointWidth, _pointMap.PointHeight);
 
 	/// <summary>
 	/// arbitrary start of the nodegraph
@@ -47,6 +48,11 @@ public partial class VoronoiGenerator : MonoBehaviour
 	}
 
 	private void Start()
+	{
+		Init();
+	}
+
+	internal void Init()
 	{
 		_pointMap = GetComponent<RandomPointGenerator>();
 	}
@@ -441,4 +447,5 @@ public partial class VoronoiGenerator : MonoBehaviour
 		Debug.DrawLine(pos1, pos1 + dist + new Vector2(-dist.y, dist.x), pcolor, 10f);
 		Debug.DrawLine(pos1, pos1 + dist + new Vector2(dist.y, -dist.x), pcolor, 10f);
 	}
+
 }

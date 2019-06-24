@@ -15,7 +15,7 @@ public class ScoreDisplayer : MonoBehaviour
     void Update()
     {
         //if (isBonus) GetComponent<Text>().text = ScoreSystem.
-        GetComponent<Text>().text = ScoreSystem.currentScore.ToString();
+        GetComponent<Text>().text = ScoreSystem.CurrentScore.ToString();
     }
 
 }

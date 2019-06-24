@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class NodeTransverser : MonoBehaviour
@@ -21,8 +20,10 @@ public class NodeTransverser : MonoBehaviour
 	private Queue<Node<Polygon>> _path = new Queue<Node<Polygon>>();
 	internal Queue<Node<Polygon>> Path { get => _path; set => _path = value; }
 	public Queue<Vector2> SmoothedPath { get; set; }
+	public float PlayerZ { get => _playerZ; set => _playerZ = value; }
+
 	private NodeGraphActor _actor;
-	[SerializeField]
+	//[SerializeField]
 	private float _playerZ;
 	private VoronoiGenerator _generator;
 	[SerializeField]
@@ -30,7 +31,7 @@ public class NodeTransverser : MonoBehaviour
 	[SerializeField]
 	private float _cornerSmoothing = 0.9f;
 
-	public float PlayerZ => _playerZ;
+	//public float PlayerZ => _playerZ;
 
 	private Quaternion _baseRotationRight;
 	private Quaternion _baseRotationLeft;
@@ -77,7 +78,10 @@ public class NodeTransverser : MonoBehaviour
 		var rotation = _baseRotationLeft;
 
 		if (transform.GetChild(0).TransformVector(Vector3.up).x > 0)
+		{
 			rotation = _baseRotationRight;
+		}
+
 		var startRot = transform.GetChild(0).transform.rotation;
 		for (float t = 0; t < 1f; t += Time.deltaTime * _resetRotationSpeed)
 		{
@@ -163,7 +167,7 @@ public class NodeTransverser : MonoBehaviour
 		t += Time.deltaTime * (_speed / dist);
 
 		var pos = Vector3.Lerp(start, next, t);
-		pos.z = _playerZ;
+		pos.z = PlayerZ;
 		transform.position = pos;
 
 		//rotation
@@ -194,7 +198,7 @@ public class NodeTransverser : MonoBehaviour
 			t -= 1f;
 			start = next;
 			next = SmoothedPath.Dequeue();
-			
+
 		}
 		goto start;
 
@@ -203,9 +207,11 @@ public class NodeTransverser : MonoBehaviour
 		_animation.SetBool("Swim", false);
 		_animation.SetBool("Idle", true);
 
-		if(!_pathComplete)
+		if (!_pathComplete)
+		{
 			_animation.Play("Hit");
-		
+		}
+
 		yield return null;
 	}
 

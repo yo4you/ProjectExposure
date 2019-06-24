@@ -15,7 +15,7 @@ public class LevelMaterialFixer : MonoBehaviour {
 	Material _material1;
 	[SerializeField]
 	Material _material2;
-	[SerializeField]
+	//[SerializeField]
 	private Vector3 _scale;
 	private VoronoiGenerator _voronoiGen;
 	private bool _finishMatFix;
@@ -35,6 +35,13 @@ public class LevelMaterialFixer : MonoBehaviour {
 
 	void Start () {
 		_voronoiGen = _levelGenerator.GetComponent<VoronoiGenerator>();
+		_scale = new Vector3( _voronoiGen.MapSize.x, _voronoiGen.MapSize.y, _voronoiGen.MapSize.x);
+
+		var player = FindObjectOfType<NodeTransverser>();
+		player.PlayerZ = (-_scale.x / 10f) - 0.5f;
+		var pos = player.transform.position;
+		pos.z = player.PlayerZ;
+		player.transform.position = pos;
 		_voronoiGen.Generate();
 		_voronoiGen.ScaleAllPolies(Scale);
 		OnGenerationComplete?.Invoke();

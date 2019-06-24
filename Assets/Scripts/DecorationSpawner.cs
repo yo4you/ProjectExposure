@@ -5,14 +5,14 @@ using UnityEngine;
 public class DecorationSpawner : MonoBehaviour
 {
 
-// 	[SerializeField]
-// 	private List<GameObject> _floorObjects;
-// 
-// 	[SerializeField]
-// 	private List<GameObject> _backObjects;
-// 
-// 	[SerializeField]
-// 	private List<GameObject> _ceilingObjects;
+	// 	[SerializeField]
+	// 	private List<GameObject> _floorObjects;
+	// 
+	// 	[SerializeField]
+	// 	private List<GameObject> _backObjects;
+	// 
+	// 	[SerializeField]
+	// 	private List<GameObject> _ceilingObjects;
 	[SerializeField]
 	private LayerMask _mask;
 
@@ -50,8 +50,13 @@ public class DecorationSpawner : MonoBehaviour
 			// 
 			// 			var pool = spawnPool[UnityEngine.Random.Range(0, spawnPool.Count)];
 			var pool = GetSpawnableDecorations(IsFloor(poly), IsCeil(poly), poly.Biome);
+			if (pool.Count == 0)
+			{
+				continue;
+			}
+
 			var prefab = pool[UnityEngine.Random.Range(0, pool.Count)];
-			var clone = Instantiate(prefab.Prefab);
+			var clone = Instantiate(prefab.Prefab, transform);
 			PlaceOn(clone, poly);
 
 		}

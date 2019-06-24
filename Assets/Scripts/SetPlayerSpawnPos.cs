@@ -7,6 +7,8 @@ public class SetPlayerSpawnPos : MonoBehaviour
 
 	internal Polygon SpawningPoly { get; set; }
 	private bool _spawned = true;
+	[SerializeField]
+	private int _forceSpawn = -1;
 	private int[] _levelSeeds =
 		{
 		5071,
@@ -42,9 +44,13 @@ public class SetPlayerSpawnPos : MonoBehaviour
 		{
 			//randIndex = Random.Range(0, _voronoi.Polygons.Count);
 			randIndex = _levelSeeds[Random.Range(0, _levelSeeds.Length)];
-			poly = _voronoi.Polygons[randIndex];
+			poly = _voronoi.Polygons[randIndex % _voronoi.Polygons.Count];
 			// keep picking random polies till we find a valid spawn position
 		} while (!IsValidSpawn(poly));
+		if (_forceSpawn != -1)
+		{
+			poly = _voronoi.Polygons[_forceSpawn % _voronoi.Polygons.Count];
+		}
 		//Debug.Log(randIndex);
 		SpawningPoly = poly;
 		var actor = GetComponent<NodeGraphActor>();
