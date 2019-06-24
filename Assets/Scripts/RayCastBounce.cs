@@ -157,8 +157,14 @@ public class RayCastBounce : MonoBehaviour
             if (Physics.Raycast(castPoint, out hit, Mathf.Infinity, _layerMask))
             {
                 clickPos = hit.point;
-                if (hit.point.z < rippleBackgroundQuad.transform.position.z)
+
+
+                print(hit.transform.gameObject.name);
+
+                if (hit.point.z < rippleBackgroundQuad.transform.position.z || hit.transform.gameObject.GetComponent<VoidArea>())
                 {
+                    //print("not clicked");
+
                     GameObject crossMisclick = Instantiate(crossClickObject);
                     crossMisclick.transform.position = new Vector3(clickPos.x, clickPos.y, hit.point.z);
 
@@ -202,9 +208,17 @@ public class RayCastBounce : MonoBehaviour
                     }
 
                 }
-            }
-            _shrimp.MoveTo(clickPos);
 
+                _shrimp.MoveTo(clickPos);
+            }
+            //else
+            //{
+            //    
+            //    GameObject crossMisclick = Instantiate(crossClickObject);
+            //    crossMisclick.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.nearClipPlane);
+            //
+            //    return;
+            //}
 
         }
 
