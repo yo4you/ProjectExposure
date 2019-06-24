@@ -157,7 +157,7 @@ MonoBehaviour:
   _perlinPower: 0.3
   _heightMapIntensity: 0.01
   _polyHeightIntensity: 0.06
-  _cutoff: 0.794
+  _cutoff: 0.839
   _mapScale: 8
   _save: 0
   _wallHeight: 0.02

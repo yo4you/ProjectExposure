@@ -9,7 +9,7 @@ public class LevelCounter : MonoBehaviour
 	{
 		var lvl = PlayerPrefs.GetInt("level");
 		SetVisible(lvl);
-		if (lvl == 3)
+		if (lvl == 4)
 		{
 			SceneManager.LoadScene(3);
 		};

@@ -64,7 +64,7 @@ MonoBehaviour:
   _guidingSpokes: 15
   _guideSpawnPrefab: {fileID: 5079402879304713343, guid: 42c34717e8f55dd4c852f808ca63e2ee,
     type: 3}
-  _pickupSpawnPrefab: {fileID: 1157061883471260, guid: f7580588cf549d847b490158a0b092ec,
+  _pickupSpawnPrefab: {fileID: 3080709616004618534, guid: 9987eb82578813d4798ed5a2782c908f,
     type: 3}
   _pickupSpawnChance: 26
   _exitTileMargin: 15
@@ -98,33 +98,37 @@ MonoBehaviour:
     _coral: 1
     _trash: 1
     _algae: 1
+    _chanceToSpawn: 100
   - _prefab: {fileID: 4316204065989485936, guid: cc3b735ed07cc584eb83a82a78a41d24,
       type: 3}
     _background: 0
     _roof: 0
     _floor: 1
-    _normal: 0
+    _normal: 1
     _coral: 0
     _trash: 1
     _algae: 0
+    _chanceToSpawn: 100
   - _prefab: {fileID: 7690703192564410622, guid: 25e8a6a27ae5cfe41970674843e9fb89,
       type: 3}
     _background: 1
     _roof: 0
-    _floor: 0
+    _floor: 1
     _normal: 1
     _coral: 1
     _trash: 0
     _algae: 0
+    _chanceToSpawn: 100
   - _prefab: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
       type: 3}
     _background: 1
     _roof: 0
-    _floor: 0
-    _normal: 0
+    _floor: 1
+    _normal: 1
     _coral: 1
     _trash: 0
     _algae: 0
+    _chanceToSpawn: 100
   - _prefab: {fileID: 8615667558394236383, guid: 69047319f4326314e8a31d2dd5d75d65,
       type: 3}
     _background: 0
@@ -134,105 +138,17 @@ MonoBehaviour:
     _coral: 0
     _trash: 1
     _algae: 0
+    _chanceToSpawn: 100
   - _prefab: {fileID: 3505207058778812987, guid: 0d3c77f2dbe6ec4478b915c707dd2d10,
       type: 3}
     _background: 0
-    _roof: 0
-    _floor: 1
-    _normal: 1
-    _coral: 1
-    _trash: 0
-    _algae: 1
-  - _prefab: {fileID: 8796577413643015501, guid: 0b8b0b01029daee448db768bcc25d8a7,
-      type: 3}
-    _background: 1
-    _roof: 1
-    _floor: 1
-    _normal: 1
-    _coral: 1
-    _trash: 1
-    _algae: 1
-  - _prefab: {fileID: 993433756316803881, guid: 65951ba9cb4985742bf2e06a896edb90,
-      type: 3}
-    _background: 0
-    _roof: 0
-    _floor: 1
-    _normal: 1
-    _coral: 0
-    _trash: 1
-    _algae: 1
-  - _prefab: {fileID: 6808417457084939545, guid: 746182031a0c4b54fa1a41029e64f608,
-      type: 3}
-    _background: 0
-    _roof: 0
-    _floor: 1
-    _normal: 1
-    _coral: 0
-    _trash: 0
-    _algae: 0
-  - _prefab: {fileID: 4234436950038953759, guid: e19114121f6e5e54bb11dc6fb20bbec2,
-      type: 3}
-    _background: 0
-    _roof: 0
-    _floor: 1
-    _normal: 1
-    _coral: 1
-    _trash: 0
-    _algae: 1
-  - _prefab: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
-      type: 3}
-    _background: 1
-    _roof: 0
-    _floor: 0
-    _normal: 1
-    _coral: 1
-    _trash: 0
-    _algae: 1
-  - _prefab: {fileID: 366963679709554908, guid: cbe512e2ea69ba741b9d6def3e50ce6d,
-      type: 3}
-    _background: 1
-    _roof: 1
-    _floor: 1
-    _normal: 1
-    _coral: 1
-    _trash: 1
-    _algae: 1
-  - _prefab: {fileID: 8977700905361368460, guid: 7c4f066209036014f9998a506fd543b7,
-      type: 3}
-    _background: 1
-    _roof: 1
-    _floor: 1
-    _normal: 1
-    _coral: 1
-    _trash: 1
-    _algae: 1
-  - _prefab: {fileID: 2596823813838525406, guid: e93855b1da3074440b37e903b8c23f8d,
-      type: 3}
-    _background: 1
-    _roof: 1
-    _floor: 1
-    _normal: 1
-    _coral: 1
-    _trash: 1
-    _algae: 1
-  - _prefab: {fileID: 8945733944267970217, guid: aff10e8de18da1546b539f9b95605998,
-      type: 3}
-    _background: 1
-    _roof: 1
-    _floor: 1
-    _normal: 1
-    _coral: 1
-    _trash: 1
-    _algae: 1
-  - _prefab: {fileID: 3505207058778812987, guid: 4fab3f1a4080c3246887bad2f8c6a58e,
-      type: 3}
-    _background: 0
     _roof: 1
     _floor: 0
     _normal: 1
-    _coral: 1
+    _coral: 0
     _trash: 0
     _algae: 1
+    _chanceToSpawn: 100
   - _prefab: {fileID: 9146530475758843392, guid: 6cf07ecda1d4e5a4b9002e4b3ffb2712,
       type: 3}
     _background: 0
@@ -242,3 +158,234 @@ MonoBehaviour:
     _coral: 1
     _trash: 0
     _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 993433756316803881, guid: 65951ba9cb4985742bf2e06a896edb90,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 0
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 6808417457084939545, guid: 746182031a0c4b54fa1a41029e64f608,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 0
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 2218162488830626083, guid: 0f91328a89c73d746ba7082f8acd452f,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 0
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 366963679709554908, guid: cbe512e2ea69ba741b9d6def3e50ce6d,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 8977700905361368460, guid: 7c4f066209036014f9998a506fd543b7,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 2596823813838525406, guid: e93855b1da3074440b37e903b8c23f8d,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 8945733944267970217, guid: aff10e8de18da1546b539f9b95605998,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 8796577413643015501, guid: 0b8b0b01029daee448db768bcc25d8a7,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 4906533897280263287, guid: c12ae656287912642ac6deaaeaa492ab,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 0
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 3505207058778812987, guid: 4fab3f1a4080c3246887bad2f8c6a58e,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 1
+    _chanceToSpawn: 80
+  - _prefab: {fileID: 8796577413643015501, guid: 0b8b0b01029daee448db768bcc25d8a7,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 8977700905361368460, guid: 7c4f066209036014f9998a506fd543b7,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 8977700905361368460, guid: 7c4f066209036014f9998a506fd543b7,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 8945733944267970217, guid: aff10e8de18da1546b539f9b95605998,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 2596823813838525406, guid: e93855b1da3074440b37e903b8c23f8d,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 366963679709554908, guid: cbe512e2ea69ba741b9d6def3e50ce6d,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 8796577413643015501, guid: 0b8b0b01029daee448db768bcc25d8a7,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 8977700905361368460, guid: 7c4f066209036014f9998a506fd543b7,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 9146530475758843392, guid: 6cf07ecda1d4e5a4b9002e4b3ffb2712,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 0
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 4316204065989485936, guid: cc3b735ed07cc584eb83a82a78a41d24,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 0
+    _trash: 1
+    _algae: 0
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 7690703192564410622, guid: 25e8a6a27ae5cfe41970674843e9fb89,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 8977700905361368460, guid: 7c4f066209036014f9998a506fd543b7,
+      type: 3}
+    _background: 1
+    _roof: 1
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
