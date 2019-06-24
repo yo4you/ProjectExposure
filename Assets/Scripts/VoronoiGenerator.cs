@@ -27,6 +27,7 @@ public partial class VoronoiGenerator : MonoBehaviour
 	private Node<Polygon> _nodeGraph;
 	[SerializeField]
 	private bool _drawNodeGraph;
+	public Vector2 MapSize => new Vector2(_pointMap.PointWidth, _pointMap.PointHeight);
 
 	/// <summary>
 	/// arbitrary start of the nodegraph

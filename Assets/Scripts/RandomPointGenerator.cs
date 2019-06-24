@@ -6,7 +6,8 @@ using UnityEngine;
 /// <summary>
 /// Generates a set of random points withing a square by applying a random 2D offset to points placed in an even grid
 /// </summary>
-public class RandomPointGenerator : MonoBehaviour {
+public class RandomPointGenerator : MonoBehaviour
+{
 
 	[SerializeField]
 	Vector2 _corner0;
@@ -20,7 +21,7 @@ public class RandomPointGenerator : MonoBehaviour {
 	float _offset;
 	[SerializeField]
 	private bool _drawDebug;
-	
+
 	private Vector2 _mapSize;
 	private Vector2 _randMapOffset;
 	[SerializeField]
@@ -31,8 +32,9 @@ public class RandomPointGenerator : MonoBehaviour {
 	private float _lineWidth;
 	[SerializeField]
 	private float _perlinPower;
+	private List<Vector2> _points;
 
-	public List<Vector2> Points { get; set; }
+	public List<Vector2> Points { get => _points; set => _points = value; }
 
 
 	/// <summary>
@@ -65,7 +67,7 @@ public class RandomPointGenerator : MonoBehaviour {
 			_pointHeight = value;
 		}
 	}
-	
+
 	public Vector2 Corner0
 	{
 		get
@@ -140,7 +142,7 @@ public class RandomPointGenerator : MonoBehaviour {
 	float MapValidityPattern(float x, float y)
 	{
 
-		float xy = (Bezier((x-Corner0.x)/MapSize.x , (y-Corner0.y) / MapSize.y) * _lineWidth) * Mathf.Pow(Mathf.PerlinNoise(x+ _randMapOffset.x, y + _randMapOffset.y), _perlinPower);
+		float xy = (Bezier((x - Corner0.x) / MapSize.x, (y - Corner0.y) / MapSize.y) * _lineWidth) * Mathf.Pow(Mathf.PerlinNoise(x + _randMapOffset.x, y + _randMapOffset.y), _perlinPower);
 		return Mathf.Sin(Mathf.Abs(Mathf.Sin(xy * 3.1415f)));
 	}
 
@@ -148,17 +150,17 @@ public class RandomPointGenerator : MonoBehaviour {
 	Color BiomeMap(float x, float y)
 	{
 		var color = Color.white;
-		float perlin = Mathf.PerlinNoise(x*3 + _randMapOffset.x, y*3 + _randMapOffset.y);
-		if (perlin < 0.8) {color = Color.red;}
-		if (perlin < 0.6) {color = Color.yellow;}
-		if (perlin < 0.4) {color = Color.green;}
-		if (perlin < 0.2) {color = Color.blue; }
-// 		var color = Color.white;
-// 		float perlin = Mathf.PerlinNoise(x * 10 + _randMapOffset.x, y * 10 + _randMapOffset.y);
-// 		color.r = 1;
-// 
-// 		color.g = x + perlin > 0.8 ? 1f : 0f;
-// 		color.b = y + perlin > 0.8 ? 1f : 0f;
+		float perlin = Mathf.PerlinNoise(x * 3 + _randMapOffset.x, y * 3 + _randMapOffset.y);
+		if (perlin < 0.8) { color = Color.red; }
+		if (perlin < 0.6) { color = Color.yellow; }
+		if (perlin < 0.4) { color = Color.green; }
+		if (perlin < 0.2) { color = Color.blue; }
+		// 		var color = Color.white;
+		// 		float perlin = Mathf.PerlinNoise(x * 10 + _randMapOffset.x, y * 10 + _randMapOffset.y);
+		// 		color.r = 1;
+		// 
+		// 		color.g = x + perlin > 0.8 ? 1f : 0f;
+		// 		color.b = y + perlin > 0.8 ? 1f : 0f;
 		return color;
 	}
 
@@ -172,8 +174,8 @@ public class RandomPointGenerator : MonoBehaviour {
 	float Bezier(float x, float y)
 	{
 		return (
-			
-			(1f-y) + y*(2*y*_mapFocus.y*(1f-_mapFocus.y))-
+
+			(1f - y) + y * (2 * y * _mapFocus.y * (1f - _mapFocus.y)) -
 			((1f - x) * ((1 - x) + x * _mapFocus.x) + x * _mapFocus.x)
 			);
 	}
@@ -188,14 +190,15 @@ public class RandomPointGenerator : MonoBehaviour {
 		return vert.x > Corner0.x && vert.x < Corner1.x && vert.y > Corner0.y && vert.y < Corner1.y;
 	}
 
-	void Update () {
+	void Update()
+	{
 		if (!_drawDebug)
 			return;
 		// draws black and white crosses on the randomly generated points
 		foreach (var point in Points)
 		{
 			//var color = new Color(MapValidityPattern(point.x, point.y), MapValidityPattern(point.x, point.y), MapValidityPattern(point.x, point.y));
-			var color = BiomeMap(point.x,point.y);
+			var color = BiomeMap(point.x, point.y);
 			const float poinsize = 0.01f;
 			Debug.DrawLine(point - new Vector2(poinsize, poinsize), point + new Vector2(poinsize, poinsize), color);
 			Debug.DrawLine(point - new Vector2(poinsize, -poinsize), point + new Vector2(poinsize, -poinsize), color);

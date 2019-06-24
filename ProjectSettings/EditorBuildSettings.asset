@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Max/Scene_Cinematics.unity
     guid: f32496be0661f9e4ea0308ae952e6812
   - enabled: 1
+    path: Assets/Scenes/Jarvis/DemoScene_Week8Jarvis.unity
+    guid: a4979cfc5a7919548bbfbaff0ebeacbf
+  - enabled: 0
     path: Assets/Scenes/Jarvis/DemoScene_Week6Jarvis.unity
     guid: f1b34e2becc738a45bf04e06648ace5d
   - enabled: 1
