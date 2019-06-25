@@ -10,7 +10,7 @@ Animator:
   m_GameObject: {fileID: 6828651705443458731}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2a4f1d52ecbfabf44a5b91853184c1aa, type: 2}
+  m_Controller: {fileID: 9100000, guid: d4fd663334e202740af429bb97119715, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -29,6 +29,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6317061948687758507}
   - component: {fileID: 913298826369854572}
+  - component: {fileID: -9057422878454638805}
   m_Layer: 0
   m_Name: Prefab_ClickSprite
   m_TagString: Untagged
@@ -61,7 +62,7 @@ Animator:
   m_GameObject: {fileID: 7146514091456730236}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fe0c93990fe94204b87fa68184cc383f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6ded359195e575c458591e26da8308c3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -70,6 +71,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-9057422878454638805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146514091456730236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7986c1f280ea1f5459c179f48e15d475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeDestruction: 1
 --- !u!1001 &3302879358934007260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156,8 +170,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7667850705523465904, guid: 0df407e480c2c5f4c9e549a5883d45de,
+      objectReference: {fileID: 21300000, guid: 03049d900a1077743b47d52a1ba2518b,
         type: 3}
+    - target: {fileID: 365958091935309116, guid: 6888a0445f769904a822533dc12abb50,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 365958091935309116, guid: 6888a0445f769904a822533dc12abb50,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 6.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 365958091935309116, guid: 6888a0445f769904a822533dc12abb50,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.96
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6888a0445f769904a822533dc12abb50, type: 3}
 --- !u!1 &6828651705443458731 stripped
