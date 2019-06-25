@@ -28,7 +28,8 @@ public class StartingPan : MonoBehaviour
 
 		List<MonoBehaviour> disabled = new List<MonoBehaviour>();
 
-
+		var compass = FindObjectOfType<PointTowardExit>().gameObject;
+		compass.SetActive(false);
 		var cameras = FindObjectsOfType<CameraControl>();
 		foreach (var camera in cameras)
 		{
@@ -79,6 +80,8 @@ public class StartingPan : MonoBehaviour
 		{
 			comp.enabled = true;
 		}
+		compass.SetActive(true);
+
 	}
 
 	private void Update()
