@@ -26,12 +26,13 @@ public class GuideSpawner : MonoBehaviour {
 	private void Start()
 	{
 		_levelFixer = FindObjectOfType<LevelMaterialFixer>();
-		_playerZ = FindObjectOfType<NodeTransverser>().PlayerZ;
 		
 	}
 
 	internal void Spawn(Node<Polygon> node)
 	{
+		_playerZ = FindObjectOfType<NodeTransverser>().PlayerZ;
+
 		for (int i = 0; i < _guidingSpokes; i++)
 		{
 			var line = new List<Node<Polygon>>();
