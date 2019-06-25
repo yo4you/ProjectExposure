@@ -28,6 +28,8 @@ public class ShrimpController : MonoBehaviour
 	private float _digDepth;
 	private Animator _animator;
 
+    bool firststart = false;
+
 	public MovementState State
 	{
 		get => _state;
@@ -47,6 +49,12 @@ public class ShrimpController : MonoBehaviour
 
 	private void SwitchState(MovementState value)
 	{
+        //if (!firststart)
+        //{
+        //    firststart = true;
+        //    return;
+        //}
+
 		if (value == MovementState.IDLE)
 		{
 			OnBubblePop?.Invoke(transform.position);

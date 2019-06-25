@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1925670519620998, guid: 2a65dfd5e02cf5c4c91a91d22fb4b4c3, type: 3}
       propertyPath: m_Name
-      value: voronoiGenerator
+      value: voronoiGenerator Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1925670519620998, guid: 2a65dfd5e02cf5c4c91a91d22fb4b4c3, type: 3}
       propertyPath: m_IsActive
@@ -58,6 +58,21 @@ PrefabInstance:
     - target: {fileID: 4116390232539608, guid: 2a65dfd5e02cf5c4c91a91d22fb4b4c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114268393996490622, guid: 2a65dfd5e02cf5c4c91a91d22fb4b4c3,
+        type: 3}
+      propertyPath: _pointWidth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114268393996490622, guid: 2a65dfd5e02cf5c4c91a91d22fb4b4c3,
+        type: 3}
+      propertyPath: _pointHeight
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114268393996490622, guid: 2a65dfd5e02cf5c4c91a91d22fb4b4c3,
+        type: 3}
+      propertyPath: _offset
+      value: 0.007
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a65dfd5e02cf5c4c91a91d22fb4b4c3, type: 3}
