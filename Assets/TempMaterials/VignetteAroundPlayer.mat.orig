@@ -90,11 +90,19 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Radius: 0.27
-    - _ScreenUV_X: 816
-    - _ScreenUV_Y: 459
+<<<<<<< HEAD
+    - _ScreenUV_X: 418
+    - _ScreenUV_Y: 235
     - _SmoothnessTextureChannel: 0
-    - _SourcePos_X: -1128.7754
-    - _SourcePos_Y: -1242.2473
+    - _SourcePos_X: -33.54412
+    - _SourcePos_Y: -1392.6549
+=======
+    - _ScreenUV_X: 970
+    - _ScreenUV_Y: 546
+    - _SmoothnessTextureChannel: 0
+    - _SourcePos_X: -539.8777
+    - _SourcePos_Y: -2109.3665
+>>>>>>> origin/art
     - _SpecularHighlights: 1
     - _SrcBlend: 5
     - _UVSec: 0
