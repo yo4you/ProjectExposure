@@ -362,7 +362,7 @@ MonoBehaviour:
   - _prefab: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
       type: 3}
     _background: 1
-    _roof: 1
+    _roof: 0
     _floor: 1
     _normal: 1
     _coral: 1
@@ -372,12 +372,32 @@ MonoBehaviour:
   - _prefab: {fileID: 7690703192564410622, guid: 25e8a6a27ae5cfe41970674843e9fb89,
       type: 3}
     _background: 1
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 8977700905361368460, guid: 7c4f066209036014f9998a506fd543b7,
+      type: 3}
+    _background: 1
     _roof: 1
     _floor: 1
     _normal: 1
     _coral: 1
     _trash: 1
     _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 9027232010609229372, guid: df035c990a477a24cac091ac51530c5b,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 0
     _chanceToSpawn: 100
   - _prefab: {fileID: 8977700905361368460, guid: 7c4f066209036014f9998a506fd543b7,
       type: 3}
