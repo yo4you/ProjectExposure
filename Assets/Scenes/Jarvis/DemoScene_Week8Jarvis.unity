@@ -3706,6 +3706,10 @@ PrefabInstance:
       propertyPath: _decorations.Array.data[0]._algae
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1334961841, guid: b854429f03ce8434e92e63a6d5df7747, type: 3}
+      propertyPath: _mask.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 114266328495449764, guid: b854429f03ce8434e92e63a6d5df7747,
         type: 3}
       propertyPath: _guideSpawnPrefab

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -27,7 +26,7 @@ public class ExitSpawner : MonoBehaviour
 		var _playerSpawner = FindObjectOfType<SetPlayerSpawnPos>();
 		Polygon start = _playerSpawner.SpawningPoly;
 		var path = new List<Node<Polygon>>();
-		var exit = Instantiate(_exitPrefab,transform);
+		var exit = Instantiate(_exitPrefab, transform);
 
 	start:
 		VoronoiGenerator.DrawNodeGraphLine(start.Node, _angle, ref path);
@@ -50,15 +49,20 @@ public class ExitSpawner : MonoBehaviour
 				goto reset;
 			}
 			goto start;
-		};
+		}
 		if (IsCorner(exitSite))
 		{
-			var freespot = exitSite.ConnectionAngles.Values.First(i => !IsCorner(i));
-			if (freespot!=null)
+			if (exitSite.ConnectionAngles.Values.Count != 0)
 			{
-				exitSite = freespot;
+
+				var freespot = exitSite.ConnectionAngles.Values.First(i => !IsCorner(i));
+				if (freespot != null)
+				{
+					exitSite = freespot;
+				}
 			}
 		}
+
 		_exit = exitSite;
 
 		var pos = exitSite.Data.Centre;

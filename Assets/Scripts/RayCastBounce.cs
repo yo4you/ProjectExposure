@@ -185,7 +185,7 @@ public class RayCastBounce : MonoBehaviour
 							StopCoroutine(_throwCoroutines[i][_currentFlyingWaveIndex]);
 						}
 						//_trailsPoints[i][_currentFlyingWaveIndex].Clear();
-						print("force stop");
+					//	print("force stop");
 
 						//_trails[i][_currentFlyingWaveIndex]
 						_trails[i][_currentFlyingWaveIndex].GetComponent<TrailRenderer>().enabled = false;
