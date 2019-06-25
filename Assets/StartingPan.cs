@@ -16,7 +16,6 @@ public class StartingPan : MonoBehaviour
 		StartCoroutine(StartPan());
 	}
 
-
 	private static float CameraCurve(float x)
 	{
 		return -((2 * x - 1) * (2 * x - 1)) + 1;
@@ -28,7 +27,8 @@ public class StartingPan : MonoBehaviour
 
 		List<MonoBehaviour> disabled = new List<MonoBehaviour>();
 
-
+		var compass = FindObjectOfType<PointTowardExit>().gameObject;
+		compass.SetActive(false);
 		var cameras = FindObjectsOfType<CameraControl>();
 		foreach (var camera in cameras)
 		{
@@ -79,6 +79,8 @@ public class StartingPan : MonoBehaviour
 		{
 			comp.enabled = true;
 		}
+		compass.SetActive(true);
+
 	}
 
 	private void Update()
