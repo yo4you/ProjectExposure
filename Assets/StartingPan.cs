@@ -16,7 +16,6 @@ public class StartingPan : MonoBehaviour
 		StartCoroutine(StartPan());
 	}
 
-
 	private static float CameraCurve(float x)
 	{
 		return -((2 * x - 1) * (2 * x - 1)) + 1;
