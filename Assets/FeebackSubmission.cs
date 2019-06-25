@@ -1,16 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FeebackSubmission : MonoBehaviour
 {
 	[SerializeField]
-	bool _learn;
+	private bool _learn;
 
 	public void SubmitFeedback(int feedback)
 	{
-
+		if (_learn)
+		{
+			PlayerPrefs.SetInt("feedback0", feedback);
+		}
+		else
+		{
+			PlayerPrefs.SetInt("feedback1", feedback);
+		}
 	}
 
-    
+
 }
