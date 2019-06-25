@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8721332171606615458}
+  - component: {fileID: 1171522783318596572}
   m_Layer: 0
-  m_Name: Prefab_CantClickHere
+  m_Name: Prefab_CantClickHere_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,6 +32,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1171522783318596572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6232762480677766042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7986c1f280ea1f5459c179f48e15d475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeDestruction: 1
 --- !u!1001 &8891095621304797790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,7 +127,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8555947066495772560, guid: 80a8c45629f6c5f47a8536b37b45d861, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 80a8c45629f6c5f47a8536b37b45d861, type: 3}
 --- !u!4 &4394597621610806658 stripped
 Transform:
