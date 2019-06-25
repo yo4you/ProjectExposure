@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643644398}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40, y: 40, z: -7}
-  m_LocalScale: {x: 150, y: 150, z: 150}
+  m_LocalPosition: {x: 20, y: 20, z: -3.5}
+  m_LocalScale: {x: 37, y: 37, z: 37}
   m_Children: []
   m_Father: {fileID: 4806564330013402}
   m_RootOrder: 0
@@ -154,8 +154,10 @@ MonoBehaviour:
   rippleBackgroundQuad: {fileID: 1643644398}
   sobelLightSource: {fileID: 1554456088570202, guid: 3b7c69fe481f02446b3b6dc1c768fbdc,
     type: 3}
-  crossClickObject: {fileID: 0}
-  pointerClickObject: {fileID: 0}
+  crossClickObject: {fileID: 8291709435318477687, guid: 1a412de43bc791448893c8baf2840c2b,
+    type: 3}
+  pointerClickObject: {fileID: 8291709435318477687, guid: 6888a0445f769904a822533dc12abb50,
+    type: 3}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192

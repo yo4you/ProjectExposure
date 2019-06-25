@@ -8,9 +8,11 @@ public class MainMenuReseter : MonoBehaviour
     {
 		PlayerPrefs.SetInt("score", 0);
 		PlayerPrefs.SetInt("level", 0);
-    }
+		PlayerPrefs.SetInt("feedback0", 4);
+		PlayerPrefs.SetInt("feedback1", 4);
+	}
 
-    void Update()
+	void Update()
     {
         
     }
