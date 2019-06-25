@@ -1,7 +1,28 @@
 fileFormatVersion: 2
-guid: 68785ed3cb599ea4ba76e773a24e8e0b
+guid: 0df407e480c2c5f4c9e549a5883d45de
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7667850705523465904
+    second: SpriteAnimation_ShrimpClaw_Blue_0
+  - first:
+      213: -4242950466447362898
+    second: SpriteAnimation_ShrimpClaw_Blue_1
+  - first:
+      213: -6897089317492746698
+    second: SpriteAnimation_ShrimpClaw_Blue_2
+  - first:
+      213: -3004918263128471262
+    second: SpriteAnimation_ShrimpClaw_Blue_3
+  - first:
+      213: -1585237138899968335
+    second: SpriteAnimation_ShrimpClaw_Blue_4
+  - first:
+      213: -7204777213209800305
+    second: SpriteAnimation_ShrimpClaw_Blue_5
+  - first:
+      213: 1878041503109028632
+    second: SpriteAnimation_ShrimpClaw_Blue_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +61,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -63,7 +84,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -72,7 +105,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SpriteAnimation_ShrimpClaw_Blue_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c2b7d794d34cc948a4265bf672d50f4
+      internalID: 7667850705523465904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAnimation_ShrimpClaw_Blue_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1ea9057cd9b6c540a087dba08bdfd75
+      internalID: -4242950466447362898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAnimation_ShrimpClaw_Blue_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e4f4c46287d01a41b2036796cc4fad7
+      internalID: -6897089317492746698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAnimation_ShrimpClaw_Blue_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 074c339d9bb1c2942b19e5947fa949a4
+      internalID: -3004918263128471262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAnimation_ShrimpClaw_Blue_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fde7360ddd673543aa3fd75137ce45f
+      internalID: -1585237138899968335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAnimation_ShrimpClaw_Blue_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8e7e3ada106010499056bcead9d0f4b
+      internalID: -7204777213209800305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAnimation_ShrimpClaw_Blue_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04f2d8f766668f145978faf2f186e11a
+      internalID: 1878041503109028632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -1,7 +1,28 @@
 fileFormatVersion: 2
-guid: 4b62fea1f9ad9b540afffdf57c38d3c7
+guid: a19b7bc6543b6c243992333cd3baae72
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8735587254784939920
+    second: SpriteAnimation_Icon_Info_Pistolshrimp 1_0
+  - first:
+      213: -771958146493050301
+    second: SpriteAnimation_Icon_Info_Pistolshrimp 1_1
+  - first:
+      213: 5949411138627175766
+    second: SpriteAnimation_Icon_Info_Pistolshrimp 1_2
+  - first:
+      213: -4119554475741412863
+    second: SpriteAnimation_Icon_Info_Pistolshrimp 1_3
+  - first:
+      213: 8835263065548971999
+    second: SpriteAnimation_Icon_Info_Pistolshrimp 1_4
+  - first:
+      213: 106293594422393078
+    second: SpriteAnimation_Icon_Info_Pistolshrimp 1_5
+  - first:
+      213: 6764959972861661129
+    second: SpriteAnimation_Icon_Info_Pistolshrimp 1_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +61,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -63,7 +84,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -72,7 +105,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SpriteAnimation_Icon_Info_Pistolshrimp 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a43be2d96370b242afc9daa00e8af88
+      internalID: -8735587254784939920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAnimation_Icon_Info_Pistolshrimp 1_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c8c71dd802f2f4d8e1f22f509c3bc5
+      internalID: -771958146493050301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAnimation_Icon_Info_Pistolshrimp 1_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9892ba5b5f6b363469f36c2ad76d7ab2
+      internalID: 5949411138627175766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAnimation_Icon_Info_Pistolshrimp 1_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77ecb3c5d388a7c45a774dbe5060d64a
+      internalID: -4119554475741412863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAnimation_Icon_Info_Pistolshrimp 1_4
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 545475d771ffa1c42885686b805b111c
+      internalID: 8835263065548971999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAnimation_Icon_Info_Pistolshrimp 1_5
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 414fe75d0d7cb804e97662f321239957
+      internalID: 106293594422393078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteAnimation_Icon_Info_Pistolshrimp 1_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 100.14286
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f2ab22ee54e72499a75c9ee4c88863
+      internalID: 6764959972861661129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
