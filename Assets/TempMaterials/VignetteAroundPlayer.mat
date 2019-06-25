@@ -81,21 +81,20 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _FaderOffset: 0
-    - _Falloff: 0.24
+    - _Falloff: 0.3
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _MaximumOpacity: 0.22
     - _Metallic: 0
     - _Mode: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Radius: 0.27
-    - _ScreenUV_X: 818
-    - _ScreenUV_Y: 460
+    - _ScreenUV_X: 427
+    - _ScreenUV_Y: 240
     - _SmoothnessTextureChannel: 0
-    - _SourcePos_X: 46.783592
-    - _SourcePos_Y: -30.738007
+    - _SourcePos_X: 87.841415
+    - _SourcePos_Y: -375.9169
     - _SpecularHighlights: 1
     - _SrcBlend: 5
     - _UVSec: 0

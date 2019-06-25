@@ -21,6 +21,8 @@ public class RayCastBounce : MonoBehaviour
     [SerializeField] private GameObject particleBounce;
     [SerializeField] private GameObject rippleBackgroundQuad;
     [SerializeField] private GameObject sobelLightSource;
+    [SerializeField] private GameObject crossClickObject;
+    [SerializeField] private GameObject pointerClickObject;
     [SerializeField]
     private LayerMask _layerMask;
 
@@ -34,15 +36,16 @@ public class RayCastBounce : MonoBehaviour
     private List<List<List<Vector3>>> _trailsPoints = new List<List<List<Vector3>>>();
     private List<List<Vector3>> _middlePoints = new List<List<Vector3>>();
     private List<List<Coroutine>> _throwCoroutines = new List<List<Coroutine>>();
+    private List<List<bool>> _trailsIdle = new List<List<bool>>();
+
     private Vector3 _directionV = Vector3.zero;
     private Vector3 _orthoLine = Vector3.zero;
     private Vector3 _clickedPos = Vector3.zero;
     private ShrimpController _shrimp;
     private CanvasMouseTracker _mousetracker;
 
-    private int _currentFlyingWaveIndex = 0;
+    private int _currentFlyingWaveIndex = -1;
 
-    List<List<bool>> trailsIdle = new List<List<bool>>();
     bool veryStart = true;
     bool startedMovement = false;
     private void Start()
@@ -56,12 +59,12 @@ public class RayCastBounce : MonoBehaviour
 
             _lineBounces.Add(new List<int>());
             //_lineRenderers.Add(new List<GameObject>());
-
             _trailsPoints.Add(new List<List<Vector3>>());
             _middlePoints.Add(new List<Vector3>());
             _trails.Add(new List<GameObject>());
-            trailsIdle.Add(new List<bool>());
+            _trailsIdle.Add(new List<bool>());
             _throwCoroutines.Add(new List<Coroutine>());
+
             for (int j = 0; j < _wavePoolCap; j++)
             {
                 _trails[i].Add(Instantiate(trailObject));
@@ -71,7 +74,7 @@ public class RayCastBounce : MonoBehaviour
                 _middlePoints[i].Add(new Vector3());
                 _lineBounces[i].Add(0);
                 //_lineRenderers[i].Add(Instantiate(line));
-                trailsIdle[i].Add(true);
+                _trailsIdle[i].Add(true);
                 _throwCoroutines[i].Add(null);
             }
 
@@ -86,10 +89,7 @@ public class RayCastBounce : MonoBehaviour
             veryStart = false;
             return;
         }
-        //if (_currentFlyingWaveIndex > _wavePoolCap) _currentFlyingWaveIndex = 0;
-        //_currentFlyingWaveIndex++;
 
-        //clickPos = new Vector3(clickPos.x, clickPos.y, rippleBackgroundQuad.transform.position.z);
 
         Vector3 originToTarget = new Vector3(
             targetObject.transform.position.x - clickPos.x,
@@ -118,28 +118,18 @@ public class RayCastBounce : MonoBehaviour
 
         for (int i = 0; i < _raysCount; i++)
         {
-            //for (int j = 0; j < _wavePoolCap; j++)
-            //{
-            //    if (trailsIdle[i][j]) StartCoroutine(ThrowTrails(i, j));
-            //
-            //}
-
-            if (!trailsIdle[i][_currentFlyingWaveIndex])
+            if (!_trailsIdle[i][_currentFlyingWaveIndex])
             {
-                print("started throwing");
+                //print("started throwing in ray " + i + " " + " on " + _currentFlyingWaveIndex);
                 _trails[i][_currentFlyingWaveIndex].GetComponent<TrailRenderer>().enabled = true;
                 _throwCoroutines[i][_currentFlyingWaveIndex] = StartCoroutine(ThrowTrails(i, _currentFlyingWaveIndex));
             }
-            //_trails[i].GetComponent<MoveEcho>().StartSpreading(_trailsPoints[i]);
-            //SpawnParticlesOnBounce(i);
         }
     }
 
 
     private void Update()
-    {
-
-
+    {   
         if (!_mousetracker)
         {
             _mousetracker = FindObjectOfType<CanvasMouseTracker>();
@@ -147,30 +137,41 @@ public class RayCastBounce : MonoBehaviour
         else if (Input.GetMouseButtonDown(0) && !_mousetracker.RayCastHitPlayer())
         {
 
-
             Vector3 mouse = Input.mousePosition;
             Ray castPoint = Camera.main.ScreenPointToRay(mouse);
             Vector3 clickPos = Vector3.zero;
             RaycastHit hit;
 
+            
+
             if (Physics.Raycast(castPoint, out hit, Mathf.Infinity, _layerMask))
             {
                 clickPos = hit.point;
-                if (hit.point.z < rippleBackgroundQuad.transform.position.z)
+
+                if (hit.point.z < rippleBackgroundQuad.transform.position.z || hit.transform.gameObject.GetComponent<VoidArea>())
                 {
+                    //print("not clicked");
+
+                    GameObject crossMisclick = Instantiate(crossClickObject);
+                    crossMisclick.transform.position = new Vector3(clickPos.x, clickPos.y, hit.point.z);
+
                     return;
+                }
+                else
+                {
+                    GameObject crossClick = Instantiate(pointerClickObject);
+                    crossClick.transform.position = new Vector3(clickPos.x, clickPos.y, hit.point.z);
                 }
 
                 startedMovement = false;
 
+                _currentFlyingWaveIndex++;
+                if (_currentFlyingWaveIndex > _wavePoolCap - 1) _currentFlyingWaveIndex = 0;
+
                 for (int i = 0; i < _trails.Count; i++)
                 {
-                    //_trails[i] = Instantiate(trailObject);
 
-                    _currentFlyingWaveIndex++;
-                    if (_currentFlyingWaveIndex > _wavePoolCap - 1) _currentFlyingWaveIndex = 0;
-
-                    if (!trailsIdle[i][_currentFlyingWaveIndex])
+                    if (!_trailsIdle[i][_currentFlyingWaveIndex])
                     {
                         StopCoroutine(_throwCoroutines[i][_currentFlyingWaveIndex]);
                         //_trailsPoints[i][_currentFlyingWaveIndex].Clear();
@@ -185,7 +186,7 @@ public class RayCastBounce : MonoBehaviour
                     else
                     {
 
-                        trailsIdle[i][_currentFlyingWaveIndex] = false;
+                        _trailsIdle[i][_currentFlyingWaveIndex] = false;
                         _trails[i][_currentFlyingWaveIndex].GetComponent<TrailRenderer>().enabled = false;
                         _trails[i][_currentFlyingWaveIndex].transform.position = new Vector3(clickPos.x, clickPos.y, rippleBackgroundQuad.transform.position.z);
                         //_trails[i][_currentFlyingWaveIndex].GetComponent<TrailRenderer>().enabled = true;
@@ -193,9 +194,17 @@ public class RayCastBounce : MonoBehaviour
                     }
 
                 }
-            }
-            _shrimp.MoveTo(clickPos);
 
+                _shrimp.MoveTo(clickPos);
+            }
+            //else
+            //{
+            //    
+            //    GameObject crossMisclick = Instantiate(crossClickObject);
+            //    crossMisclick.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.nearClipPlane);
+            //
+            //    return;
+            //}
 
         }
 
@@ -224,7 +233,7 @@ public class RayCastBounce : MonoBehaviour
 
     private void CheckTrailsInactivity(int trailIndex, int poolIndex)
     {
-        if (trailsIdle[trailIndex][poolIndex])
+        if (_trailsIdle[trailIndex][poolIndex])
         {
             if (_throwCoroutines[trailIndex][poolIndex]!=null) StopCoroutine(_throwCoroutines[trailIndex][poolIndex]);
             //_trails[trailIndex][poolIndex].transform.position = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y, rippleBackgroundQuad.transform.position.z);
@@ -260,7 +269,7 @@ public class RayCastBounce : MonoBehaviour
 
     private void SpawnParticlesOnBounce(int rayIndex, int trailPoolIndex)
     {
-        if (_trails[rayIndex][trailPoolIndex] == null || trailsIdle[rayIndex][trailPoolIndex]) return;
+        if (_trails[rayIndex][trailPoolIndex] == null || _trailsIdle[rayIndex][trailPoolIndex]) return;
 
 
         for (int pointIndex = 0; pointIndex < _trailsPoints[rayIndex][trailPoolIndex].Count - 1; pointIndex++)
@@ -301,7 +310,7 @@ public class RayCastBounce : MonoBehaviour
 
                 if (pointIndex == _trailsPoints[rayIndex][trailPoolIndex].Count - 2)
                 {
-                    trailsIdle[rayIndex][trailPoolIndex] = true;
+                    _trailsIdle[rayIndex][trailPoolIndex] = true;
                     //print("trail started idling " + trailPoolIndex);
                 }
             }
