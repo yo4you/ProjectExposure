@@ -415,6 +415,12 @@ PrefabInstance:
       propertyPath: targetObject
       value: 
       objectReference: {fileID: 1004475317}
+    - target: {fileID: 114281744279779304, guid: 7145d1a67ff90634488071c9f27d3880,
+        type: 3}
+      propertyPath: crossClickObject
+      value: 
+      objectReference: {fileID: 4993651541862840668, guid: 39682a961d2500d47a6b808185fdd1b1,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7145d1a67ff90634488071c9f27d3880, type: 3}
 --- !u!1001 &243322228
