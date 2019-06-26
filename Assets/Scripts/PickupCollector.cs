@@ -58,7 +58,7 @@ public class PickupCollector : MonoBehaviour
 
             _bonusScore = (int)other.GetComponent<Pickup>().Distance * extraPointsPerDistanceUnit;
             _normalScore = other.GetComponent<Pickup>().Score;
-            ScoreSystem.CurrentScore += _normalScore  + _bonusScore;
+            //ScoreSystem.CurrentScore += _normalScore  + _bonusScore;
             Destroy(other.gameObject);
             //SpawnIcon();
             ShowHUD();

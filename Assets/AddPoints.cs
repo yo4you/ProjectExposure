@@ -19,11 +19,13 @@ public class AddPoints : MonoBehaviour
 		_text = GetComponent<Text>();
 
 		Points = ScoreSystem.CurrentScore;
+		PointsTarget = Points;
 	}
 	public void Add(int p)
 	{
 		PointsTarget += p;
 		StartCoroutine("Increment");
+		ScoreSystem.CurrentScore += p;
 	}
 
 	IEnumerator Increment()
@@ -36,7 +38,7 @@ public class AddPoints : MonoBehaviour
 			Points = (int)(start + (diff * (i / _time)));
 		}
 		Points = PointsTarget;
-		ScoreSystem.CurrentScore = Points;
+		//ScoreSystem.CurrentScore = Points;
 	}
 
 	void Update()
