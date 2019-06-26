@@ -10,7 +10,7 @@ public class Pickup : MonoBehaviour
 
 	private float _distanceToPlayer;
 
-    public float Distance;
+	private float _distance;
 
 	private void Start()
 	{
@@ -19,6 +19,8 @@ public class Pickup : MonoBehaviour
 		_animator =  GetComponentInChildren<Animator>();
 	}
 	public int Score => scoreToGive;
+
+	public float Distance { get => _distance; set => _distance = value; }
 
 	private void Update()
 	{

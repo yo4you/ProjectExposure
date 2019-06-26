@@ -82,7 +82,11 @@ public class DecorationSpawner : MonoBehaviour
 		Vector3 pos = poly.Centre;
 		pos.z = -70;
 		clone.layer = 12;
-		Physics.Raycast(pos, Vector3.forward * 1000f, out RaycastHit hit, _mask);
+		if (!Physics.Raycast(origin: pos, direction: Vector3.forward * 1000f, hitInfo: out RaycastHit hit, maxDistance: 1000f, layerMask: _mask))
+		{
+			Destroy(clone);
+			return;
+		}
 		pos.z = hit.point.z;
 		//clone.transform.Rotate(-90, 0, 0);
 		clone.transform.position = pos;
