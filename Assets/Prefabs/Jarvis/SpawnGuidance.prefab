@@ -66,7 +66,7 @@ MonoBehaviour:
     type: 3}
   _pickupSpawnPrefab: {fileID: 3080709616004618534, guid: 9987eb82578813d4798ed5a2782c908f,
     type: 3}
-  _pickupSpawnChance: 75
+  _pickupSpawnChance: 55
   _exitTileMargin: 15
   _minBranchDistance: 4
   _mask:
@@ -125,7 +125,17 @@ MonoBehaviour:
     _roof: 0
     _floor: 1
     _normal: 1
-    _coral: 0
+    _coral: 1
+    _trash: 0
+    _algae: 0
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 6041659636603046031, guid: 696530f104e5f414e9a52ec62eb45810,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
     _trash: 0
     _algae: 0
     _chanceToSpawn: 100
@@ -149,6 +159,16 @@ MonoBehaviour:
     _trash: 0
     _algae: 1
     _chanceToSpawn: 100
+  - _prefab: {fileID: 3505207058778812987, guid: 0d3c77f2dbe6ec4478b915c707dd2d10,
+      type: 3}
+    _background: 0
+    _roof: 1
+    _floor: 0
+    _normal: 1
+    _coral: 0
+    _trash: 0
+    _algae: 1
+    _chanceToSpawn: 100
   - _prefab: {fileID: 9146530475758843392, guid: 6cf07ecda1d4e5a4b9002e4b3ffb2712,
       type: 3}
     _background: 0
@@ -157,6 +177,16 @@ MonoBehaviour:
     _normal: 1
     _coral: 1
     _trash: 0
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 993433756316803881, guid: 65951ba9cb4985742bf2e06a896edb90,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 0
+    _trash: 1
     _algae: 1
     _chanceToSpawn: 100
   - _prefab: {fileID: 993433756316803881, guid: 65951ba9cb4985742bf2e06a896edb90,
@@ -249,6 +279,16 @@ MonoBehaviour:
     _trash: 0
     _algae: 0
     _chanceToSpawn: 100
+  - _prefab: {fileID: 3505207058778812987, guid: 4fab3f1a4080c3246887bad2f8c6a58e,
+      type: 3}
+    _background: 0
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 1
+    _chanceToSpawn: 80
   - _prefab: {fileID: 3505207058778812987, guid: 4fab3f1a4080c3246887bad2f8c6a58e,
       type: 3}
     _background: 0
@@ -359,7 +399,27 @@ MonoBehaviour:
     _trash: 1
     _algae: 0
     _chanceToSpawn: 100
-  - _prefab: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
+  - _prefab: {fileID: 7183917135052874750, guid: c24b3c69af247b14aa1c1e27892a725b,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 7183917135052874750, guid: c24b3c69af247b14aa1c1e27892a725b,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 7690703192564410622, guid: 25e8a6a27ae5cfe41970674843e9fb89,
       type: 3}
     _background: 1
     _roof: 0
@@ -386,7 +446,7 @@ MonoBehaviour:
     _floor: 1
     _normal: 1
     _coral: 1
-    _trash: 0
+    _trash: 1
     _algae: 1
     _chanceToSpawn: 100
   - _prefab: {fileID: 9027232010609229372, guid: df035c990a477a24cac091ac51530c5b,
@@ -416,6 +476,36 @@ MonoBehaviour:
     _floor: 1
     _normal: 1
     _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 9027232010609229372, guid: d799ce600c4382544bad39ff158baede,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 7690703192564410622, guid: d86c6faf038251e4b830e0e5722f19c4,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
     _trash: 0
     _algae: 1
     _chanceToSpawn: 100
@@ -427,5 +517,25 @@ MonoBehaviour:
     _normal: 1
     _coral: 1
     _trash: 0
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 6041659636603046031, guid: 696530f104e5f414e9a52ec62eb45810,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 0
+    _algae: 1
+    _chanceToSpawn: 100
+  - _prefab: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
+      type: 3}
+    _background: 1
+    _roof: 0
+    _floor: 1
+    _normal: 1
+    _coral: 1
+    _trash: 1
     _algae: 1
     _chanceToSpawn: 100

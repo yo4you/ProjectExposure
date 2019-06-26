@@ -95,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 8402896567153453270, guid: c62997501fa7d764589dd9394c5a6ed4,
         type: 3}
       propertyPath: _wallHeight
-      value: 0.07
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c62997501fa7d764589dd9394c5a6ed4, type: 3}
