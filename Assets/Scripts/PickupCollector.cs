@@ -60,7 +60,7 @@ public class PickupCollector : MonoBehaviour
             _normalScore = other.GetComponent<Pickup>().Score;
             ScoreSystem.CurrentScore += _normalScore  + _bonusScore;
             Destroy(other.gameObject);
-            //SpawnIcon();
+            SpawnIcon();
             ShowHUD();
         }
     }
@@ -81,12 +81,14 @@ public class PickupCollector : MonoBehaviour
 
     void SpawnIcon()
     {
+        print("smth");
+
         GameObject icon = Instantiate(iconIndicator);
-        icon.transform.position = new Vector3(this.transform.position.x + indicatorOffsetX, this.transform.position.y + indicatorOffsetY, this.transform.position.z);
+        icon.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
 
-        icon.transform.SetParent(this.transform);
+        //icon.transform.SetParent(this.transform);
 
-        StartCoroutine("FadeIn", icon);
+        //StartCoroutine("FadeIn", icon);
         //StartCoroutine("FadeOut", icon);
 
         //StartCoroutine("IndicatorPopup", icon);
