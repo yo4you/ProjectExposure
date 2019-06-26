@@ -5415,7 +5415,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToGive: 5
   _hintRadiusBorder: 20
-  Distance: 0
 --- !u!4 &152851742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4741065722651017164, guid: 69047319f4326314e8a31d2dd5d75d65,
@@ -5681,7 +5680,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToGive: 5
   _hintRadiusBorder: 20
-  Distance: 0
 --- !u!1 &236261488
 GameObject:
   m_ObjectHideFlags: 0
@@ -6018,6 +6016,11 @@ PrefabInstance:
       propertyPath: extraPointsPerDistanceUnit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1004475319, guid: dc603ae9663c78d4face924f4efdd6b9, type: 3}
+      propertyPath: iconIndicator
+      value: 
+      objectReference: {fileID: 8597973726826143240, guid: d83f684537b608b42a51cf713b5a5d32,
+        type: 3}
     - target: {fileID: 108886500161922298, guid: dc603ae9663c78d4face924f4efdd6b9,
         type: 3}
       propertyPath: m_Intensity
@@ -11755,7 +11758,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToGive: 5
   _hintRadiusBorder: 20
-  Distance: 0
 --- !u!1001 &557243887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11871,7 +11873,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToGive: 5
   _hintRadiusBorder: 20
-  Distance: 0
 --- !u!4 &574005835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 907726153040186636, guid: e19114121f6e5e54bb11dc6fb20bbec2,
@@ -12094,7 +12095,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToGive: 5
   _hintRadiusBorder: 20
-  Distance: 0
 --- !u!4 &666763835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3264157050966401155, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
@@ -22105,7 +22105,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToGive: 5
   _hintRadiusBorder: 20
-  Distance: 0
 --- !u!1001 &1547432018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22199,7 +22198,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToGive: 5
   _hintRadiusBorder: 20
-  Distance: 0
 --- !u!4 &1576185790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3264157050966401155, guid: 5ac580bfb9f8efe43b912ba3b0c350f4,
@@ -22656,7 +22654,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToGive: 5
   _hintRadiusBorder: 20
-  Distance: 0
 --- !u!1 &1746076670
 GameObject:
   m_ObjectHideFlags: 0
