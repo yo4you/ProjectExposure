@@ -66,7 +66,7 @@ MonoBehaviour:
     type: 3}
   _pickupSpawnPrefab: {fileID: 3080709616004618534, guid: 9987eb82578813d4798ed5a2782c908f,
     type: 3}
-  _pickupSpawnChance: 50
+  _pickupSpawnChance: 75
   _exitTileMargin: 15
   _minBranchDistance: 4
   _mask:
