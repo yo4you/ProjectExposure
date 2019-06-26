@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 557073385, guid: dc603ae9663c78d4face924f4efdd6b9, type: 3}
+      propertyPath: _cornerSmoothing
+      value: 0.74
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc603ae9663c78d4face924f4efdd6b9, type: 3}
 --- !u!1 &24784284 stripped
@@ -2827,7 +2831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _generators:
-  - {fileID: 7177793355152722541, guid: b2960069dde3fec468358941e621820a, type: 3}
+  - {fileID: 8434390949802829540, guid: c62997501fa7d764589dd9394c5a6ed4, type: 3}
   - {fileID: 7870132860377027228, guid: b1972dfa058952640bbf20528059bed5, type: 3}
   - {fileID: 7177793355152722541, guid: b2960069dde3fec468358941e621820a, type: 3}
   - {fileID: 8434390949802829540, guid: c62997501fa7d764589dd9394c5a6ed4, type: 3}
