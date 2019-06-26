@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8145454055213395964}
   - component: {fileID: 8145454055213395966}
   - component: {fileID: 8145454055213395965}
-  m_Layer: 5
+  m_Layer: 4
   m_Name: GameTexture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 8400000, guid: 740df505ab461d747962df1f63bee44d, type: 2}
+  m_Texture: {fileID: 8400000, guid: 8db1266ae681d854bbfc8036f6e066db, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0

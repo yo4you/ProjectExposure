@@ -11,6 +11,8 @@ public class RayCastBounce : MonoBehaviour
     [SerializeField] private float _lightScannerDepth = -10;
     [SerializeField] private float _minimumDistanceInBetweenRipples = 3.0f;
     [SerializeField] private int _wavePoolCap = 5;
+    [SerializeField] bool isTutorial = false;
+    [SerializeField] float distanceTutorialForQuad ;
 
     //[SerializeField] bool _drawRays = false;
 
@@ -93,8 +95,12 @@ public class RayCastBounce : MonoBehaviour
 
         // pos
         var pos = rippleBackgroundQuad.transform.position;
-        pos.z = FindObjectOfType<NodeTransverser>().transform.position.z * 0.75f;
-        rippleBackgroundQuad.transform.position = new Vector3(rippleBackgroundQuad.transform.localScale.x/2, rippleBackgroundQuad.transform.localScale.y/2,  pos.z);
+
+         pos.z = FindObjectOfType<NodeTransverser>().transform.position.z * 0.75f;
+
+
+        if (!isTutorial) rippleBackgroundQuad.transform.position = new Vector3(rippleBackgroundQuad.transform.localScale.x/2, rippleBackgroundQuad.transform.localScale.y/2,  pos.z);
+        else  rippleBackgroundQuad.transform.localPosition = new Vector3(rippleBackgroundQuad.transform.localScale.x/2, rippleBackgroundQuad.transform.localScale.y/2,  distanceTutorialForQuad);
     }
 
     private void _shrimp_OnBubblePop(Vector3 clickPos)
@@ -135,7 +141,7 @@ public class RayCastBounce : MonoBehaviour
         {
             if (!_trailsIdle[i][_currentFlyingWaveIndex])
             {
-                print("started throwing in ray " + i + " " + " on " + _currentFlyingWaveIndex);
+                //print("started throwing in ray " + i + " " + " on " + _currentFlyingWaveIndex);
                 _trails[i][_currentFlyingWaveIndex].GetComponent<TrailRenderer>().enabled = true;
                 _throwCoroutines[i][_currentFlyingWaveIndex] = StartCoroutine(ThrowTrails(i, _currentFlyingWaveIndex));
             }
@@ -145,6 +151,10 @@ public class RayCastBounce : MonoBehaviour
 
     private void Update()
     {
+        if (isTutorial) rippleBackgroundQuad.transform.localPosition =
+                new Vector3(rippleBackgroundQuad.transform.localScale.x *0.5f, rippleBackgroundQuad.transform.localScale.y * 0.5f, 
+            distanceTutorialForQuad);
+
         if (!_mousetracker)
         {
             _mousetracker = FindObjectOfType<CanvasMouseTracker>();
@@ -415,7 +425,7 @@ public class RayCastBounce : MonoBehaviour
     }
     private IEnumerator ThrowTrails(int trailIndex, int trailInPoolIndex)
     {
-        print("movinkk " + trailInPoolIndex + " size " + _trailsPoints[trailIndex][trailInPoolIndex].Count + " bounces " + _lineBounces[trailIndex][trailInPoolIndex]);
+        //print("movinkk " + trailInPoolIndex + " size " + _trailsPoints[trailIndex][trailInPoolIndex].Count + " bounces " + _lineBounces[trailIndex][trailInPoolIndex]);
         for (int pointIndex = 0; pointIndex < _trailsPoints[trailIndex][trailInPoolIndex].Count; pointIndex++)
         {
 
