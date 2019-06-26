@@ -180,6 +180,11 @@ PrefabInstance:
       propertyPath: m_Cookie
       value: 
       objectReference: {fileID: 2800000, guid: 4b07f90d18311914ba90572a6ac5c553, type: 3}
+    - target: {fileID: 108886500161922298, guid: dc603ae9663c78d4face924f4efdd6b9,
+        type: 3}
+      propertyPath: m_Range
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc603ae9663c78d4face924f4efdd6b9, type: 3}
 --- !u!1 &24784284 stripped
@@ -2546,6 +2551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1873111206, guid: 37b0df3123b431e43b4a66338df4c79e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ba218bb02f03e21409dee306812f2b9a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37b0df3123b431e43b4a66338df4c79e, type: 3}
 --- !u!4 &1238845032 stripped
