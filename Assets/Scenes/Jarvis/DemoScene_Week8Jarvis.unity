@@ -346,18 +346,6 @@ PrefabInstance:
       propertyPath: targetObject
       value: 
       objectReference: {fileID: 1004475317}
-    - target: {fileID: 114281744279779304, guid: 7145d1a67ff90634488071c9f27d3880,
-        type: 3}
-      propertyPath: crossClickObject
-      value: 
-      objectReference: {fileID: 6232762480677766042, guid: 141718f0a9c02424dae7b6fbb51cb2ef,
-        type: 3}
-    - target: {fileID: 114281744279779304, guid: 7145d1a67ff90634488071c9f27d3880,
-        type: 3}
-      propertyPath: pointerClickObject
-      value: 
-      objectReference: {fileID: 7146514091456730236, guid: 79f4fbac2bec92b4188ad279fb2c46e3,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7145d1a67ff90634488071c9f27d3880, type: 3}
 --- !u!1001 &297415131
