@@ -154,7 +154,7 @@ MonoBehaviour:
   rippleBackgroundQuad: {fileID: 1643644398}
   sobelLightSource: {fileID: 1554456088570202, guid: 3b7c69fe481f02446b3b6dc1c768fbdc,
     type: 3}
-  crossClickObject: {fileID: 6232762480677766042, guid: 141718f0a9c02424dae7b6fbb51cb2ef,
+  crossClickObject: {fileID: 4993651541862840668, guid: 39682a961d2500d47a6b808185fdd1b1,
     type: 3}
   pointerClickObject: {fileID: 7146514091456730236, guid: 79f4fbac2bec92b4188ad279fb2c46e3,
     type: 3}
