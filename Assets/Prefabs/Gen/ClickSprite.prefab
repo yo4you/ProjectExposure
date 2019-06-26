@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9058183133897934210}
   - component: {fileID: 365958091935309116}
-  - component: {fileID: 1554912354372999289}
+  - component: {fileID: 1207176210938637026}
   m_Layer: 5
   m_Name: ClickSprite
   m_TagString: Untagged
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7667850705523465904, guid: 0df407e480c2c5f4c9e549a5883d45de,
+  m_Sprite: {fileID: -7204777213209800305, guid: 0df407e480c2c5f4c9e549a5883d45de,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1554912354372999289
+--- !u!95 &1207176210938637026
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
