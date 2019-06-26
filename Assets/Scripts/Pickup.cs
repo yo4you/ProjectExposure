@@ -3,22 +3,19 @@
 public class Pickup : MonoBehaviour
 {
 	[SerializeField] private int scoreToGive;
-	[SerializeField] private GameObject player;
+	private GameObject player;
 	private Animator _animator;
 	[SerializeField]
 	private float _hintRadiusBorder = 20f;
 
 	private float _distanceToPlayer;
 
-	public float Distance
-	{
-		get => _distanceToPlayer;
-		set => _distanceToPlayer = value;
-	}
+    public float Distance;
 
 	private void Start()
 	{
-		player = FindObjectOfType<NodeTransverser>().gameObject;
+        player = FindObjectOfType<PickupCollector>().gameObject;
+		//player = FindObjectOfType<NodeTransverser>().gameObject;
 		_animator =  GetComponentInChildren<Animator>();
 	}
 	public int Score => scoreToGive;
@@ -37,6 +34,7 @@ public class Pickup : MonoBehaviour
 
 		}
 		_distanceToPlayer = newDistance;
+        //print(_distanceToPlayer);
 	}
 
 

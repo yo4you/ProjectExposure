@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Max/Scene_Cinematics.unity
     guid: f32496be0661f9e4ea0308ae952e6812
   - enabled: 1
+    path: Assets/Scenes/Gen/DemoScene_Week9_Final_Gen.unity
+    guid: 17fe485c48ad08449bbdcfab23f554d5
+  - enabled: 0
     path: Assets/Scenes/Max/DemoScene_Week9Max.unity
     guid: 01db6677e97428f44a1cbf641e529ecd
   - enabled: 0

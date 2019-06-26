@@ -54,6 +54,7 @@ public class PickupCollector : MonoBehaviour
         if (other.GetComponent<Pickup>())
         {
             //print("got " + (int)other.GetComponent<Pickup>().Distance * extraPointsPerDistanceUnit + " in bonus");
+            //print(other.GetComponent<Pickup>().Distance + " in bonus");
 
             _bonusScore = (int)other.GetComponent<Pickup>().Distance * extraPointsPerDistanceUnit;
             _normalScore = other.GetComponent<Pickup>().Score;
