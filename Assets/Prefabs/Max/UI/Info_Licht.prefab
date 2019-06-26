@@ -319,7 +319,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f7183f9afd9f5a641a2b7ef3c6d49c4f, type: 3}
-    m_FontSize: 20
+    m_FontSize: 19
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -330,8 +330,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.23
-  m_Text: Light from our sun travels to a depth of 60 meters underwater. Beyond that
-    point everything appears black.
+  m_Text: Dieper dan 200 meter onder zee is het pik donker. Vissen moeten daarom
+    hun eigen licht maken. Kortere golflengtes zoals rood of groen zijn minder ver
+    zichtbaar, daarom is blauw licht het meest voorkomende in de diepe oceaan.
 --- !u!95 &4378015546600375747
 Animator:
   serializedVersion: 3

@@ -270,9 +270,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.23
-  m_Text: The Pistol Shrimp can create a very loud noise by clapping his claws together.
-    It is so loud that it can compete with other larger animals like the sperm whale
-    and begluga whale.
+  m_Text: De pistool garnaal is een van de luidste wezens op aarde. Deze garnaal
+    maakt gebruik van zijn scharen om bubbels te vormen, onder de diep zee druk knalt
+    deze bubbel tot wel 218 decibel.
 --- !u!95 &5289598288241001062
 Animator:
   serializedVersion: 3
@@ -522,7 +522,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pistool garnalen
+  m_Text: 'Pistool garnaal '
 --- !u!95 &5289598289580135833
 Animator:
   serializedVersion: 3
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 1488344488896970550}
   - component: {fileID: 3682044646562114625}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Info_Shrimp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
