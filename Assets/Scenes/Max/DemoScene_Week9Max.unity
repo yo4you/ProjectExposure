@@ -3133,11 +3133,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3970665260384219201, guid: 3b1ccb04425678e4185d3c48059572e6,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas_WorldSpace
-      objectReference: {fileID: 0}
     - target: {fileID: 3970665260384221114, guid: 3b1ccb04425678e4185d3c48059572e6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3242,6 +3237,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3970665260384219201, guid: 3b1ccb04425678e4185d3c48059572e6,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas_WorldSpace
       objectReference: {fileID: 0}
     - target: {fileID: 2808861622214575032, guid: 3b1ccb04425678e4185d3c48059572e6,
         type: 3}
