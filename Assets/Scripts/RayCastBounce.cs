@@ -204,7 +204,7 @@ public class RayCastBounce : MonoBehaviour
 					}
 
 				}
-
+				clickPos.z -= 1f;
 				_shrimp.MoveTo(clickPos);
 			}
 			//else

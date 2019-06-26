@@ -53,6 +53,8 @@ public partial class GenerateGeometry : MonoBehaviour
 	private bool _generatedVertexOrder = false;
 	[SerializeField]
 	private float _innerEdgeHeigthDiffrence = 0.8f;
+	[SerializeField]
+	bool _divideintoChunks =  true;
 
 	AssignBiomes _biomes;
 
@@ -244,6 +246,13 @@ public partial class GenerateGeometry : MonoBehaviour
 
 		var corner0 = (polies.First().Centre);
 		var corner1 = (polies.Last().Centre);
+		if (!_divideintoChunks)
+		{
+			var go = GenerateMesh(polies);
+			go.transform.SetParent(transform);
+			return;
+		}
+
 		List<Bound> bounds = new List<Bound>() {
 		//	new Bound(corner0 - new Vector2(2f, 2f), corner1 + new Vector2(2, 2))
 			new Bound(corner0 - new Vector2(0.2f, 0.2f), corner1 + new Vector2(0.2f, 0.2f))
