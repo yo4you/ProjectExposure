@@ -81,7 +81,7 @@ public class PickupCollector : MonoBehaviour
 
     void SpawnIcon()
     {
-        print("smth");
+        //print("smth");
 
         GameObject icon = Instantiate(iconIndicator);
         icon.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
