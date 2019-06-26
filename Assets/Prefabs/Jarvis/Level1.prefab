@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 8434390949802829540, guid: c62997501fa7d764589dd9394c5a6ed4,
         type: 3}
       propertyPath: m_Name
-      value: Level3
+      value: Level1
       objectReference: {fileID: 0}
     - target: {fileID: 8432059391596028602, guid: c62997501fa7d764589dd9394c5a6ed4,
         type: 3}
@@ -66,6 +66,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403674010997863452, guid: c62997501fa7d764589dd9394c5a6ed4,
+        type: 3}
+      propertyPath: _pointWidth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403674010997863452, guid: c62997501fa7d764589dd9394c5a6ed4,
+        type: 3}
+      propertyPath: _pointHeight
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403674010997863452, guid: c62997501fa7d764589dd9394c5a6ed4,
+        type: 3}
+      propertyPath: _offset
+      value: 0.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152408555282788077, guid: c62997501fa7d764589dd9394c5a6ed4,
+        type: 3}
+      propertyPath: _mapScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402896567153453270, guid: c62997501fa7d764589dd9394c5a6ed4,
+        type: 3}
+      propertyPath: _cutoff
+      value: 0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 8402896567153453270, guid: c62997501fa7d764589dd9394c5a6ed4,
+        type: 3}
+      propertyPath: _wallHeight
+      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c62997501fa7d764589dd9394c5a6ed4, type: 3}

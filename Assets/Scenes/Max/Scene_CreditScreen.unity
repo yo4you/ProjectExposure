@@ -4348,6 +4348,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
+        type: 3}
+      propertyPath: m_Name
+      value: Prefab_Coral2 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 6190548751690355181, guid: 31431ac027963bc49b9d50b526c1fe92,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4417,11 +4422,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.9033114
-      objectReference: {fileID: 0}
-    - target: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
-        type: 3}
-      propertyPath: m_Name
-      value: Prefab_Coral2 (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31431ac027963bc49b9d50b526c1fe92, type: 3}
@@ -9744,6 +9744,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
+        type: 3}
+      propertyPath: m_Name
+      value: Prefab_Coral2 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 6190548751690355181, guid: 31431ac027963bc49b9d50b526c1fe92,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9813,11 +9818,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.63896966
-      objectReference: {fileID: 0}
-    - target: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
-        type: 3}
-      propertyPath: m_Name
-      value: Prefab_Coral2 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31431ac027963bc49b9d50b526c1fe92, type: 3}
@@ -9977,7 +9977,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: f7183f9afd9f5a641a2b7ef3c6d49c4f, type: 3}
-    m_FontSize: 16
+    m_FontSize: 15
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -11988,6 +11988,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3505207058778812987, guid: 0d3c77f2dbe6ec4478b915c707dd2d10,
+        type: 3}
+      propertyPath: m_Name
+      value: Prefab_Kelp
+      objectReference: {fileID: 0}
     - target: {fileID: 504305195650711592, guid: 0d3c77f2dbe6ec4478b915c707dd2d10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12042,11 +12047,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3505207058778812987, guid: 0d3c77f2dbe6ec4478b915c707dd2d10,
-        type: 3}
-      propertyPath: m_Name
-      value: Prefab_Kelp
       objectReference: {fileID: 0}
     - target: {fileID: 1198265545, guid: 0d3c77f2dbe6ec4478b915c707dd2d10, type: 3}
       propertyPath: m_Enabled
@@ -13383,6 +13383,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
+        type: 3}
+      propertyPath: m_Name
+      value: Prefab_Coral2
+      objectReference: {fileID: 0}
     - target: {fileID: 6190548751690355181, guid: 31431ac027963bc49b9d50b526c1fe92,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13452,11 +13457,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.9033114
-      objectReference: {fileID: 0}
-    - target: {fileID: 7183917135052874750, guid: 31431ac027963bc49b9d50b526c1fe92,
-        type: 3}
-      propertyPath: m_Name
-      value: Prefab_Coral2
       objectReference: {fileID: 0}
     - target: {fileID: 1417576445, guid: 31431ac027963bc49b9d50b526c1fe92, type: 3}
       propertyPath: m_Enabled
@@ -17414,6 +17414,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8615667558394236383, guid: 69047319f4326314e8a31d2dd5d75d65,
+        type: 3}
+      propertyPath: m_Name
+      value: Prefab_helmet
+      objectReference: {fileID: 0}
     - target: {fileID: 4741065722651017164, guid: 69047319f4326314e8a31d2dd5d75d65,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17483,11 +17488,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.19724725
-      objectReference: {fileID: 0}
-    - target: {fileID: 8615667558394236383, guid: 69047319f4326314e8a31d2dd5d75d65,
-        type: 3}
-      propertyPath: m_Name
-      value: Prefab_helmet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69047319f4326314e8a31d2dd5d75d65, type: 3}
