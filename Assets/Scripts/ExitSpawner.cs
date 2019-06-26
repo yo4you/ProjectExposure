@@ -52,7 +52,7 @@ public class ExitSpawner : MonoBehaviour
 		}
 		if (IsCorner(exitSite))
 		{
-			if (exitSite.ConnectionAngles.Values.Count != 0)
+			if (exitSite.ConnectionAngles.Values.Any(i => !IsCorner(i)))
 			{
 
 				var freespot = exitSite.ConnectionAngles.Values.First(i => !IsCorner(i));
