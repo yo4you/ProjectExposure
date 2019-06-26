@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8721332171606615458}
   - component: {fileID: 1171522783318596572}
   m_Layer: 0
-  m_Name: Prefab_CantClickHere_1
+  m_Name: Prefab_CantClickHere_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,23 +112,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5160908692069300188, guid: 80a8c45629f6c5f47a8536b37b45d861,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5160908692069300188, guid: 80a8c45629f6c5f47a8536b37b45d861,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5160908692069300188, guid: 80a8c45629f6c5f47a8536b37b45d861,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8555947066495772560, guid: 80a8c45629f6c5f47a8536b37b45d861, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80a8c45629f6c5f47a8536b37b45d861, type: 3}
 --- !u!4 &4394597621610806658 stripped
 Transform:
