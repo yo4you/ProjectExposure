@@ -1511,6 +1511,12 @@ PrefabInstance:
       propertyPath: _wavePoolCap
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 114281744279779304, guid: 7145d1a67ff90634488071c9f27d3880,
+        type: 3}
+      propertyPath: trailObject
+      value: 
+      objectReference: {fileID: 1693535325582778, guid: 26d911dd8deb751418b709b74a2604e5,
+        type: 3}
     - target: {fileID: 1643644402, guid: 7145d1a67ff90634488071c9f27d3880, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3598,6 +3604,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046510889932167145, guid: 3b1ccb04425678e4185d3c48059572e6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b1ccb04425678e4185d3c48059572e6, type: 3}
