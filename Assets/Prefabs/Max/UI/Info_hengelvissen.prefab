@@ -330,8 +330,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.23
-  m_Text: Angler fish appear world wide and are famously known for their characteristic
-    lantern, which emits light to attract prey.
+  m_Text: 'Hengelvissen zwemmen bijna bewegingloos rond in de diepzee. Ze maken gebruik
+    van hun gloeiende hengel om vissen te lokken. '
 --- !u!95 &4378015546600375747
 Animator:
   serializedVersion: 3

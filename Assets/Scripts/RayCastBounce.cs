@@ -31,7 +31,7 @@ public class RayCastBounce : MonoBehaviour
 
     private bool _isActive = false;
     private List<List<int>> _lineBounces = new List<List<int>>();
-    private List<List<GameObject>> _lineRenderers = new List<List<GameObject>>();
+    //private List<List<GameObject>> _lineRenderers = new List<List<GameObject>>();
     private List<List<GameObject>> _trails = new List<List<GameObject>>();
     private List<List<List<Vector3>>> _trailsPoints = new List<List<List<Vector3>>>();
     private List<List<Vector3>> _middlePoints = new List<List<Vector3>>();
@@ -61,7 +61,7 @@ public class RayCastBounce : MonoBehaviour
         {
 
             _lineBounces.Add(new List<int>());
-            _lineRenderers.Add(new List<GameObject>());
+           // _lineRenderers.Add(new List<GameObject>());
             _trailsPoints.Add(new List<List<Vector3>>());
             _middlePoints.Add(new List<Vector3>());
             _trails.Add(new List<GameObject>());
@@ -76,7 +76,7 @@ public class RayCastBounce : MonoBehaviour
                 _trailsPoints[i][j] = new List<Vector3>();
                 _middlePoints[i].Add(new Vector3());
                 _lineBounces[i].Add(0);
-                _lineRenderers[i].Add(Instantiate(line));
+                //_lineRenderers[i].Add(Instantiate(line));
                 _trailsIdle[i].Add(true);
                 _throwCoroutines[i].Add(null);
             }
@@ -259,7 +259,7 @@ public class RayCastBounce : MonoBehaviour
 
         //for (int i = 0; i < _wavePoolCap; i++)
 
-        _lineRenderers[index][_currentFlyingWaveIndex].transform.position = new Vector3(_clickedPos.x, _clickedPos.y, rippleBackgroundQuad.transform.position.z);
+        //_lineRenderers[index][_currentFlyingWaveIndex].transform.position = new Vector3(_clickedPos.x, _clickedPos.y, rippleBackgroundQuad.transform.position.z);
 
         _lineBounces[index][_currentFlyingWaveIndex] = 0;
         _trailsPoints[index][_currentFlyingWaveIndex].Clear();
@@ -267,10 +267,10 @@ public class RayCastBounce : MonoBehaviour
 
 
 
-        //if (!_drawRays) return;
-        _lineRenderers[index][_currentFlyingWaveIndex].GetComponent<LineRenderer>().positionCount = (1);
-        _lineRenderers[index][_currentFlyingWaveIndex].GetComponent<LineRenderer>().SetPosition(0, new Vector3(_clickedPos.x, _clickedPos.y, rippleBackgroundQuad.transform.position.z));
-        _lineRenderers[index][_currentFlyingWaveIndex].GetComponent<LineRenderer>().enabled = true;
+        ////if (!_drawRays) return;
+        //_lineRenderers[index][_currentFlyingWaveIndex].GetComponent<LineRenderer>().positionCount = (1);
+        //_lineRenderers[index][_currentFlyingWaveIndex].GetComponent<LineRenderer>().SetPosition(0, new Vector3(_clickedPos.x, _clickedPos.y, rippleBackgroundQuad.transform.position.z));
+        //_lineRenderers[index][_currentFlyingWaveIndex].GetComponent<LineRenderer>().enabled = true;
 
     }
 
@@ -386,15 +386,15 @@ public class RayCastBounce : MonoBehaviour
             // particleBounce.transform.position = hit.point;
 
             var reflectAngle = Vector3.Reflect(ray.direction, hit.normal);
-            _lineRenderers[index][trailOfPoolIndex].GetComponent<LineRenderer>().positionCount = (_lineBounces[index][trailOfPoolIndex] + 1);
-            _lineRenderers[index][trailOfPoolIndex].GetComponent<LineRenderer>().SetPosition(_lineBounces[index][trailOfPoolIndex], new Vector3(hit.point.x ,hit.point.y, rippleBackgroundQuad.transform.position.z));
+           //_lineRenderers[index][trailOfPoolIndex].GetComponent<LineRenderer>().positionCount = (_lineBounces[index][trailOfPoolIndex] + 1);
+           //_lineRenderers[index][trailOfPoolIndex].GetComponent<LineRenderer>().SetPosition(_lineBounces[index][trailOfPoolIndex], new Vector3(hit.point.x ,hit.point.y, rippleBackgroundQuad.transform.position.z));
 
             _trailsPoints[index][trailOfPoolIndex].Add(new Vector3(hit.point.x, hit.point.y, rippleBackgroundQuad.transform.position.z));
             RayCast(new Ray(new Vector3(hit.point.x, hit.point.y, rippleBackgroundQuad.transform.position.z), reflectAngle), index, trailOfPoolIndex);
             return true;
         }
-        _lineRenderers[index][trailOfPoolIndex].GetComponent<LineRenderer>().positionCount = (_lineBounces[index][trailOfPoolIndex] + 2);
-        _lineRenderers[index][trailOfPoolIndex].GetComponent<LineRenderer>().SetPosition(_lineBounces[index][trailOfPoolIndex] + 1, ray.GetPoint(_maxDistance));
+        //_lineRenderers[index][trailOfPoolIndex].GetComponent<LineRenderer>().positionCount = (_lineBounces[index][trailOfPoolIndex] + 2);
+        //_lineRenderers[index][trailOfPoolIndex].GetComponent<LineRenderer>().SetPosition(_lineBounces[index][trailOfPoolIndex] + 1, ray.GetPoint(_maxDistance));
 
         return false;
     }
