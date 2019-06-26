@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8903247706935858978}
   - component: {fileID: 1417576445}
   m_Layer: 13
-  m_Name: Prefab_Coral2
+  m_Name: Prefab_Coral2_Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7183917135052874750}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.096, y: 0.703, z: 3}
+  m_LocalPosition: {x: 0.096, y: 0.703, z: 2}
   m_LocalScale: {x: 5.4847894, y: 5.4847894, z: 5.4847894}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 82a63798648d8f34dbaa8fbf37f49a86, type: 2}
+  - {fileID: 2100000, guid: 618cd54030a406249aa081819e3cba2c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
